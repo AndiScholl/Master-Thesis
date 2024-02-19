@@ -1,0 +1,1 @@
+["input/output handling","variables","string manipulation","conditionals","functions","loops","randomness","modules","lists","exception handling","dictionaries","(args/kwargs) arguments","iteration/recursion","regex","OOP","class inheritance","method overriding","user interface design","comments","time","external resource","documentation","conventions","file i/o"]

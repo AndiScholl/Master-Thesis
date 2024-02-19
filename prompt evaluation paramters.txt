@@ -1,0 +1,32 @@
+Prompt Analysis:
+- Language (c, d, e)
+- Number of prompts
+- Number of words per prompt
+- Follow-up Interactions: Is a prompt a follow up questions or a correction of a previous response:
+	0: No
+	1: Refering to own prompt
+	2: Refering to ChatGPT answer
+	3: correction
+- Category of problem solving: 
+	Problem Understanding		0
+	Conceptual Understanding	1
+	Code Generation			2
+	Debugging			3
+	Runtime Analysis		4
+	Syntax/Style			5
+	Documentation			6
+	Test Cases			7
+	Other				8
+- Solution: does the prompt indicate to only get a solution?
+	- 0
+	- 1
+
+
+Survey:
+- Usage (time, frequency)
+- Quality of Response
+- Learning effect
+- Open questions:
+	- Word count (Cloud?)
+	- Sentiment analysis?
+	- Averages?

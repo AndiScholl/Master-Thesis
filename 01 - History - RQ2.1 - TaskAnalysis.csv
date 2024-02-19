@@ -1,0 +1,1579 @@
+task,prompt,iteration,response,word count,repetition,completeness,correctness,feedback type
+0,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Create a Python 3.x program that accepts a bank code (Bankleitzahl) and an account number (Kontonummer). The program should output and explain the complete IBAN (International Bank Account Number) including the checksum. For beginners, it is sufficient to hardcode the country code ""DE,"" but if desired, the program can also prompt for the country code as an additional input.
+
+Instructions for calculating the checksum can be found at:
+https://en.wikipedia.org/wiki/International_Bank_Account_Number#Check_digits
+
+Additional guidelines or requirements:
+ - Ensure that input prompts adequately inform the user about what they should enter and its significance. The same applies to output messages.
+ - Use comments in the code to improve structure and readability.
+ - Address in the documentation which inputs are not allowed and may lead to error messages (if not already handled)""
+",1,"Task: Create a Python 3.x program that accepts a bank code and an account number and outputs the complete IBAN (International Bank Account Number) including the checksum.
+
+Inputs:
+- Bank code (Bankleitzahl)
+- Account number (Kontonummer)
+- Optional: Country code (hardcoded as ""DE"" for beginners)
+
+Outputs:
+- Complete IBAN (International Bank Account Number) including the checksum
+
+Constraints:
+- The program should be written in Python 3.x.
+- The country code can be either hardcoded as ""DE"" or prompted as an additional input.
+- The program should include instructions for calculating the checksum, which can be found at the provided Wikipedia link.
+- Input prompts should adequately inform the user about what they should enter and its significance.
+- Output messages should also be informative.
+- The program should use comments to improve structure and readability.
+- The program should handle any potential errors and provide appropriate error messages.
+- The program should not allow inputs that are not allowed and may lead to error messages.",155,130,{},1,"KH,KTC,KC"
+0,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Create a Python 3.x program that accepts a bank code (Bankleitzahl) and an account number (Kontonummer). The program should output and explain the complete IBAN (International Bank Account Number) including the checksum. For beginners, it is sufficient to hardcode the country code ""DE,"" but if desired, the program can also prompt for the country code as an additional input.
+
+Instructions for calculating the checksum can be found at:
+https://en.wikipedia.org/wiki/International_Bank_Account_Number#Check_digits
+
+Additional guidelines or requirements:
+ - Ensure that input prompts adequately inform the user about what they should enter and its significance. The same applies to output messages.
+ - Use comments in the code to improve structure and readability.
+ - Address in the documentation which inputs are not allowed and may lead to error messages (if not already handled)""
+",2,"Task: 
+Create a Python 3.x program that accepts a bank code (Bankleitzahl) and an account number (Kontonummer). The program should output and explain the complete IBAN (International Bank Account Number) including the checksum.
+
+Inputs: 
+1. Bank code (Bankleitzahl) - a numerical code that identifies a specific bank.
+2. Account number (Kontonummer) - a numerical code that identifies a specific bank account.
+3. (Optional) Country code - a two-letter code that represents the country where the bank is located. For beginners, it is sufficient to hardcode the country code ""DE,"" but if desired, the program can also prompt for the country code as an additional input.
+
+Outputs: 
+The program should output the complete IBAN (International Bank Account Number) including the checksum. Additionally, the program should provide an explanation of the IBAN format and how the checksum is calculated.
+
+Constraints:
+1. The program should be written in Python 3.x.
+2. The country code can be hardcoded as ""DE"" for beginners, but can also be prompted as an additional input if desired.
+3. The bank code and account number should be entered as numerical values.
+4. The program should handle invalid inputs and provide appropriate error messages.
+5. The program should follow proper coding conventions and use comments to improve structure and readability.
+6. The program should adhere to the guidelines for calculating the checksum as provided in the Wikipedia link provided.",229,181,{},1,"KH,KTC,KC"
+0,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Create a Python 3.x program that accepts a bank code (Bankleitzahl) and an account number (Kontonummer). The program should output and explain the complete IBAN (International Bank Account Number) including the checksum. For beginners, it is sufficient to hardcode the country code ""DE,"" but if desired, the program can also prompt for the country code as an additional input.
+
+Instructions for calculating the checksum can be found at:
+https://en.wikipedia.org/wiki/International_Bank_Account_Number#Check_digits
+
+Additional guidelines or requirements:
+ - Ensure that input prompts adequately inform the user about what they should enter and its significance. The same applies to output messages.
+ - Use comments in the code to improve structure and readability.
+ - Address in the documentation which inputs are not allowed and may lead to error messages (if not already handled)""
+",3,"Task: Create a Python 3.x program that accepts a bank code (Bankleitzahl) and an account number (Kontonummer). The program should output and explain the complete IBAN (International Bank Account Number) including the checksum.
+
+Inputs:
+- Bank code (Bankleitzahl)
+- Account number (Kontonummer)
+
+Outputs:
+- Complete IBAN (International Bank Account Number) including the checksum
+
+Constraints:
+- The program should be written in Python 3.x
+- For beginners, it is sufficient to hardcode the country code ""DE,"" but if desired, the program can also prompt for the country code as an additional input.
+- The program should follow the instructions for calculating the checksum as described in the provided Wikipedia link.
+- Input prompts and output messages should adequately inform the user about what they should enter and its significance.
+- The code should use comments to improve structure and readability.
+- The program should handle error messages for inputs that are not allowed and explain which inputs are not allowed in the documentation.",155,143,{},1,"KTC,KC"
+1,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Create a Python 3.x program that reads a year from the console and determines whether it is a leap year in the Gregorian calendar. Display the result in the console as a complete sentence, such as ""The year 1993 is not a leap year."" or ""The year 2024 is a leap year.""
+
+You can refer to the rules for leap years here:
+https://en.wikipedia.org/wiki/Leap_year#Gregorian_calendar""
+",1,"Sure! Let's break down the task.
+
+Task: Create a Python 3.x program that determines whether a given year is a leap year in the Gregorian calendar and displays the result in the console.
+
+Inputs: The program should read a year from the console as input. The year can be any positive integer.
+
+Outputs: The program should display the result in the console as a complete sentence. If the year is a leap year, it should display ""The year [year] is a leap year."" If the year is not a leap year, it should display ""The year [year] is not a leap year."" The [year] should be replaced with the actual value of the input year.
+
+Constraints: The program should be written in Python 3.x. The input year must be a positive integer. The program should follow the rules for leap years in the Gregorian calendar as specified in the provided link.
+
+To solve this task, you can use conditional statements and arithmetic operators to check if a year is divisible by 4, 100, and 400 according to the rules for leap years in the Gregorian calendar.",189,133,{},1,"KH,KTC,KC"
+1,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Create a Python 3.x program that reads a year from the console and determines whether it is a leap year in the Gregorian calendar. Display the result in the console as a complete sentence, such as ""The year 1993 is not a leap year."" or ""The year 2024 is a leap year.""
+
+You can refer to the rules for leap years here:
+https://en.wikipedia.org/wiki/Leap_year#Gregorian_calendar""
+",2,"Sure, I can help you with that task. Let's break it down.
+
+Task: The task is to create a Python program that reads a year from the console and determines whether it is a leap year in the Gregorian calendar. The program should then display the result in the console as a complete sentence.
+
+Inputs: The only input required for this program is the year, which will be read from the console.
+
+Outputs: The program should output a sentence stating whether the given year is a leap year or not. For example, ""The year 1993 is not a leap year"" or ""The year 2024 is a leap year.""
+
+Constraints: The program should be written in Python 3.x. It should follow the rules for determining leap years in the Gregorian calendar. You can refer to the given link for the rules.",142,107,{},1,"KTC,KC"
+1,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Create a Python 3.x program that reads a year from the console and determines whether it is a leap year in the Gregorian calendar. Display the result in the console as a complete sentence, such as ""The year 1993 is not a leap year."" or ""The year 2024 is a leap year.""
+
+You can refer to the rules for leap years here:
+https://en.wikipedia.org/wiki/Leap_year#Gregorian_calendar""
+",3,"Task: The task is to create a Python 3.x program that reads a year from the console and determines whether it is a leap year in the Gregorian calendar. The program should then display the result in the console as a complete sentence.
+
+Inputs: The input to the program is a year, which is read from the console. The year can be any integer value.
+
+Outputs: The output of the program is a sentence that states whether the input year is a leap year or not. The output sentence should be displayed in the console.
+
+Constraints: The program should be written in Python 3.x and should follow the rules for determining leap years in the Gregorian calendar. The program should handle any integer value as the input year.",130,102,{},1,"KTC,KC"
+2,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Create a Python 3.x program that calculates the minimum and maximum number of ""Friday the 13th"" occurrences in a year, taking into account whether it is a leap year or not. The user can input whether they want to calculate for a leap year or a non-leap year. The program should provide clear and understandable output.
+
+Tips:
+ - The number of ""Friday the 13th"" occurrences in a year depends on the weekday on which the year starts.
+ - You can try using the new match-case feature in Python 3.10.""
+",1,"Sure! Let's break down the task into its components:
+
+Task:
+Create a Python 3.x program that calculates the minimum and maximum number of ""Friday the 13th"" occurrences in a year, taking into account whether it is a leap year or not. The user can input whether they want to calculate for a leap year or a non-leap year. The program should provide clear and understandable output.
+
+Inputs:
+1. User input: The user will input whether they want to calculate for a leap year or a non-leap year. This input will determine the calculations performed by the program.
+
+Outputs:
+1. Minimum number of ""Friday the 13th"" occurrences: The program should output the minimum number of ""Friday the 13th"" occurrences in the specified year. This is the minimum possible number of occurrences based on the weekday the year starts.
+2. Maximum number of ""Friday the 13th"" occurrences: The program should output the maximum number of ""Friday the 13th"" occurrences in the specified year. This is the maximum possible number of occurrences based on the weekday the year starts.
+
+Constraints:
+1. Python 3.x: The program should be implemented using Python version 3.x.
+2. Leap year or non-leap year: The program should handle both leap years and non-leap years correctly.
+3. Clear and understandable output: The program should provide output that is easy to understand and interpret by the user.
+4. Optional use of match-case feature: The task suggests trying to use the new match-case feature introduced in Python 3.10, but it is not mandatory. You can implement the program without using this feature if you prefer.
+
+I hope this helps clarify the task requirements! Let me know if you have any further questions.",291,223,{},1,"KTC,KC"
+2,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Create a Python 3.x program that calculates the minimum and maximum number of ""Friday the 13th"" occurrences in a year, taking into account whether it is a leap year or not. The user can input whether they want to calculate for a leap year or a non-leap year. The program should provide clear and understandable output.
+
+Tips:
+ - The number of ""Friday the 13th"" occurrences in a year depends on the weekday on which the year starts.
+ - You can try using the new match-case feature in Python 3.10.""
+",2,"Sure! In this task, the goal is to create a Python 3.x program that calculates the minimum and maximum number of ""Friday the 13th"" occurrences in a year, considering whether it is a leap year or not.
+
+Inputs:
+- The user needs to input whether they want to calculate for a leap year or a non-leap year. This will be a user input or a command-line argument.
+
+Outputs:
+- The program should provide clear and understandable output, which will be the minimum and maximum number of ""Friday the 13th"" occurrences in the selected year.
+
+Constraints:
+- The program should be written in Python 3.x.
+- It is recommended to use the new match-case feature in Python 3.10.
+- The program should consider whether the year is a leap year or not to calculate the number of ""Friday the 13th"" occurrences.
+- The output should be presented in a clear and understandable format.",152,129,{2: 'The importance of the starting weekday of the year is missing'},1,"KTC,KC"
+2,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Create a Python 3.x program that calculates the minimum and maximum number of ""Friday the 13th"" occurrences in a year, taking into account whether it is a leap year or not. The user can input whether they want to calculate for a leap year or a non-leap year. The program should provide clear and understandable output.
+
+Tips:
+ - The number of ""Friday the 13th"" occurrences in a year depends on the weekday on which the year starts.
+ - You can try using the new match-case feature in Python 3.10.""
+",3,"Task: The task is to create a Python 3.x program that calculates the minimum and maximum number of ""Friday the 13th"" occurrences in a year, considering whether it is a leap year or not. The program should take user input to determine whether to calculate for a leap year or a non-leap year, and it should provide clear and understandable output.
+
+Inputs: The inputs for the program are:
+1. User input for selecting whether to calculate for a leap year or a non-leap year.
+
+Outputs: The outputs for the program are:
+1. The minimum number of ""Friday the 13th"" occurrences in the selected year.
+2. The maximum number of ""Friday the 13th"" occurrences in the selected year.
+
+Constraints: The constraints for the program are:
+1. The program should be implemented in Python 3.x.
+2. The program should consider whether the selected year is a leap year or not.
+3. The program should provide clear and understandable output.
+4. The program can utilize the new match-case feature in Python 3.10 to simplify the implementation.",179,155,{2: 'The importance of the starting weekday of the year is missing'},1,"KH,KTC"
+3,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Create executable Python 3.X code (in a .py file) for each subtask a) and b).
+In a classic 8x8 chessboard, the rows are labeled with numbers from 1 to 8, and the columns are labeled with letters from A to H. Therefore, each of the 64 squares can be uniquely identified by a combination of a number and a letter.
+
+a) Create a function named ""chessboard"" that generates a chessboard by displaying each square with its corresponding label (as shown in the illustration on the right) in the console. Include the function call below the function definition.
+
+b) Create a function named ""queen_on_chessboard"" that takes the position of a queen as input and displays the queen (using a symbol such as ♛ or QQ) at the corresponding square on the chessboard. In the illustration on the right, you can see an example with the queen placed on square B4. If no parameter is passed to the function, it should exhibit the same behavior as the function in subtask a).""
+",1,"Task: The task is to create executable Python 3.X code that performs two subtasks.
+
+Subtask a): Create a function named ""chessboard"" that generates a chessboard by displaying each square with its corresponding label in the console.
+
+Inputs: There are no inputs for this subtask.
+
+Outputs: The output of this subtask is the generated chessboard displayed in the console.
+
+Constraints: The chessboard should be in the classic 8x8 format with rows labeled with numbers from 1 to 8 and columns labeled with letters from A to H. Each square should be uniquely identified by a combination of a number and a letter.
+
+Subtask b): Create a function named ""queen_on_chessboard"" that takes the position of a queen as input and displays the queen at the corresponding square on the chessboard. If no parameter is passed to the function, it should exhibit the same behavior as the function in subtask a).
+
+Inputs: The input for this subtask is the position of a queen on the chessboard.
+
+Outputs: The output of this subtask is the chessboard with the queen symbol displayed at the corresponding square.
+
+Constraints: The position of the queen should be specified in the format of a letter (column) and a number (row) combination. The queen symbol can be any symbol such as ♛ or QQ.
+
+Note: The function in subtask b) should also exhibit the same behavior as the function in subtask a) when no parameter is passed.",237,209,"{2: ""Constraint that the queen's position must be a valid is missing.""}",1,"KTC,KC"
+3,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Create executable Python 3.X code (in a .py file) for each subtask a) and b).
+In a classic 8x8 chessboard, the rows are labeled with numbers from 1 to 8, and the columns are labeled with letters from A to H. Therefore, each of the 64 squares can be uniquely identified by a combination of a number and a letter.
+
+a) Create a function named ""chessboard"" that generates a chessboard by displaying each square with its corresponding label (as shown in the illustration on the right) in the console. Include the function call below the function definition.
+
+b) Create a function named ""queen_on_chessboard"" that takes the position of a queen as input and displays the queen (using a symbol such as ♛ or QQ) at the corresponding square on the chessboard. In the illustration on the right, you can see an example with the queen placed on square B4. If no parameter is passed to the function, it should exhibit the same behavior as the function in subtask a).""
+",2,"The task is to create executable Python 3.X code for two subtasks: a) creating a chessboard and b) placing a queen on the chessboard.
+
+a) The input for the ""chessboard"" function is none. It generates a chessboard by displaying each square with its corresponding label in the console. The output is the generated chessboard. The constraint is that the chessboard should be an 8x8 grid.
+
+b) The input for the ""queen_on_chessboard"" function is the position of a queen. It takes a combination of a number and a letter as input to identify the square where the queen should be placed. The output is the chessboard with the queen symbol displayed at the corresponding square. If no parameter is passed, it should exhibit the same behavior as the ""chessboard"" function in subtask a).
+
+The constraints for the ""queen_on_chessboard"" function are the same as in subtask a), and it should also handle cases where no parameter is passed.",157,141,"{2: ""Constraint that the queen's position must be a valid is missing.""}",1,"KTC,KC"
+3,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Create executable Python 3.X code (in a .py file) for each subtask a) and b).
+In a classic 8x8 chessboard, the rows are labeled with numbers from 1 to 8, and the columns are labeled with letters from A to H. Therefore, each of the 64 squares can be uniquely identified by a combination of a number and a letter.
+
+a) Create a function named ""chessboard"" that generates a chessboard by displaying each square with its corresponding label (as shown in the illustration on the right) in the console. Include the function call below the function definition.
+
+b) Create a function named ""queen_on_chessboard"" that takes the position of a queen as input and displays the queen (using a symbol such as ♛ or QQ) at the corresponding square on the chessboard. In the illustration on the right, you can see an example with the queen placed on square B4. If no parameter is passed to the function, it should exhibit the same behavior as the function in subtask a).""
+",3,"Task: 
+The task is to create executable Python 3.X code for two subtasks - a) creating a chessboard and b) placing a queen on the chessboard.
+
+Inputs:
+a) For subtask a), there are no inputs required.
+
+b) For subtask b), the input is the position of a queen on the chessboard. The position should be provided in the format of a combination of a number (1 to 8) and a letter (A to H) representing the row and column respectively.
+
+Outputs:
+a) For subtask a), the output is a generated chessboard displayed in the console. It should show each square with its corresponding label.
+
+b) For subtask b), the output is the chessboard displayed in the console with the queen symbol (♛ or QQ) placed at the corresponding square based on the given queen position.
+
+Constraints:
+- The code should be written in Python 3.X.
+- The chessboard should be of size 8x8.
+- The row labels should be numbers from 1 to 8 and the column labels should be letters from A to H.
+- The queen position should be a valid combination of a number and a letter representing a square on the chessboard.
+- If no parameter is passed to the ""queen_on_chessboard"" function, it should exhibit the same behavior as the ""chessboard"" function and display the chessboard without the queen symbol.",219,187,{},1,"KH,KTC,KC"
+4,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""In the matchstick game, there are initially 13 matchsticks on the table. Two players take turns removing one, two, or three matchsticks. The person who takes the last matchstick wins. Implement this game in Python 3.X. The remaining matchsticks should be visually represented with suitable output in the console. The two players will be prompted alternately to take one to three matchsticks until one of the players takes the last matchstick. The program should then display which player has won.
+
+Create a separate function for visualizing the matchsticks, which takes the number of remaining matchsticks as a parameter. Be creative in designing the output.""
+",1,"Sure! Let's break down the task:
+
+1. Objective: The objective of the task is to implement a matchstick game in Python where two players take turns removing matchsticks from a starting pile of 13 matchsticks. The player who takes the last matchstick wins.
+
+2. Inputs:
+   - The number of matchsticks remaining (integer) - this will be used to visualize the matchsticks and determine when the game ends.
+   - Player inputs (integer) - each player will be prompted to enter the number of matchsticks they want to remove from the pile.
+
+3. Outputs:
+   - Visual representation of the matchsticks - a creative output in the console that visually represents the remaining matchsticks.
+   - Winner announcement - after the game ends, the program should display which player has won.
+
+4. Constraints:
+   - The starting number of matchsticks is fixed at 13.
+   - Players can only remove 1, 2, or 3 matchsticks at a time.
+   - The game ends when there are no matchsticks left.
+   - The program should alternate between the two players to take turns removing matchsticks.
+
+To implement this game in Python, you can start by creating a function to visualize the matchsticks based on the number of remaining matchsticks. Then, create a main game loop that prompts the players to input their desired number of matchsticks to remove and updates the visual representation accordingly. Finally, determine the winner once the game ends by checking for the player who took the last matchstick.
+
+Note: The creative output for visualizing the matchsticks can vary. You can use any ASCII characters or symbols to represent the matchsticks. Be creative and make the output visually appealing!",262,171,{},1,"KH,KTC,KC"
+4,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""In the matchstick game, there are initially 13 matchsticks on the table. Two players take turns removing one, two, or three matchsticks. The person who takes the last matchstick wins. Implement this game in Python 3.X. The remaining matchsticks should be visually represented with suitable output in the console. The two players will be prompted alternately to take one to three matchsticks until one of the players takes the last matchstick. The program should then display which player has won.
+
+Create a separate function for visualizing the matchsticks, which takes the number of remaining matchsticks as a parameter. Be creative in designing the output.""
+",2,"The task is to implement the matchstick game in Python 3.X. The game starts with 13 matchsticks on the table. Two players take turns removing one, two, or three matchsticks at a time. The player who takes the last matchstick wins. 
+
+The inputs for the program are the number of remaining matchsticks and the player's choice of removing matchsticks. The program will prompt the players alternately to take one to three matchsticks until one of the players takes the last matchstick. 
+
+The output will be the visualization of the remaining matchsticks in a creative way. The program should display the remaining matchsticks visually in the console. 
+
+The constraints for the program are that the players can only remove one, two, or three matchsticks at a time, and the game ends when one of the players takes the last matchstick. 
+
+To implement the game, you will need to create a function for visualizing the matchsticks, which takes the number of remaining matchsticks as a parameter. This function should display the remaining matchsticks in a creative way.",177,157,{},1,"KTC,KC"
+4,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""In the matchstick game, there are initially 13 matchsticks on the table. Two players take turns removing one, two, or three matchsticks. The person who takes the last matchstick wins. Implement this game in Python 3.X. The remaining matchsticks should be visually represented with suitable output in the console. The two players will be prompted alternately to take one to three matchsticks until one of the players takes the last matchstick. The program should then display which player has won.
+
+Create a separate function for visualizing the matchsticks, which takes the number of remaining matchsticks as a parameter. Be creative in designing the output.""
+",3,"Task: The task is to implement the matchstick game in Python 3.X, where two players take turns removing one, two, or three matchsticks from an initial set of 13 matchsticks. The person who takes the last matchstick wins. The program should visually represent the remaining matchsticks and prompt the players alternately to take one to three matchsticks until one of the players takes the last matchstick. Finally, the program should display which player has won.
+
+Inputs: The initial number of matchsticks (13) and the number of matchsticks chosen by each player (1 to 3).
+
+Outputs: The visually represented remaining matchsticks, prompts for players to choose matchsticks, and the final result displaying which player has won.
+
+Constraints: The players can only choose 1, 2, or 3 matchsticks at a time. The game starts with 13 matchsticks and ends when a player takes the last matchstick.",145,121,{},1,"KTC,KC"
+5,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Task 1:
+
+The standard installation of Python 3.X includes a wide range of modules that provide helpful functions. These so-called built-in modules can be imported and used without further installations. In this task, you will get to know some of these modules and also write your own module to be imported later.
+Create a Python module named ""eprtools.py"" and implement the following functions within this module. Pay attention to the difference between ""return"" and ""display"".
+
+a) Binary Calculator
+Implement a function called ""decimal_to_binary"" that takes a positive integer as an argument and returns a string representing its binary representation. Additionally, step-by-step conversion should be displayed in the console, following the schema learned in GPR.
+
+b) Exam Countdown
+In a function named ""exam_countdown"", calculate the time between a given timestamp and the first EPI exam on February 16, 2023, at 10:00 AM. Then, display the difference in the console in the format ""_ days, _ hours, _ minutes"" (you can disregard units smaller than minutes, so rounding is not necessary).
+If no timestamp is provided, use the current system timestamp.
+To easily work with time and calendar data, refer to https://unixtime.org/ to learn about Unix time and Unix timestamp. You can use the ""time"" module in Python to obtain the current Unix timestamp.
+Utilize the ""time"" module and Unix timestamp to calculate the remaining time. Time zones do not need to be taken into account.
+Documentation for the ""time"" module: https://docs.python.org/3/library/time.html#module-time
+
+c) Open Course Pages
+For quick access to the various course websites of your attended lectures, implement a function called ""open_course_page"" that takes a module abbreviation (e.g., ""EPR"", ""MOD"", ""LinADI"", etc.) as a parameter and opens the corresponding Moodle course or course webpage in a web browser. Implement this for at least three courses. If a valid abbreviation is provided, the function should return True; otherwise, it should return False. Use the ""webbrowser"" module in Python for this task.
+Documentation for the ""webbrowser"" module: https://docs.python.org/3/library/webbrowser.html#modulewebbrowser
+
+d) Password Generator
+Create a function called ""password_gen"" that takes the parameter ""length"" and generates and returns a random password of the specified length, consisting of digits 1 to 9 and uppercase and lowercase letters from A to z. Use the ""random"" module in Python to generate (pseudo-)random numbers. You can convert these random numbers into letters using the ""chr(i)"" function based on an ASCII table, for example.
+Documentation for the ""random"" module: https://docs.python.org/3/library/random.html#module-random
+
+Task 2:
+Write a Python 3.X program (in a separate Python file) that imports the module ""eprtools.py"" created in Task 1. Through console input, the user should be able to choose which of the four implemented tools should be executed. If necessary, any required parameters should be queried through the console.""
+",1,"Task 1 is about creating a Python module named ""eprtools.py"" and implementing several functions within it. The module will include the following functions:
+
+a) Binary Calculator: This function, called ""decimal_to_binary"", takes a positive integer as an argument and returns a string representing its binary representation. Additionally, the step-by-step conversion should be displayed in the console.
+
+b) Exam Countdown: In the function ""exam_countdown"", the time difference between a given timestamp and the first EPI exam on February 16, 2023, at 10:00 AM is calculated. The difference is then displayed in the console in the format ""_ days, _ hours, _ minutes"". If no timestamp is provided, the current system timestamp is used.
+
+c) Open Course Pages: The function ""open_course_page"" allows quick access to various course websites. It takes a module abbreviation as a parameter and opens the corresponding Moodle course or course webpage in a web browser. It should be implemented for at least three courses.
+
+d) Password Generator: The function ""password_gen"" generates a random password of a specified length. The password consists of digits 1 to 9 and uppercase and lowercase letters from A to z.
+
+For Task 2, a separate Python file needs to be created. The program will import the ""eprtools.py"" module created in Task 1. The user should be able to choose which of the four implemented tools to execute through console input. If any required parameters are needed, the program should prompt the user to enter them through the console.
+
+Inputs:
+- Positive integer for the ""decimal_to_binary"" function
+- Optional timestamp for the ""exam_countdown"" function
+- Module abbreviation for the ""open_course_page"" function
+- Length of the password for the ""password_gen"" function
+
+Outputs:
+- Binary representation as a string for the ""decimal_to_binary"" function
+- Time difference in days, hours, and minutes for the ""exam_countdown"" function
+- True or False for the ""open_course_page"" function, depending on the validity of the module abbreviation
+- Randomly generated password as a string for the ""password_gen"" function
+
+Constraints:
+- The positive integer for the ""decimal_to_binary"" function must be greater than 0.
+- The timestamp for the ""exam_countdown"" function must be in the format specified.
+- The module abbreviation for the ""open_course_page"" function must be a valid abbreviation.
+- The length of the password for the ""password_gen"" function must be a positive integer.",373,341,"{2: ""The constraint regarding time zones not needing to be taken into account for the 'exam_countdown' function is missing""}",1,"KH,KTC,KC"
+5,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Task 1:
+
+The standard installation of Python 3.X includes a wide range of modules that provide helpful functions. These so-called built-in modules can be imported and used without further installations. In this task, you will get to know some of these modules and also write your own module to be imported later.
+Create a Python module named ""eprtools.py"" and implement the following functions within this module. Pay attention to the difference between ""return"" and ""display"".
+
+a) Binary Calculator
+Implement a function called ""decimal_to_binary"" that takes a positive integer as an argument and returns a string representing its binary representation. Additionally, step-by-step conversion should be displayed in the console, following the schema learned in GPR.
+
+b) Exam Countdown
+In a function named ""exam_countdown"", calculate the time between a given timestamp and the first EPI exam on February 16, 2023, at 10:00 AM. Then, display the difference in the console in the format ""_ days, _ hours, _ minutes"" (you can disregard units smaller than minutes, so rounding is not necessary).
+If no timestamp is provided, use the current system timestamp.
+To easily work with time and calendar data, refer to https://unixtime.org/ to learn about Unix time and Unix timestamp. You can use the ""time"" module in Python to obtain the current Unix timestamp.
+Utilize the ""time"" module and Unix timestamp to calculate the remaining time. Time zones do not need to be taken into account.
+Documentation for the ""time"" module: https://docs.python.org/3/library/time.html#module-time
+
+c) Open Course Pages
+For quick access to the various course websites of your attended lectures, implement a function called ""open_course_page"" that takes a module abbreviation (e.g., ""EPR"", ""MOD"", ""LinADI"", etc.) as a parameter and opens the corresponding Moodle course or course webpage in a web browser. Implement this for at least three courses. If a valid abbreviation is provided, the function should return True; otherwise, it should return False. Use the ""webbrowser"" module in Python for this task.
+Documentation for the ""webbrowser"" module: https://docs.python.org/3/library/webbrowser.html#modulewebbrowser
+
+d) Password Generator
+Create a function called ""password_gen"" that takes the parameter ""length"" and generates and returns a random password of the specified length, consisting of digits 1 to 9 and uppercase and lowercase letters from A to z. Use the ""random"" module in Python to generate (pseudo-)random numbers. You can convert these random numbers into letters using the ""chr(i)"" function based on an ASCII table, for example.
+Documentation for the ""random"" module: https://docs.python.org/3/library/random.html#module-random
+
+Task 2:
+Write a Python 3.X program (in a separate Python file) that imports the module ""eprtools.py"" created in Task 1. Through console input, the user should be able to choose which of the four implemented tools should be executed. If necessary, any required parameters should be queried through the console.""
+",2,"Task 1 is asking you to create a Python module named ""eprtools.py"" and implement four different functions within this module. The functions are as follows:
+
+a) Binary Calculator: This function, named ""decimal_to_binary"", takes a positive integer as an argument and returns a string representing its binary representation. Additionally, it should display the step-by-step conversion in the console.
+
+b) Exam Countdown: This function, named ""exam_countdown"", calculates the time between a given timestamp (or the current system timestamp if none is provided) and the first EPI exam on February 16, 2023, at 10:00 AM. It should then display the difference in days, hours, and minutes in the console.
+
+c) Open Course Pages: This function, named ""open_course_page"", takes a module abbreviation as a parameter and opens the corresponding Moodle course or course webpage in a web browser. At least three course abbreviations should be implemented. The function should return True if a valid abbreviation is provided and False otherwise.
+
+d) Password Generator: This function, named ""password_gen"", takes a parameter called ""length"" and generates a random password of the specified length. The password should consist of digits 1 to 9 and uppercase and lowercase letters from A to z. The function should return the generated password.
+
+The inputs for each function are as follows:
+
+- For the ""decimal_to_binary"" function: a positive integer.
+- For the ""exam_countdown"" function: an optional timestamp (or none).
+- For the ""open_course_page"" function: a module abbreviation (e.g., ""EPR"", ""MOD"", ""LinADI"").
+- For the ""password_gen"" function: the desired length of the password.
+
+The outputs for each function are as follows:
+
+- For the ""decimal_to_binary"" function: a string representing the binary representation of the input integer.
+- For the ""exam_countdown"" function: the difference in days, hours, and minutes between the given timestamp and the first EPI exam on February 16, 2023.
+- For the ""open_course_page"" function: True if a valid abbreviation is provided, and False otherwise.
+- For the ""password_gen"" function: a randomly generated password of the specified length.
+
+The constraints for each function are as follows:
+
+- For the ""decimal_to_binary"" function: the input integer must be positive.
+- For the ""exam_countdown"" function: the timestamp must be a valid Unix timestamp.
+- For the ""open_course_page"" function: the module abbreviation must be valid and correspond to a course webpage.
+- For the ""password_gen"" function: the length parameter must be a positive integer.",382,352,"{2: ""The constraint regarding time zones not needing to be taken into account for the 'exam_countdown' function is missing""}",1,"KH,KTC,KC"
+5,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Task 1:
+
+The standard installation of Python 3.X includes a wide range of modules that provide helpful functions. These so-called built-in modules can be imported and used without further installations. In this task, you will get to know some of these modules and also write your own module to be imported later.
+Create a Python module named ""eprtools.py"" and implement the following functions within this module. Pay attention to the difference between ""return"" and ""display"".
+
+a) Binary Calculator
+Implement a function called ""decimal_to_binary"" that takes a positive integer as an argument and returns a string representing its binary representation. Additionally, step-by-step conversion should be displayed in the console, following the schema learned in GPR.
+
+b) Exam Countdown
+In a function named ""exam_countdown"", calculate the time between a given timestamp and the first EPI exam on February 16, 2023, at 10:00 AM. Then, display the difference in the console in the format ""_ days, _ hours, _ minutes"" (you can disregard units smaller than minutes, so rounding is not necessary).
+If no timestamp is provided, use the current system timestamp.
+To easily work with time and calendar data, refer to https://unixtime.org/ to learn about Unix time and Unix timestamp. You can use the ""time"" module in Python to obtain the current Unix timestamp.
+Utilize the ""time"" module and Unix timestamp to calculate the remaining time. Time zones do not need to be taken into account.
+Documentation for the ""time"" module: https://docs.python.org/3/library/time.html#module-time
+
+c) Open Course Pages
+For quick access to the various course websites of your attended lectures, implement a function called ""open_course_page"" that takes a module abbreviation (e.g., ""EPR"", ""MOD"", ""LinADI"", etc.) as a parameter and opens the corresponding Moodle course or course webpage in a web browser. Implement this for at least three courses. If a valid abbreviation is provided, the function should return True; otherwise, it should return False. Use the ""webbrowser"" module in Python for this task.
+Documentation for the ""webbrowser"" module: https://docs.python.org/3/library/webbrowser.html#modulewebbrowser
+
+d) Password Generator
+Create a function called ""password_gen"" that takes the parameter ""length"" and generates and returns a random password of the specified length, consisting of digits 1 to 9 and uppercase and lowercase letters from A to z. Use the ""random"" module in Python to generate (pseudo-)random numbers. You can convert these random numbers into letters using the ""chr(i)"" function based on an ASCII table, for example.
+Documentation for the ""random"" module: https://docs.python.org/3/library/random.html#module-random
+
+Task 2:
+Write a Python 3.X program (in a separate Python file) that imports the module ""eprtools.py"" created in Task 1. Through console input, the user should be able to choose which of the four implemented tools should be executed. If necessary, any required parameters should be queried through the console.""
+",3,"Task 1:
+
+Inputs:
+- For the function ""decimal_to_binary"", the input is a positive integer.
+- For the function ""exam_countdown"", the input is a timestamp (optional).
+- For the function ""open_course_page"", the input is a module abbreviation.
+- For the function ""password_gen"", the input is the length of the password.
+
+Outputs:
+- For the function ""decimal_to_binary"", the output is a string representing the binary representation of the input integer.
+- For the function ""exam_countdown"", the output is the remaining time until the first EPI exam on February 16, 2023, at 10:00 AM in the format ""_ days, _ hours, _ minutes"".
+- For the function ""open_course_page"", the output is True if a valid abbreviation is provided and False otherwise.
+- For the function ""password_gen"", the output is a random password of the specified length.
+
+Constraints:
+- The input for the function ""decimal_to_binary"" must be a positive integer.
+- The input for the function ""exam_countdown"" must be a valid timestamp (optional).
+- The input for the function ""open_course_page"" must be a valid module abbreviation.
+- The input for the function ""password_gen"" must be a positive integer representing the length of the password.
+- The module ""eprtools.py"" must be created and implemented correctly.
+- The user should choose which of the four implemented tools to execute in Task 2, and any required parameters should be queried through the console.",214,202,"{1: ""Step-by-step display in the console for the decimal_to_binary function is missing"", 2: ""The constraint regarding time zones not needing to be taken into account for the exam_countdown function is missing""}",1,"KTC,KC"
+6,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Task 1 - Preparations:
+First, create a Python module named ""memory.py"". In this module, you will define functions that will make it easier to implement the game in Task 2.
+
+The Cards:
+The game is played with 20 cards, with two cards having the same motif. Each card is represented by a string with a corresponding symbol. The 20 cards are grouped together in a list. The variable representing the 20 cards is as follows:
+CARDS = [""✿"", ""❄"", ""★"", ""♥"", ""✉"", ""✂"", ""✖"", ""✈"", ""♫"", ""☀"",
+""✿"", ""❄"", ""★"", ""♥"", ""✉"", ""✂"", ""✖"", ""✈"", ""♫"", ""☀""]
+
+a) Creating the Game Grid:
+To start playing, the 20 cards need to be spread out. Implement the function create_grid(cards) to arrange the 20 cards in a 5x4 grid for the game board using nested lists. The function should return the created game grid, which represents the layout of the spread-out cards.
+
+b) Flipping a Card:
+When a player wants to flip two cards, the corresponding motifs of the cards need to be revealed. The function get_symbols(grid, pos1, pos2) should help with this. It takes the current game grid and the two card positions as input parameters. The function checks which motifs the two cards have and returns both as a tuple.
+
+c) Removing a Card:
+Once a pair is revealed, it needs to be removed from the game grid. Implement the function take_cards(grid, pos1, pos2), which takes the current game grid and the positions of two cards as input. The function should adjust the current game grid so that the corresponding positions on the grid are ""empty"". Think of a suitable method to mark the spot accordingly.
+
+d) Drawing the Game Grid:
+To provide an overview of the game grid and the remaining cards to the player, the (covered and uncovered) game cards need to be displayed in the console. Each card should be represented by a combination of a letter and a digit, corresponding to its position.
+Implement the function draw_grid(grid, pos1=None, pos2=None) for this purpose. It takes the current game grid and optionally the positions of two uncovered cards as input. If only the game grid is provided, all remaining cards should be represented by their letter-digit combination. Pairs that have already been found should not be displayed anymore. If the positions are additionally provided, the motifs of the cards should appear at the corresponding positions on the game grid.
+Remember to ""clear"" the console before outputting the grid so that previous moves are no longer visible. Outputting empty lines is sufficient for this purpose.
+
+
+Task 2 - Game Logic:
+In a separate Python file, implement the gameplay for a player. Import and use the functions from Task 1 for this purpose.
+Gameplay:
+	1. Shuffle the cards.
+	2. Create the game grid (arrange the cards on the grid).
+	3. Until all pairs are found:
+		a. Draw the current game grid.
+		b. The player chooses two cards.
+		c. The cards are revealed for 3 seconds and then covered again.
+		d. If a pair is found, the cards are removed from the game grid.
+	4. Once all pairs are found, output the number of rounds required.
+	5. The player has the option to start a new game.
+
+Make your program robust, so that incorrect user inputs are handled and do not cause the program to crash.""
+",1,"Task 1 - Preparations:
+
+Inputs:
+- No explicit inputs are mentioned in the task. However, the functions in Task 1 will require the following inputs:
+  - create_grid(cards): list of 20 cards as input
+  - get_symbols(grid, pos1, pos2): current game grid and two card positions as inputs
+  - take_cards(grid, pos1, pos2): current game grid and two card positions as inputs
+  - draw_grid(grid, pos1=None, pos2=None): current game grid and optionally the positions of two uncovered cards as inputs
+
+Outputs:
+- The functions in Task 1 will produce the following outputs:
+  - create_grid(cards): the created game grid (nested lists) representing the layout of the spread-out cards
+  - get_symbols(grid, pos1, pos2): tuple of the motifs of the two cards at the given positions
+  - take_cards(grid, pos1, pos2): adjusted game grid with the corresponding positions marked as ""empty""
+  - draw_grid(grid, pos1=None, pos2=None): displayed game grid with cards represented by letter-digit combinations, optionally with motifs revealed at given positions
+
+Constraints:
+- The task specifies the use of Python programming language and the creation of a Python module named ""memory.py"".
+- The game is played with 20 cards, with two cards having the same motif.
+- The 20 cards are represented by a list named CARDS with corresponding symbols.
+- The create_grid function should arrange the 20 cards in a 5x4 grid using nested lists.
+- The get_symbols function should reveal the motifs of the two cards at the given positions.
+- The take_cards function should remove the corresponding positions from the game grid.
+- The draw_grid function should display the game grid, with or without motifs revealed at given positions.
+- The program should handle incorrect user inputs and not crash.",271,252,"{2: ""The constraint regarding the method for 'marking a spot as empty' in the take_cards function is not explicitly identified""}",0: 'Task 2 is missing.',"KTC,KC"
+6,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Task 1 - Preparations:
+First, create a Python module named ""memory.py"". In this module, you will define functions that will make it easier to implement the game in Task 2.
+
+The Cards:
+The game is played with 20 cards, with two cards having the same motif. Each card is represented by a string with a corresponding symbol. The 20 cards are grouped together in a list. The variable representing the 20 cards is as follows:
+CARDS = [""✿"", ""❄"", ""★"", ""♥"", ""✉"", ""✂"", ""✖"", ""✈"", ""♫"", ""☀"",
+""✿"", ""❄"", ""★"", ""♥"", ""✉"", ""✂"", ""✖"", ""✈"", ""♫"", ""☀""]
+
+a) Creating the Game Grid:
+To start playing, the 20 cards need to be spread out. Implement the function create_grid(cards) to arrange the 20 cards in a 5x4 grid for the game board using nested lists. The function should return the created game grid, which represents the layout of the spread-out cards.
+
+b) Flipping a Card:
+When a player wants to flip two cards, the corresponding motifs of the cards need to be revealed. The function get_symbols(grid, pos1, pos2) should help with this. It takes the current game grid and the two card positions as input parameters. The function checks which motifs the two cards have and returns both as a tuple.
+
+c) Removing a Card:
+Once a pair is revealed, it needs to be removed from the game grid. Implement the function take_cards(grid, pos1, pos2), which takes the current game grid and the positions of two cards as input. The function should adjust the current game grid so that the corresponding positions on the grid are ""empty"". Think of a suitable method to mark the spot accordingly.
+
+d) Drawing the Game Grid:
+To provide an overview of the game grid and the remaining cards to the player, the (covered and uncovered) game cards need to be displayed in the console. Each card should be represented by a combination of a letter and a digit, corresponding to its position.
+Implement the function draw_grid(grid, pos1=None, pos2=None) for this purpose. It takes the current game grid and optionally the positions of two uncovered cards as input. If only the game grid is provided, all remaining cards should be represented by their letter-digit combination. Pairs that have already been found should not be displayed anymore. If the positions are additionally provided, the motifs of the cards should appear at the corresponding positions on the game grid.
+Remember to ""clear"" the console before outputting the grid so that previous moves are no longer visible. Outputting empty lines is sufficient for this purpose.
+
+
+Task 2 - Game Logic:
+In a separate Python file, implement the gameplay for a player. Import and use the functions from Task 1 for this purpose.
+Gameplay:
+	1. Shuffle the cards.
+	2. Create the game grid (arrange the cards on the grid).
+	3. Until all pairs are found:
+		a. Draw the current game grid.
+		b. The player chooses two cards.
+		c. The cards are revealed for 3 seconds and then covered again.
+		d. If a pair is found, the cards are removed from the game grid.
+	4. Once all pairs are found, output the number of rounds required.
+	5. The player has the option to start a new game.
+
+Make your program robust, so that incorrect user inputs are handled and do not cause the program to crash.""
+",2,"Task 1 - Preparations:
+
+Inputs:
+- None
+
+Outputs:
+- For function create_grid(cards): a 5x4 grid representing the layout of the spread-out cards.
+- For function get_symbols(grid, pos1, pos2): a tuple containing the symbols of the two cards at the given positions.
+- For function take_cards(grid, pos1, pos2): None (adjusts the game grid).
+
+Constraints:
+- The cards are represented by strings with corresponding symbols.
+- There are 20 cards in total, with two cards having the same motif.
+- The cards are grouped together in a list called CARDS.
+- The game grid should be a 5x4 grid.
+- The functions should be implemented in a Python module named ""memory.py"".
+- The create_grid function should arrange the 20 cards in the game grid using nested lists.
+- The get_symbols function should take the current game grid and two card positions as input and return the symbols of the two cards as a tuple.
+- The take_cards function should take the current game grid and two card positions as input and adjust the grid accordingly.
+- The draw_grid function should take the current game grid and optionally the positions of two uncovered cards as input and display the game grid in the console.
+- The draw_grid function should clear the console before outputting the grid.
+- The draw_grid function should not display pairs that have already been found.
+- The draw_grid function should represent each card with a combination of a letter and a digit, corresponding to its position.
+- The draw_grid function should output empty lines to clear the console.
+
+Task 2 - Game Logic:
+
+Inputs:
+- None
+
+Outputs:
+- Number of rounds required to find all pairs.
+
+Constraints:
+- The functions from Task 1 should be imported and used.
+- The gameplay should shuffle the cards, create the game grid, and perform various actions until all pairs are found.
+- The current game grid should be drawn and displayed to the player.
+- The player should choose two cards.
+- The chosen cards should be revealed for 3 seconds and then covered again.
+- If a pair is found, the cards should be removed from the game grid.
+- Once all pairs are found, the number of rounds required should be outputted.
+- The player should have the option to start a new game.
+- The program should handle incorrect user inputs and not crash.",370,341,"{0: ""Input from players are not listed.""}",0: 'No input in Task 2 is incorrect.',"KH,KTC,KC"
+6,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Task 1 - Preparations:
+First, create a Python module named ""memory.py"". In this module, you will define functions that will make it easier to implement the game in Task 2.
+
+The Cards:
+The game is played with 20 cards, with two cards having the same motif. Each card is represented by a string with a corresponding symbol. The 20 cards are grouped together in a list. The variable representing the 20 cards is as follows:
+CARDS = [""✿"", ""❄"", ""★"", ""♥"", ""✉"", ""✂"", ""✖"", ""✈"", ""♫"", ""☀"",
+""✿"", ""❄"", ""★"", ""♥"", ""✉"", ""✂"", ""✖"", ""✈"", ""♫"", ""☀""]
+
+a) Creating the Game Grid:
+To start playing, the 20 cards need to be spread out. Implement the function create_grid(cards) to arrange the 20 cards in a 5x4 grid for the game board using nested lists. The function should return the created game grid, which represents the layout of the spread-out cards.
+
+b) Flipping a Card:
+When a player wants to flip two cards, the corresponding motifs of the cards need to be revealed. The function get_symbols(grid, pos1, pos2) should help with this. It takes the current game grid and the two card positions as input parameters. The function checks which motifs the two cards have and returns both as a tuple.
+
+c) Removing a Card:
+Once a pair is revealed, it needs to be removed from the game grid. Implement the function take_cards(grid, pos1, pos2), which takes the current game grid and the positions of two cards as input. The function should adjust the current game grid so that the corresponding positions on the grid are ""empty"". Think of a suitable method to mark the spot accordingly.
+
+d) Drawing the Game Grid:
+To provide an overview of the game grid and the remaining cards to the player, the (covered and uncovered) game cards need to be displayed in the console. Each card should be represented by a combination of a letter and a digit, corresponding to its position.
+Implement the function draw_grid(grid, pos1=None, pos2=None) for this purpose. It takes the current game grid and optionally the positions of two uncovered cards as input. If only the game grid is provided, all remaining cards should be represented by their letter-digit combination. Pairs that have already been found should not be displayed anymore. If the positions are additionally provided, the motifs of the cards should appear at the corresponding positions on the game grid.
+Remember to ""clear"" the console before outputting the grid so that previous moves are no longer visible. Outputting empty lines is sufficient for this purpose.
+
+
+Task 2 - Game Logic:
+In a separate Python file, implement the gameplay for a player. Import and use the functions from Task 1 for this purpose.
+Gameplay:
+	1. Shuffle the cards.
+	2. Create the game grid (arrange the cards on the grid).
+	3. Until all pairs are found:
+		a. Draw the current game grid.
+		b. The player chooses two cards.
+		c. The cards are revealed for 3 seconds and then covered again.
+		d. If a pair is found, the cards are removed from the game grid.
+	4. Once all pairs are found, output the number of rounds required.
+	5. The player has the option to start a new game.
+
+Make your program robust, so that incorrect user inputs are handled and do not cause the program to crash.""
+",3,"Task 1 - Preparations:
+Inputs:
+- No explicit inputs, but the task requires creating a Python module named ""memory.py"" and defining functions within it.
+- The CARDS list represents the 20 cards used in the game.
+
+Outputs:
+- The create_grid() function should return a nested list representing the layout of the spread-out cards.
+- The get_symbols() function should return a tuple containing the motifs of two cards.
+- The take_cards() function should adjust the game grid by removing the corresponding cards.
+- The draw_grid() function should display the game grid and remaining cards in the console.
+
+Constraints:
+- The Python module ""memory.py"" needs to be created and functions need to be defined within it.
+- The CARDS list should contain exactly 20 strings representing the motifs of the cards.
+- The create_grid() function should arrange the cards in a 5x4 grid.
+- The get_symbols() function should take two card positions as input.
+- The take_cards() function should take two card positions and adjust the game grid accordingly.
+- The draw_grid() function should display the game grid and remaining cards in the console, handling the optional positions of uncovered cards.
+- The console should be ""cleared"" before outputting the grid, and empty lines can be used for this purpose.
+
+Task 2 - Game Logic:
+Inputs:
+- No explicit inputs, but the task requires implementing gameplay in a separate Python file.
+
+Outputs:
+- The number of rounds required to find all pairs.
+
+Constraints:
+- The gameplay needs to be implemented in a separate Python file.
+- The functions from Task 1 should be imported and used.
+- The gameplay involves shuffling the cards, creating the game grid, drawing the current game grid, player choosing two cards, revealing and covering the cards, removing pairs from the game grid, and outputting the number of rounds required.
+- The program should handle incorrect user inputs and not crash.",295,255,"{0: ""Input from players are not listed.""}",0: 'No input in Task 2 is incorrect.',"KH,KTC,KC"
+7,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""For a contact or phone book, we represent contacts using dictionaries and combine them in a list to create a contact book. A contact consists of at least a name but can also include additional fields (such as email, address, date of birth, etc.).
+
+Create a new Python module for this and implement the following functions:
+
+a) add_contact(…)
+This function takes the contact book as input and adds a new contact. The function must be passed a name and can also accept additional parameters to be added to the contact.
+
+b) del_contact(…)
+This function takes the contact book and a name as input. The person with the corresponding name is removed from the contact book.
+
+c) edit_contact(…)
+This function takes the contact book, a name, and the fields to be changed as input. Existing fields can be updated, and new information can be added to the contact.
+
+d) list_contacts(…)
+This function takes the contact book as input and lists the names of all contacts in the console.
+
+e) show_contact(…)
+This function takes the contact book and a name as input. It then displays all the stored data for that person in a formatted manner.
+
+The above functions each take the contact list (and potentially additional parameters depending on the function) as input to modify the contact book accordingly or provide information.""
+",1,"This task involves creating a Python module for a contact or phone book. The contact book will be represented using dictionaries, and contacts will be combined in a list to create the contact book.
+
+The module should implement the following functions:
+
+a) add_contact(…): This function takes the contact book as input and adds a new contact. The function requires at least a name as input, but can also accept additional parameters to be added to the contact.
+
+b) del_contact(…): This function takes the contact book and a name as input. It removes the contact with the corresponding name from the contact book.
+
+c) edit_contact(…): This function takes the contact book, a name, and the fields to be changed as input. It allows for updating existing fields and adding new information to the contact.
+
+d) list_contacts(…): This function takes the contact book as input and lists the names of all contacts in the console.
+
+e) show_contact(…): This function takes the contact book and a name as input. It displays all the stored data for that person in a formatted manner.
+
+The inputs for each function are as follows:
+
+- add_contact(…): Contact book (list) and additional parameters for the new contact.
+- del_contact(…): Contact book (list) and the name of the contact to be deleted.
+- edit_contact(…): Contact book (list), the name of the contact, and the fields to be changed.
+- list_contacts(…): Contact book (list).
+- show_contact(…): Contact book (list) and the name of the contact to be displayed.
+
+The outputs for each function are as follows:
+
+- add_contact(…): The contact book with the new contact added.
+- del_contact(…): The contact book with the specified contact removed.
+- edit_contact(…): The contact book with the specified contact's fields updated.
+- list_contacts(…): None (only displays the names of contacts in the console).
+- show_contact(…): None (only displays the stored data for the specified contact in a formatted manner).
+
+The constraints for this task are not explicitly mentioned, but some possible constraints could include ensuring unique names for each contact, handling errors for invalid inputs, and managing memory usage for large contact books.",340,292,{},1,"KTC,KC"
+7,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""For a contact or phone book, we represent contacts using dictionaries and combine them in a list to create a contact book. A contact consists of at least a name but can also include additional fields (such as email, address, date of birth, etc.).
+
+Create a new Python module for this and implement the following functions:
+
+a) add_contact(…)
+This function takes the contact book as input and adds a new contact. The function must be passed a name and can also accept additional parameters to be added to the contact.
+
+b) del_contact(…)
+This function takes the contact book and a name as input. The person with the corresponding name is removed from the contact book.
+
+c) edit_contact(…)
+This function takes the contact book, a name, and the fields to be changed as input. Existing fields can be updated, and new information can be added to the contact.
+
+d) list_contacts(…)
+This function takes the contact book as input and lists the names of all contacts in the console.
+
+e) show_contact(…)
+This function takes the contact book and a name as input. It then displays all the stored data for that person in a formatted manner.
+
+The above functions each take the contact list (and potentially additional parameters depending on the function) as input to modify the contact book accordingly or provide information.""
+",2,"The task is to create a Python module for a contact or phone book. The contact book will be represented using dictionaries and combined in a list. Each contact will have a name and can also include additional fields such as email, address, and date of birth.
+
+a) add_contact(…) - This function takes the contact book as input and adds a new contact. The function requires a name parameter and can also accept additional parameters to be added to the contact. The input is the contact book (a list of dictionaries) and the output is the updated contact book (with the new contact added).
+
+b) del_contact(…) - This function takes the contact book and a name as input. The contact with the corresponding name is removed from the contact book. The input is the contact book (a list of dictionaries) and the name of the contact to be deleted. The output is the updated contact book (with the contact removed).
+
+c) edit_contact(…) - This function takes the contact book, a name, and the fields to be changed as input. Existing fields can be updated and new information can be added to the contact. The input is the contact book (a list of dictionaries), the name of the contact to be edited, and the fields to be changed. The output is the updated contact book (with the contact edited).
+
+d) list_contacts(…) - This function takes the contact book as input and lists the names of all contacts in the console. The input is the contact book (a list of dictionaries) and there is no specific output, as the names are printed in the console.
+
+e) show_contact(…) - This function takes the contact book and a name as input. It displays all the stored data for that person in a formatted manner. The input is the contact book (a list of dictionaries) and the name of the contact to be displayed. The output is the formatted information for that contact.
+
+The inputs for all the functions are the contact book (a list of dictionaries) and additional parameters depending on the specific function. The outputs are the updated contact book or the information displayed in the console. The constraints are that the contact book must be represented using dictionaries and combined in a list, and the functions should modify the contact book accordingly or provide information based on the inputs.",392,367,{2: 'The constraint that each contact must have at least a name is not explicitly mentioned in the analysis of the task.'},1,"KTC,KC"
+7,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""For a contact or phone book, we represent contacts using dictionaries and combine them in a list to create a contact book. A contact consists of at least a name but can also include additional fields (such as email, address, date of birth, etc.).
+
+Create a new Python module for this and implement the following functions:
+
+a) add_contact(…)
+This function takes the contact book as input and adds a new contact. The function must be passed a name and can also accept additional parameters to be added to the contact.
+
+b) del_contact(…)
+This function takes the contact book and a name as input. The person with the corresponding name is removed from the contact book.
+
+c) edit_contact(…)
+This function takes the contact book, a name, and the fields to be changed as input. Existing fields can be updated, and new information can be added to the contact.
+
+d) list_contacts(…)
+This function takes the contact book as input and lists the names of all contacts in the console.
+
+e) show_contact(…)
+This function takes the contact book and a name as input. It then displays all the stored data for that person in a formatted manner.
+
+The above functions each take the contact list (and potentially additional parameters depending on the function) as input to modify the contact book accordingly or provide information.""
+",3,"Explanation:
+
+The task is to create a Python module for a contact or phone book. The contacts are represented using dictionaries and combined in a list to create a contact book. Each contact has a name and can have additional fields like email, address, date of birth, etc.
+
+The following functions need to be implemented:
+
+a) add_contact(…) - This function takes the contact book as input and adds a new contact. It requires a name parameter and can accept additional parameters for the contact.
+
+b) del_contact(…) - This function takes the contact book and a name as input. It removes the contact with the corresponding name from the contact book.
+
+c) edit_contact(…) - This function takes the contact book, a name, and the fields to be changed as input. It allows updating existing fields and adding new information to the contact.
+
+d) list_contacts(…) - This function takes the contact book as input and displays the names of all contacts in the console.
+
+e) show_contact(…) - This function takes the contact book and a name as input. It displays all the stored data for that person in a formatted manner.
+
+The inputs for these functions are the contact book, which is a list of dictionaries, and additional parameters depending on the function (such as the name for deletion or editing, or fields to be updated/added).
+
+The outputs of these functions are modifications made to the contact book (such as adding or deleting contacts) or information displayed in the console (such as listing contacts or showing contact details).
+
+The constraints are not explicitly mentioned in the task description, but some possible constraints could be:
+- The name parameter for adding, deleting, editing, or showing contacts should be a non-empty string.
+- The contact book should only contain valid contacts, where a contact is a dictionary with at least a name field.
+- The contact book should handle cases where multiple contacts have the same name.
+- The contact book module should be implemented in Python.",326,264,{},1,"KH,KTC,KC"
+8,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Analyze the two functions below and consider what they calculate. If it is a recursive function, convert it into an iterative function. If it is not a recursive function, convert it into a recursive function.
+
+The rewritten functions should exhibit the same behavior as the original function.
+
+a) The function differences(values) takes a list of numbers as a parameter.
+
+	def differences(values):
+		result = []
+		for i in range(len(values) - 1):
+			result.append(values[i+1] - values[i])
+		return result
+
+b) The function palindrome(word) takes a string of any length as a parameter.
+
+	def palindrome(word):
+		if len(word) <= 1:
+			return True
+		if word[0] != word[-1]:
+			return False
+		return palindrome(word[1:-1])""
+",1,"In this task, you are given two functions and you need to analyze what they calculate. After that, you need to convert them into either recursive or iterative functions based on their initial implementation.
+
+Let's start with function 'differences'. This function takes a list of numbers as a parameter. It iterates through the list and calculates the difference between each consecutive pair of numbers. The differences are then stored in a new list called 'result', which is returned at the end.
+
+**Inputs:** The input for this function is a list of numbers.
+
+**Outputs:** The output is a list containing the differences between consecutive numbers in the input list.
+
+**Constraints:** There are no specific constraints mentioned for this function.
+
+To convert this function into an iterative function, you can use a loop to iterate through the list and calculate the differences. Here's the iterative version of the function:
+
+```
+def differences(values):
+    result = []
+    for i in range(len(values) - 1):
+        result.append(values[i+1] - values[i])
+    return result
+```
+
+Moving on to function 'palindrome'. This function takes a string of any length as a parameter. It checks if the given word is a palindrome by comparing the first and last characters. If the length of the word is less than or equal to 1, it returns True, indicating that it is a palindrome. If the first and last characters are not the same, it returns False. Otherwise, it calls itself recursively with the substring of the word excluding the first and last characters.
+
+**Inputs:** The input for this function is a string.
+
+**Outputs:** The output is a boolean value indicating whether the input word is a palindrome or not.
+
+**Constraints:** There are no specific constraints mentioned for this function.
+
+To convert this function into an iterative function, you can use a loop to compare the characters at each position from the start and end of the word. Here's the iterative version of the function:
+
+```
+def palindrome(word):
+    start = 0
+    end = len(word) - 1
+    while start < end:
+        if word[start] != word[end]:
+            return False
+        start += 1
+        end -= 1
+    return True
+```
+
+To convert this function into a recursive function, you can keep the existing implementation as it is since it already uses recursion to check for palindromes. No changes are required for the recursive version of the function.
+
+```
+def palindrome(word):
+    if len(word) <= 1:
+        return True
+    if word[0] != word[-1]:
+        return False
+    return palindrome(word[1:-1])
+```
+
+Remember, when converting a function from recursive to iterative or vice versa, it is important to ensure that the rewritten function exhibits the same behavior as the original function.",437,290,{},"0: ""The 'differences' function was falsly converted.""","KH,KTC,KC"
+8,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Analyze the two functions below and consider what they calculate. If it is a recursive function, convert it into an iterative function. If it is not a recursive function, convert it into a recursive function.
+
+The rewritten functions should exhibit the same behavior as the original function.
+
+a) The function differences(values) takes a list of numbers as a parameter.
+
+	def differences(values):
+		result = []
+		for i in range(len(values) - 1):
+			result.append(values[i+1] - values[i])
+		return result
+
+b) The function palindrome(word) takes a string of any length as a parameter.
+
+	def palindrome(word):
+		if len(word) <= 1:
+			return True
+		if word[0] != word[-1]:
+			return False
+		return palindrome(word[1:-1])""
+",2,"Task: The task is to analyze and convert two given functions. The first function, differences(values), takes a list of numbers as input and calculates the differences between consecutive numbers in the list. The second function, palindrome(word), takes a string as input and checks if it is a palindrome (reads the same forwards and backwards).
+
+Inputs:
+a) For the function differences(values), the input is a list of numbers.
+b) For the function palindrome(word), the input is a string.
+
+Outputs:
+a) For the function differences(values), the output is a list of numbers representing the differences between consecutive numbers in the input list.
+b) For the function palindrome(word), the output is a boolean value indicating whether the input string is a palindrome or not.
+
+Constraints:
+a) For the function differences(values), there are no specific constraints mentioned in the task.
+b) For the function palindrome(word), the constraint is that the length of the input string should be any length.
+
+To convert the functions into iterative or recursive form, we need to rewrite them while preserving their original behavior.",182,141,{},1,"KH,KTC,KC"
+8,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Analyze the two functions below and consider what they calculate. If it is a recursive function, convert it into an iterative function. If it is not a recursive function, convert it into a recursive function.
+
+The rewritten functions should exhibit the same behavior as the original function.
+
+a) The function differences(values) takes a list of numbers as a parameter.
+
+	def differences(values):
+		result = []
+		for i in range(len(values) - 1):
+			result.append(values[i+1] - values[i])
+		return result
+
+b) The function palindrome(word) takes a string of any length as a parameter.
+
+	def palindrome(word):
+		if len(word) <= 1:
+			return True
+		if word[0] != word[-1]:
+			return False
+		return palindrome(word[1:-1])""
+",3,"Task: The task is to analyze and convert the given functions into either iterative or recursive functions while maintaining the same behavior.
+
+Inputs:
+a) The function differences(values) takes a list of numbers as input.
+b) The function palindrome(word) takes a string of any length as input.
+
+Outputs:
+a) The function differences(values) returns a list of numbers.
+b) The function palindrome(word) returns True if the word is a palindrome, and False otherwise.
+
+Constraints:
+There are no specific constraints mentioned for this task.",85,68,{},1,"KTC,KC"
+9,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""For a square matrix (n x n), we want to calculate the most cost-effective path from the top-left corner to the bottom-right corner. The elements of the matrix (integers from 0 to 9) represent the respective costs of each field. The cost of a path corresponds to the sum of the costs of all visited fields.
+
+Constraints:
+	- Each field can only be visited once on a path.
+	- From a field, only the directly neighboring fields can be visited (only horizontally and vertically).
+	- The matrix is represented by a two-dimensional nested list.
+	- The matrix contains only integers in the range of 0 to 9.
+
+Here's a small example:
+
+[[4, 0, 8],
+[3, 4, 7],
+[8, 0, 7]]
+
+We start at the top-left position (0, 0). The initial cost is 4. If we go right, we add 0 to the cost. Then we go down twice (+4 and +0) and finally to the right (+7) to reach the destination. The total cost of this path is: 4 + 0 + 4 + 0 + 7 = 15.
+The path itself is described by the sequence of visited fields:
+[(0, 0), (0, 1), (1, 1), (2, 1), (2, 2)]
+
+a) Creating the Matrix:
+Implement a function that takes a natural number n as a parameter, which represents the dimension of the matrix. The function should return a matrix (nested list) with random values from the mentioned value range.
+
+b) Finding the Optimal Path:
+Implement a recursive function that receives a matrix as a parameter and calculates the (global) optimal path, i.e., the path with the lowest costs, to walk from the top-left (0, 0) to the bottom-right (n, n). The function should return both the minimum costs and the corresponding optimal path.
+Hints:
+	- To find the optimal path from the current field, compare the minimum costs from the neighboring fields.
+	- To avoid revisiting already visited fields, you can mark them within the matrix. For example, using math.inf or -1.
+	- If you modify the given matrix within the function, keep in mind that lists are mutable and consider the potential ""issues"" this can cause. The copy module can be helpful in this case. Documentation: https://docs.python.org/3/library/copy.html
+	- It might be useful to provide an additional optional parameter for the starting position.
+	- Test the function initially with small matrices, as the calculations can otherwise take a very long time.""
+",1,"a) Creating the Matrix:
+To create a matrix of size n x n, we need to implement a function that takes a natural number n as a parameter. The function should return a matrix (nested list) with random values from the range 0 to 9.
+
+Inputs:
+- Natural number n (dimension of the matrix)
+
+Output:
+- Matrix (nested list) with random values from the range 0 to 9
+
+Constraints:
+- The matrix is represented by a two-dimensional nested list.
+- The matrix contains only integers in the range of 0 to 9.
+
+b) Finding the Optimal Path:
+To find the optimal path from the top-left corner to the bottom-right corner of a square matrix, we need to implement a recursive function that receives the matrix as a parameter. The function should calculate the (global) optimal path, i.e., the path with the lowest costs. The function should return both the minimum costs and the corresponding optimal path.
+
+Inputs:
+- Matrix (nested list) representing the square matrix
+
+Outputs:
+- Minimum costs of the optimal path
+- Optimal path (sequence of visited fields represented as coordinate tuples)
+
+Constraints:
+- Each field can only be visited once on a path.
+- From a field, only the directly neighboring fields can be visited (horizontally and vertically).
+- The matrix is represented by a two-dimensional nested list.
+- The matrix contains only integers in the range of 0 to 9.
+- It is recommended to test the function initially with small matrices, as the calculations can otherwise take a very long time.",249,232,"{2: ['Marking the matrix using math.inf or -1 is missing', 'The use of the copy module to handle the mutability of lists is missing']}",1,"KH,KTC,KC"
+9,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""For a square matrix (n x n), we want to calculate the most cost-effective path from the top-left corner to the bottom-right corner. The elements of the matrix (integers from 0 to 9) represent the respective costs of each field. The cost of a path corresponds to the sum of the costs of all visited fields.
+
+Constraints:
+	- Each field can only be visited once on a path.
+	- From a field, only the directly neighboring fields can be visited (only horizontally and vertically).
+	- The matrix is represented by a two-dimensional nested list.
+	- The matrix contains only integers in the range of 0 to 9.
+
+Here's a small example:
+
+[[4, 0, 8],
+[3, 4, 7],
+[8, 0, 7]]
+
+We start at the top-left position (0, 0). The initial cost is 4. If we go right, we add 0 to the cost. Then we go down twice (+4 and +0) and finally to the right (+7) to reach the destination. The total cost of this path is: 4 + 0 + 4 + 0 + 7 = 15.
+The path itself is described by the sequence of visited fields:
+[(0, 0), (0, 1), (1, 1), (2, 1), (2, 2)]
+
+a) Creating the Matrix:
+Implement a function that takes a natural number n as a parameter, which represents the dimension of the matrix. The function should return a matrix (nested list) with random values from the mentioned value range.
+
+b) Finding the Optimal Path:
+Implement a recursive function that receives a matrix as a parameter and calculates the (global) optimal path, i.e., the path with the lowest costs, to walk from the top-left (0, 0) to the bottom-right (n, n). The function should return both the minimum costs and the corresponding optimal path.
+Hints:
+	- To find the optimal path from the current field, compare the minimum costs from the neighboring fields.
+	- To avoid revisiting already visited fields, you can mark them within the matrix. For example, using math.inf or -1.
+	- If you modify the given matrix within the function, keep in mind that lists are mutable and consider the potential ""issues"" this can cause. The copy module can be helpful in this case. Documentation: https://docs.python.org/3/library/copy.html
+	- It might be useful to provide an additional optional parameter for the starting position.
+	- Test the function initially with small matrices, as the calculations can otherwise take a very long time.""
+",2,"a) Creating the Matrix:
+The task requires implementing a function that takes a natural number n as a parameter and returns a matrix (nested list) with random values from the range 0 to 9. 
+
+Inputs: 
+- n: a natural number representing the dimension of the matrix
+
+Output:
+- matrix: a nested list representing the square matrix with random values
+
+Constraints:
+- The matrix should have dimensions n x n.
+- The values in the matrix should be random integers in the range 0 to 9.
+
+b) Finding the Optimal Path:
+The task requires implementing a recursive function that receives a matrix as a parameter and calculates the optimal path with the lowest costs, from the top-left corner (0, 0) to the bottom-right corner (n, n) of the matrix. The function should return both the minimum costs and the corresponding optimal path.
+
+Inputs:
+- matrix: a nested list representing the square matrix with random values
+
+Outputs:
+- minimum costs: an integer representing the sum of the costs of the optimal path
+- optimal path: a list of tuples representing the sequence of visited fields in the optimal path
+
+Constraints:
+- Each field can only be visited once on a path.
+- From a field, only the directly neighboring fields can be visited (only horizontally and vertically).
+- The matrix is represented by a two-dimensional nested list.
+- The matrix contains only integers in the range of 0 to 9.
+
+Additional hints and considerations are provided to help with the implementation and testing of the function. It is recommended to test the function initially with small matrices to avoid long computation times.",262,235,"{2: ['Marking the matrix using math.inf or -1 is missing', 'The use of the copy module to handle the mutability of lists is missing']}",1,"KH,KTC,KC"
+9,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""For a square matrix (n x n), we want to calculate the most cost-effective path from the top-left corner to the bottom-right corner. The elements of the matrix (integers from 0 to 9) represent the respective costs of each field. The cost of a path corresponds to the sum of the costs of all visited fields.
+
+Constraints:
+	- Each field can only be visited once on a path.
+	- From a field, only the directly neighboring fields can be visited (only horizontally and vertically).
+	- The matrix is represented by a two-dimensional nested list.
+	- The matrix contains only integers in the range of 0 to 9.
+
+Here's a small example:
+
+[[4, 0, 8],
+[3, 4, 7],
+[8, 0, 7]]
+
+We start at the top-left position (0, 0). The initial cost is 4. If we go right, we add 0 to the cost. Then we go down twice (+4 and +0) and finally to the right (+7) to reach the destination. The total cost of this path is: 4 + 0 + 4 + 0 + 7 = 15.
+The path itself is described by the sequence of visited fields:
+[(0, 0), (0, 1), (1, 1), (2, 1), (2, 2)]
+
+a) Creating the Matrix:
+Implement a function that takes a natural number n as a parameter, which represents the dimension of the matrix. The function should return a matrix (nested list) with random values from the mentioned value range.
+
+b) Finding the Optimal Path:
+Implement a recursive function that receives a matrix as a parameter and calculates the (global) optimal path, i.e., the path with the lowest costs, to walk from the top-left (0, 0) to the bottom-right (n, n). The function should return both the minimum costs and the corresponding optimal path.
+Hints:
+	- To find the optimal path from the current field, compare the minimum costs from the neighboring fields.
+	- To avoid revisiting already visited fields, you can mark them within the matrix. For example, using math.inf or -1.
+	- If you modify the given matrix within the function, keep in mind that lists are mutable and consider the potential ""issues"" this can cause. The copy module can be helpful in this case. Documentation: https://docs.python.org/3/library/copy.html
+	- It might be useful to provide an additional optional parameter for the starting position.
+	- Test the function initially with small matrices, as the calculations can otherwise take a very long time.""
+",3,"a) Creating the Matrix:
+To create the matrix, you need to implement a function that takes a natural number 'n' as a parameter. This 'n' represents the dimension of the matrix, which means the matrix will be of size n x n. The function should return a matrix (nested list) with random values from the range of integers 0 to 9.
+
+Inputs:
+- A natural number 'n' representing the dimension of the matrix.
+
+Output:
+- A matrix (nested list) of size n x n with random values from the range of integers 0 to 9.
+
+Constraints:
+- The matrix is represented by a two-dimensional nested list.
+- The matrix contains only integers in the range of 0 to 9.
+
+
+b) Finding the Optimal Path:
+To find the optimal path from the top-left corner to the bottom-right corner of the square matrix, you need to implement a recursive function that receives the matrix as a parameter. The function should calculate the (global) optimal path, which is the path with the lowest costs. The function should return both the minimum costs and the corresponding optimal path.
+
+Inputs:
+- A matrix (nested list) representing the square matrix.
+
+Outputs:
+- The minimum costs of the optimal path.
+- The corresponding optimal path, described by a sequence of visited fields.
+
+Constraints:
+- Each field can only be visited once on a path.
+- From a field, only the directly neighboring fields can be visited (only horizontally and vertically).
+- The matrix is represented by a two-dimensional nested list.
+- The matrix contains only integers in the range of 0 to 9.
+- It is recommended to test the function initially with small matrices, as the calculations can otherwise take a very long time.
+
+Hints:
+- To find the optimal path from the current field, compare the minimum costs from the neighboring fields.
+- To avoid revisiting already visited fields, you can mark them within the matrix. For example, using math.inf or -1.
+- If you modify the given matrix within the function, keep in mind that lists are mutable and consider the potential ""issues"" this can cause. The copy module can be helpful in this case. Documentation: https://docs.python.org/3/library/copy.html
+- It might be useful to provide an additional optional parameter for the starting position.",374,356,{},1,"KH,KTC,KC"
+10,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Create Python code that reads the text from a given file and uses regular expressions (re) to extract the following elements and outputs them on the console.
+
+a) All character strings that are located between < and the next >. The opening < and closing > should also be included in the output. Example: <a>, <span ...>.
+
+b) All (year) numbers between 1900 and 2099.
+
+Documentation for the re module: https://docs.python.org/3/library/re.html""
+",1,"Sure! The task is to create Python code that reads the text from a given file and uses regular expressions to extract specific elements from the text. 
+
+a) The first element to extract is all character strings that are located between < and the next >. This means we want to find and extract any text that is enclosed in angle brackets. The opening < and closing > should also be included in the output. For example, if the text contains ""<a>, <span ...>"", we want to extract ""<a>"" and ""<span ...>"".
+
+b) The second element to extract is all (year) numbers between 1900 and 2099. This means we want to find and extract any four-digit numbers between 1900 and 2099. For example, if the text contains ""This is a year: 2020"", we want to extract ""2020"".
+
+Inputs:
+- Text file: The file from which we will read the text.
+
+Outputs:
+- Extracted character strings: All character strings that are located between < and the next >, including the opening and closing brackets.
+- Extracted (year) numbers: All four-digit numbers between 1900 and 2099.
+
+Constraints:
+- The code should use the re module in Python to perform the regular expression matching and extraction.
+- The code should only extract character strings and numbers that meet the specified criteria.
+- The code should only consider numbers between 1900 and 2099 as (year) numbers.
+- The code should handle any text file provided as input.",230,168,{},1,"KH,KTC,KC"
+10,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Create Python code that reads the text from a given file and uses regular expressions (re) to extract the following elements and outputs them on the console.
+
+a) All character strings that are located between < and the next >. The opening < and closing > should also be included in the output. Example: <a>, <span ...>.
+
+b) All (year) numbers between 1900 and 2099.
+
+Documentation for the re module: https://docs.python.org/3/library/re.html""
+",2,"Task:
+The task is to create Python code that reads the text from a given file and uses regular expressions to extract specific elements. The code should output the extracted elements on the console.
+
+Inputs:
+The input for this task is a text file that contains the text we want to extract elements from.
+
+Outputs:
+The code should output two types of elements:
+
+a) All character strings that are located between < and the next >. The opening < and closing > should also be included in the output. For example, if we have the text ""<a> example text <span ...>"", the code should output ""<a>"" and ""<span ...>"".
+
+b) All (year) numbers between 1900 and 2099. For example, if we have the text ""Text example (1990) more text (2021)"", the code should output ""(1990)"" and ""(2021)"".
+
+Constraints:
+The code should use regular expressions (re) to extract the elements. The regular expressions should be able to handle multiple occurrences of the elements in the text file. The code should also consider the range of years between 1900 and 2099 for the second type of element. The code should be implemented in Python and should use the re module for regular expressions. The documentation for the re module can be found at the provided link.",208,161,{},1,"KH,KTC,KC"
+10,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Create Python code that reads the text from a given file and uses regular expressions (re) to extract the following elements and outputs them on the console.
+
+a) All character strings that are located between < and the next >. The opening < and closing > should also be included in the output. Example: <a>, <span ...>.
+
+b) All (year) numbers between 1900 and 2099.
+
+Documentation for the re module: https://docs.python.org/3/library/re.html""
+",3,"Task: The task is to create Python code that reads the text from a given file and uses regular expressions to extract specific elements from the text. There are two elements to be extracted: character strings located between < and the next >, and (year) numbers between 1900 and 2099.
+
+Inputs: The input for this task is a text file from which the Python code will read the text to extract the elements. The file should be specified in the code.
+
+Outputs: The outputs of the code will be displayed on the console. For element (a), all character strings located between < and the next >, including the opening < and closing >, will be displayed. For element (b), all (year) numbers between 1900 and 2099 will be displayed.
+
+Constraints: The code should use the re module in Python to extract the desired elements. The regular expressions should be designed to accurately capture the specified elements. The code should be able to handle any text file provided as input.",163,127,{},1,"KTC,KC"
+11,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Implement a game as described below:
+
+- The game is played with a deck of 52 cards (13 * 4 suits).
+- The game can be played with 2-5 players.
+- A starting player and an order of play are determined.
+- A certain number of rounds are played (depending on the number of players). The number of rounds is calculated using the formula:
+	Number of rounds = floor(Total number of cards / Number of players)
+- Each round proceeds as follows:
+	1. Each player is dealt cards (the number of cards corresponds to the round number). In the first round, each player receives one card, in the second round each player receives two cards, and so on.
+	2. The trump suit for the round is determined by making a random selection.
+	3. The game is played for tricks. The number of tricks is equal to the number of cards in hand. The following rules apply for playing a trick:
+		i. Each player plays a card in turn (starting with the starting player). The player with the highest-ranking card wins the trick.
+		ii. The next player in order takes the lead for the next trick.
+	4. At the end of the round, all cards are collected, shuffled, and a new round begins with the next player in the order as the starting player.
+- Determining the winner:
+	Choose one variant for the winning condition:
+		a) Most tricks won.
+		b) Most rounds won.
+- Implement basic functions:
+	a) Create a function create_cards() that returns a list of cards. The cards should be represented using a dictionary. Consider how you want to represent the cards internally. The cards should correspond to a standard deck with 2, ..., 10, Jack, Queen, King, Ace, and the 4 suits (Clubs, Spades, Hearts, Diamonds).
+	b) Create a function deal_cards() that simulates dealing the cards to the players. The function should receive the cards as a list, the number of players, and the number of cards for each player as input. The function should return a tuple containing the cards for each player in a list.
+	c) Create a function compare_cards() that handles card comparisons. It should be possible to pass any number of cards for comparison. The function should return the index of the highest-ranking card, taking the value of the suits into account. The comparison of cards should follow the following criteria:
+		i. A card of the trump suit is always higher-ranking than cards of other suits. For example, if the trump suit is Diamonds, the Diamond 2 is higher-ranking than the Club 3.
+		ii. The suits (Clubs, Spades, Hearts, Diamonds) are sorted in descending order. That means Clubs are higher-ranking than Spades. In case of equal card values, the suit decides.
+	d) Now, program the game flow using the previously defined functions.
+
+
+Additional requirements and hints:
+- Create a computer opponent that can perform actions for players defined as computer opponents (e.g., a very simple one - random or a ""smarter"" one).
+- Develop a simple console-based user interface that can be controlled by keyboard input and guides the user through the program, offering at least the following possibilities:
+	1. Inform the user at the beginning about valid inputs and their effects.
+	2. Indicate which player's turn it is.
+	3. Allow the user to end the game or start a new round.
+	4. Design your user interface to be robust, so that incorrect user inputs do not lead to a crash.
+- Structure your implementation by creating additional functions.""
+",1,"Task: Implement a card game that is played with a deck of 52 cards. The game can be played with 2-5 players. The game consists of multiple rounds, with each round having a certain number of cards dealt to each player. The trump suit for each round is randomly determined. The game is played for tricks, with each player playing a card in turn and the highest-ranking card winning the trick. At the end of each round, the cards are collected, shuffled, and a new round begins. The winner of the game is determined based on a chosen winning condition (most tricks won or most rounds won). 
+
+Inputs: 
+- Number of players (2-5)
+- Number of cards for each player in each round
+- Cards for each player in each round
+- Trump suit for each round
+- Cards played by each player in each trick
+
+Outputs:
+- Index of the highest-ranking card in each trick
+- Winner of the game based on the chosen winning condition
+
+Constraints:
+- The game can be played with 2-5 players.
+- The number of rounds is calculated using the formula: Number of rounds = floor(Total number of cards / Number of players)
+- Each player is dealt a number of cards corresponding to the round number.
+- The trump suit for each round is randomly determined.
+- The game is played for as many tricks as there are cards in hand.
+- The winning condition can be either most tricks won or most rounds won.
+- The create_cards() function should return a list of cards represented using a dictionary.
+- The deal_cards() function should receive the cards as a list, the number of players, and the number of cards for each player as input, and return a tuple containing the cards for each player in a list.
+- The compare_cards() function should handle card comparisons and return the index of the highest-ranking card, taking the value of the suits into account.
+- The game flow should be programmed using the previously defined functions.
+- A computer opponent should be created that can perform actions for computer players.
+- A console-based user interface should be developed that guides the user through the program and offers various options.
+- The user interface should be robust and handle incorrect user inputs without crashing.
+- Additional functions should be created to structure the implementation.",382,348,"{0: 'Starting player and order of play is missing', 1: [""Indication of which player's turn it is during the game is missing"", 'Feedback to the user about valid inputs is missing']}",1,"KH,KTC,KC"
+11,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Implement a game as described below:
+
+- The game is played with a deck of 52 cards (13 * 4 suits).
+- The game can be played with 2-5 players.
+- A starting player and an order of play are determined.
+- A certain number of rounds are played (depending on the number of players). The number of rounds is calculated using the formula:
+	Number of rounds = floor(Total number of cards / Number of players)
+- Each round proceeds as follows:
+	1. Each player is dealt cards (the number of cards corresponds to the round number). In the first round, each player receives one card, in the second round each player receives two cards, and so on.
+	2. The trump suit for the round is determined by making a random selection.
+	3. The game is played for tricks. The number of tricks is equal to the number of cards in hand. The following rules apply for playing a trick:
+		i. Each player plays a card in turn (starting with the starting player). The player with the highest-ranking card wins the trick.
+		ii. The next player in order takes the lead for the next trick.
+	4. At the end of the round, all cards are collected, shuffled, and a new round begins with the next player in the order as the starting player.
+- Determining the winner:
+	Choose one variant for the winning condition:
+		a) Most tricks won.
+		b) Most rounds won.
+- Implement basic functions:
+	a) Create a function create_cards() that returns a list of cards. The cards should be represented using a dictionary. Consider how you want to represent the cards internally. The cards should correspond to a standard deck with 2, ..., 10, Jack, Queen, King, Ace, and the 4 suits (Clubs, Spades, Hearts, Diamonds).
+	b) Create a function deal_cards() that simulates dealing the cards to the players. The function should receive the cards as a list, the number of players, and the number of cards for each player as input. The function should return a tuple containing the cards for each player in a list.
+	c) Create a function compare_cards() that handles card comparisons. It should be possible to pass any number of cards for comparison. The function should return the index of the highest-ranking card, taking the value of the suits into account. The comparison of cards should follow the following criteria:
+		i. A card of the trump suit is always higher-ranking than cards of other suits. For example, if the trump suit is Diamonds, the Diamond 2 is higher-ranking than the Club 3.
+		ii. The suits (Clubs, Spades, Hearts, Diamonds) are sorted in descending order. That means Clubs are higher-ranking than Spades. In case of equal card values, the suit decides.
+	d) Now, program the game flow using the previously defined functions.
+
+
+Additional requirements and hints:
+- Create a computer opponent that can perform actions for players defined as computer opponents (e.g., a very simple one - random or a ""smarter"" one).
+- Develop a simple console-based user interface that can be controlled by keyboard input and guides the user through the program, offering at least the following possibilities:
+	1. Inform the user at the beginning about valid inputs and their effects.
+	2. Indicate which player's turn it is.
+	3. Allow the user to end the game or start a new round.
+	4. Design your user interface to be robust, so that incorrect user inputs do not lead to a crash.
+- Structure your implementation by creating additional functions.""
+",2,"This task involves implementing a card game with a deck of 52 cards. The game can be played with 2-5 players. The game consists of multiple rounds, where each round involves dealing cards to the players, determining the trump suit, and playing tricks. At the end of each round, the winner is determined based on a chosen variant (most tricks won or most rounds won).
+
+Inputs:
+- Number of players (2-5)
+- Number of cards for each player
+- Cards for each round
+- Chosen variant for determining the winner
+
+Outputs:
+- List of cards representing the deck
+- Cards dealt to each player in each round
+- Index of the highest-ranking card in a comparison
+- Winner of the game
+
+Constraints:
+- The game can be played with 2-5 players
+- The number of rounds is calculated using the formula: Number of rounds = floor(Total number of cards / Number of players)
+- Each round, the players are dealt cards corresponding to the round number
+- The trump suit for each round is determined randomly
+- The winning condition can be either most tricks won or most rounds won
+
+Additional requirements:
+- Implement basic functions: create_cards(), deal_cards(), compare_cards()
+- Create a computer opponent that can perform actions for computer players
+- Develop a console-based user interface with keyboard input and error handling
+- Structure the implementation by creating additional functions",218,189,"{1: [""Indication of which player's turn it is during the game is missing"", 'Feedback to the user about valid inputs is missing']}",1,"KH,KTC,KC"
+11,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""Implement a game as described below:
+
+- The game is played with a deck of 52 cards (13 * 4 suits).
+- The game can be played with 2-5 players.
+- A starting player and an order of play are determined.
+- A certain number of rounds are played (depending on the number of players). The number of rounds is calculated using the formula:
+	Number of rounds = floor(Total number of cards / Number of players)
+- Each round proceeds as follows:
+	1. Each player is dealt cards (the number of cards corresponds to the round number). In the first round, each player receives one card, in the second round each player receives two cards, and so on.
+	2. The trump suit for the round is determined by making a random selection.
+	3. The game is played for tricks. The number of tricks is equal to the number of cards in hand. The following rules apply for playing a trick:
+		i. Each player plays a card in turn (starting with the starting player). The player with the highest-ranking card wins the trick.
+		ii. The next player in order takes the lead for the next trick.
+	4. At the end of the round, all cards are collected, shuffled, and a new round begins with the next player in the order as the starting player.
+- Determining the winner:
+	Choose one variant for the winning condition:
+		a) Most tricks won.
+		b) Most rounds won.
+- Implement basic functions:
+	a) Create a function create_cards() that returns a list of cards. The cards should be represented using a dictionary. Consider how you want to represent the cards internally. The cards should correspond to a standard deck with 2, ..., 10, Jack, Queen, King, Ace, and the 4 suits (Clubs, Spades, Hearts, Diamonds).
+	b) Create a function deal_cards() that simulates dealing the cards to the players. The function should receive the cards as a list, the number of players, and the number of cards for each player as input. The function should return a tuple containing the cards for each player in a list.
+	c) Create a function compare_cards() that handles card comparisons. It should be possible to pass any number of cards for comparison. The function should return the index of the highest-ranking card, taking the value of the suits into account. The comparison of cards should follow the following criteria:
+		i. A card of the trump suit is always higher-ranking than cards of other suits. For example, if the trump suit is Diamonds, the Diamond 2 is higher-ranking than the Club 3.
+		ii. The suits (Clubs, Spades, Hearts, Diamonds) are sorted in descending order. That means Clubs are higher-ranking than Spades. In case of equal card values, the suit decides.
+	d) Now, program the game flow using the previously defined functions.
+
+
+Additional requirements and hints:
+- Create a computer opponent that can perform actions for players defined as computer opponents (e.g., a very simple one - random or a ""smarter"" one).
+- Develop a simple console-based user interface that can be controlled by keyboard input and guides the user through the program, offering at least the following possibilities:
+	1. Inform the user at the beginning about valid inputs and their effects.
+	2. Indicate which player's turn it is.
+	3. Allow the user to end the game or start a new round.
+	4. Design your user interface to be robust, so that incorrect user inputs do not lead to a crash.
+- Structure your implementation by creating additional functions.""
+",3,"Task: Implement a game that is played with a deck of 52 cards and can be played with 2-5 players. The game consists of multiple rounds where each player is dealt a certain number of cards. The trump suit for each round is determined randomly. The game is played for tricks, with each player playing a card in turn. At the end of each round, the cards are collected and shuffled for a new round. The winner of the game is determined based on either the most tricks won or the most rounds won.
+
+Inputs:
+- Number of players
+- Number of cards for each player
+- List of cards for dealing
+- Trump suit for each round
+- Cards played by each player in a trick
+
+Outputs:
+- List of cards for each player in each round
+- Index of the highest-ranking card in a trick
+- Number of tricks won by each player
+- Number of rounds won by each player
+- Winner of the game
+
+Constraints:
+- Number of players: 2-5
+- Number of cards: 1-13 (depending on the round number)
+- Trump suit: randomly selected from the 4 suits (Clubs, Spades, Hearts, Diamonds)
+- Winning condition: most tricks won or most rounds won
+
+Functions:
+a) create_cards(): Returns a list of cards represented using a dictionary. The cards should correspond to a standard deck with 2, ..., 10, Jack, Queen, King, Ace, and the 4 suits (Clubs, Spades, Hearts, Diamonds).
+b) deal_cards(cards, num_players, num_cards_per_player): Simulates dealing the cards to the players. Receives the cards as a list, the number of players, and the number of cards for each player as input. Returns a tuple containing the cards for each player in a list.
+c) compare_cards(*cards): Handles card comparisons. Can accept any number of cards for comparison. Returns the index of the highest-ranking card, taking the value of the suits into account.
+d) game_flow(): Programs the game flow using the previously defined functions. This function will handle the rounds, tricks, and determine the winner.
+
+Additional Requirements and Hints:
+- Create a computer opponent that can perform actions for computer players.
+- Develop a simple console-based user interface that guides the user through the program and offers options like starting a new round or ending the game.
+- Design the user interface to be robust, handling incorrect user inputs gracefully.
+- Structure the implementation by creating additional functions to handle different aspects of the game.",395,347,"{1: [""Indication of which player's turn it is during the game is missing"", 'Feedback to the user about valid inputs is missing']}",1,"KH,KMC,KTC,KC"
+12,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""
+Implement an ecosystem using object-oriented programming. The ecosystem exists within a habitat, where various organisms such as herbivores, omnivores, carnivores, and plants live.
+
+	- A plant requires space in the habitat. When creating a habitat, the size and other properties should be initialized.
+	- The number of organisms that can live in the habitat depends on the available food. Organisms can eat other organisms or plants, and they can also die.
+
+Here are some basic rules:
+	- The ecosystem should be simulated in rounds. In each round, organisms should grow, reproduce, and propagate. Animals need to continue feeding to avoid starvation. Organisms can die due to diseases, injuries, being eaten, lack of food, or old age.
+	- In a habitat, organisms and plants coexist. Plants need a certain amount of space to grow and reach their full potential.
+	- There should be at least three (3) different types of plants in a habitat. Each plant has its advantages and limitations. A plant has a minimum and maximum size. If a plant is eaten more than its minimum size allows, it dies.
+	- There should be at least three (3) different classes of organisms (herbivores, omnivores, and carnivores) in the habitat. Each organism searches for food, which can be more or less successful. If an organism finds too little food, it dies. Carnivores and omnivores can also hunt. The success of a hunt depends on the situation and can sometimes be dangerous.
+
+Additional properties:
+	- Each round corresponds to a certain unit of time, which you can define (depending on the unit of time and the organism, not all activities such as reproduction need to occur every round).
+	- Each round, the plants regenerate to a certain extent. The regeneration rate depends on the plant species.
+	- Each organism should have enough food for a certain period of rounds. The required amount of food can vary between organisms. If an organism doesn't find enough food, it becomes weaker and eventually dies.
+
+Tasks:
+	- Define at least 5 additional rules that expand or modify the above rules. For example, eucalyptus can only be eaten by koalas, or what happens when the habitat is full and no more plants can grow? There can also be plants that grow on trees and do not require additional habitat space. Instead of dying, animals can enter a state of rest (hibernation) instead of dying immediately. Note: If possible, the rules should be implemented by overriding the corresponding methods in the superclass.
+	- Different aspects (at least 2) should depend on randomness. This can include the success of a hunt or the strength of plant growth (as a weather influence), for example.
+
+User Interface:
+	- Create a console-based user interface that prompts the user for initial settings. After the ecosystem is activated, no further user intervention should be necessary (although it can be available for debugging or testing purposes).
+	- Provide the option to pause the ecosystem or simulate multiple rounds after activation.
+	- Consider how to provide the user with a clear representation of the state of the ecosystem after each round. Implement different modes that adjust the simulation speed, allowing multiple rounds to run without requiring user input or interaction.
+	- Ensure that user inputs are clear and robust, meaning the program should not crash in case of incorrect input.
+
+
+Note: There are many options and freedoms in implementing this project. Start with a simple approach first and remember that it can always be made more challenging!""
+",1,"The task is to implement an ecosystem using object-oriented programming. The ecosystem will exist within a habitat and will consist of various organisms such as herbivores, omnivores, carnivores, and plants. 
+
+Inputs:
+- Initial settings provided by the user through a console-based user interface.
+- User input for pausing the ecosystem or simulating multiple rounds after activation.
+
+Outputs:
+- Representation of the state of the ecosystem after each round, displayed to the user through the console-based user interface.
+- Different modes that adjust the simulation speed, allowing multiple rounds to run without requiring user input or interaction.
+
+Constraints:
+- The ecosystem should be simulated in rounds.
+- Organisms should grow, reproduce, and propagate in each round.
+- Animals need to continue feeding to avoid starvation.
+- Organisms can die due to diseases, injuries, being eaten, lack of food, or old age.
+- Plants require a certain amount of space to grow and reach their full potential.
+- Each plant has its advantages and limitations, such as a minimum and maximum size.
+- There should be at least three different types of plants in a habitat.
+- There should be at least three different classes of organisms (herbivores, omnivores, and carnivores) in the habitat.
+- Each organism searches for food, which can be more or less successful.
+- Carnivores and omnivores can hunt, and the success of a hunt depends on the situation.
+- Each round corresponds to a certain unit of time.
+- Plants regenerate to a certain extent each round, depending on the plant species.
+- Each organism should have enough food for a certain period of rounds.
+- The required amount of food can vary between organisms.
+- Additional rules and aspects can be defined, such as specific food preferences, a limit to the number of plants in the habitat, hibernation state for animals, and randomness in certain aspects of the ecosystem.
+
+In order to complete the task, the following steps need to be taken:
+1. Define initial settings for the ecosystem, including the size and properties of the habitat.
+2. Create classes for plants, herbivores, omnivores, and carnivores, with their respective properties and behaviors.
+3. Implement the rules for organism growth, reproduction, propagation, feeding, and death.
+4. Define at least five additional rules to expand or modify the existing rules, considering overriding methods in the superclass when possible.
+5. Introduce randomness in at least two aspects of the ecosystem, such as the success of hunts or the strength of plant growth.
+6. Create a console-based user interface that prompts the user for initial settings and allows for pausing or simulating multiple rounds.
+7. Display the state of the ecosystem after each round in a clear representation.
+8. Implement different simulation modes to adjust the speed of the simulation.
+9. Ensure robustness and handle incorrect user input without crashing the program.
+
+Remember to start with a simple approach and gradually make the implementation more challenging if desired.",473,423,{2: 'The constraint regarding the need for at least 5 additional rules not explicitly mentioned.'},1,"KH,KTC,KC"
+12,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""
+Implement an ecosystem using object-oriented programming. The ecosystem exists within a habitat, where various organisms such as herbivores, omnivores, carnivores, and plants live.
+
+	- A plant requires space in the habitat. When creating a habitat, the size and other properties should be initialized.
+	- The number of organisms that can live in the habitat depends on the available food. Organisms can eat other organisms or plants, and they can also die.
+
+Here are some basic rules:
+	- The ecosystem should be simulated in rounds. In each round, organisms should grow, reproduce, and propagate. Animals need to continue feeding to avoid starvation. Organisms can die due to diseases, injuries, being eaten, lack of food, or old age.
+	- In a habitat, organisms and plants coexist. Plants need a certain amount of space to grow and reach their full potential.
+	- There should be at least three (3) different types of plants in a habitat. Each plant has its advantages and limitations. A plant has a minimum and maximum size. If a plant is eaten more than its minimum size allows, it dies.
+	- There should be at least three (3) different classes of organisms (herbivores, omnivores, and carnivores) in the habitat. Each organism searches for food, which can be more or less successful. If an organism finds too little food, it dies. Carnivores and omnivores can also hunt. The success of a hunt depends on the situation and can sometimes be dangerous.
+
+Additional properties:
+	- Each round corresponds to a certain unit of time, which you can define (depending on the unit of time and the organism, not all activities such as reproduction need to occur every round).
+	- Each round, the plants regenerate to a certain extent. The regeneration rate depends on the plant species.
+	- Each organism should have enough food for a certain period of rounds. The required amount of food can vary between organisms. If an organism doesn't find enough food, it becomes weaker and eventually dies.
+
+Tasks:
+	- Define at least 5 additional rules that expand or modify the above rules. For example, eucalyptus can only be eaten by koalas, or what happens when the habitat is full and no more plants can grow? There can also be plants that grow on trees and do not require additional habitat space. Instead of dying, animals can enter a state of rest (hibernation) instead of dying immediately. Note: If possible, the rules should be implemented by overriding the corresponding methods in the superclass.
+	- Different aspects (at least 2) should depend on randomness. This can include the success of a hunt or the strength of plant growth (as a weather influence), for example.
+
+User Interface:
+	- Create a console-based user interface that prompts the user for initial settings. After the ecosystem is activated, no further user intervention should be necessary (although it can be available for debugging or testing purposes).
+	- Provide the option to pause the ecosystem or simulate multiple rounds after activation.
+	- Consider how to provide the user with a clear representation of the state of the ecosystem after each round. Implement different modes that adjust the simulation speed, allowing multiple rounds to run without requiring user input or interaction.
+	- Ensure that user inputs are clear and robust, meaning the program should not crash in case of incorrect input.
+
+
+Note: There are many options and freedoms in implementing this project. Start with a simple approach first and remember that it can always be made more challenging!""
+",2,"To implement an ecosystem using object-oriented programming, we need to create a program that simulates the interactions between organisms and plants within a habitat. The ecosystem will consist of different types of organisms such as herbivores, omnivores, and carnivores, as well as various types of plants.
+
+Inputs:
+- Initial settings: The user will be prompted to provide initial settings for the ecosystem, such as the size and properties of the habitat.
+- User inputs: The user may be asked for additional inputs during the simulation, such as pausing the ecosystem or simulating multiple rounds.
+
+Outputs:
+- State of the ecosystem: After each round, the program should provide a clear representation of the state of the ecosystem. This can include information about the population of organisms and plants, the amount of available food, and any changes that occurred in the ecosystem.
+
+Constraints:
+- Number of plants: There should be at least three different types of plants in the habitat.
+- Number of organisms: There should be at least three different classes of organisms (herbivores, omnivores, and carnivores) in the habitat.
+- Plant size: Each plant has a minimum and maximum size. If a plant is eaten more than its minimum size allows, it dies.
+- Food availability: Organisms require a certain amount of food for a certain period of rounds. If an organism doesn't find enough food, it becomes weaker and eventually dies.
+- Regeneration rate: Each round, the plants regenerate to a certain extent. The regeneration rate depends on the plant species.
+- Randomness: Different aspects of the simulation, such as the success of a hunt or the strength of plant growth, should depend on randomness.
+
+Additional rules (at least 5):
+1. Specific plant-animal interactions: Introduce specific plant-animal interactions, such as eucalyptus plants that can only be eaten by koalas.
+2. Maximum habitat capacity: When the habitat is full and no more plants can grow, implement a rule to handle this situation, such as plants competing for space or animals migrating to find new habitats.
+3. Tree-dwelling plants: Introduce plants that grow on trees and do not require additional habitat space.
+4. Hibernation: Instead of dying immediately, animals can enter a state of rest (hibernation) when they cannot find enough food.
+5. Variable reproduction rate: Implement a rule where the reproduction rate of organisms can vary based on certain conditions, such as the availability of food or the population size.
+
+User Interface:
+- Console-based user interface: Create a user interface that prompts the user for initial settings and provides a clear representation of the state of the ecosystem after each round.
+- Pause and simulation options: Provide the option to pause the ecosystem or simulate multiple rounds after activation, allowing the user to control the simulation speed.
+- Robust inputs: Ensure that user inputs are clear and robust, meaning the program should not crash in case of incorrect input.
+
+Remember, these are just suggestions for additional rules and aspects of randomness. You can choose to implement different rules and aspects based on your preferences and creativity.",500,434,{0: 'User inputs for debugging or testing purposes.'},1,"KH,KTC,KC"
+12,"Acting as a teacher, explain the following task, identify the inputs, outputs and constraints: 
+""
+Implement an ecosystem using object-oriented programming. The ecosystem exists within a habitat, where various organisms such as herbivores, omnivores, carnivores, and plants live.
+
+	- A plant requires space in the habitat. When creating a habitat, the size and other properties should be initialized.
+	- The number of organisms that can live in the habitat depends on the available food. Organisms can eat other organisms or plants, and they can also die.
+
+Here are some basic rules:
+	- The ecosystem should be simulated in rounds. In each round, organisms should grow, reproduce, and propagate. Animals need to continue feeding to avoid starvation. Organisms can die due to diseases, injuries, being eaten, lack of food, or old age.
+	- In a habitat, organisms and plants coexist. Plants need a certain amount of space to grow and reach their full potential.
+	- There should be at least three (3) different types of plants in a habitat. Each plant has its advantages and limitations. A plant has a minimum and maximum size. If a plant is eaten more than its minimum size allows, it dies.
+	- There should be at least three (3) different classes of organisms (herbivores, omnivores, and carnivores) in the habitat. Each organism searches for food, which can be more or less successful. If an organism finds too little food, it dies. Carnivores and omnivores can also hunt. The success of a hunt depends on the situation and can sometimes be dangerous.
+
+Additional properties:
+	- Each round corresponds to a certain unit of time, which you can define (depending on the unit of time and the organism, not all activities such as reproduction need to occur every round).
+	- Each round, the plants regenerate to a certain extent. The regeneration rate depends on the plant species.
+	- Each organism should have enough food for a certain period of rounds. The required amount of food can vary between organisms. If an organism doesn't find enough food, it becomes weaker and eventually dies.
+
+Tasks:
+	- Define at least 5 additional rules that expand or modify the above rules. For example, eucalyptus can only be eaten by koalas, or what happens when the habitat is full and no more plants can grow? There can also be plants that grow on trees and do not require additional habitat space. Instead of dying, animals can enter a state of rest (hibernation) instead of dying immediately. Note: If possible, the rules should be implemented by overriding the corresponding methods in the superclass.
+	- Different aspects (at least 2) should depend on randomness. This can include the success of a hunt or the strength of plant growth (as a weather influence), for example.
+
+User Interface:
+	- Create a console-based user interface that prompts the user for initial settings. After the ecosystem is activated, no further user intervention should be necessary (although it can be available for debugging or testing purposes).
+	- Provide the option to pause the ecosystem or simulate multiple rounds after activation.
+	- Consider how to provide the user with a clear representation of the state of the ecosystem after each round. Implement different modes that adjust the simulation speed, allowing multiple rounds to run without requiring user input or interaction.
+	- Ensure that user inputs are clear and robust, meaning the program should not crash in case of incorrect input.
+
+
+Note: There are many options and freedoms in implementing this project. Start with a simple approach first and remember that it can always be made more challenging!""
+",3,"Task: Implement an ecosystem using object-oriented programming. The ecosystem exists within a habitat, where various organisms such as herbivores, omnivores, carnivores, and plants live.
+
+Inputs:
+- Size and properties of the habitat
+- Number and types of plants in the habitat
+- Number and types of organisms in the habitat
+- Rules that expand or modify the basic rules
+- Randomness factors for aspects such as hunt success and plant growth
+
+Outputs:
+- Simulation of the ecosystem in rounds
+- Representation of the state of the ecosystem after each round
+- Console-based user interface for initial settings and monitoring the ecosystem
+
+Constraints:
+- At least three different types of plants in the habitat
+- At least three different classes of organisms in the habitat
+- Plants require a certain amount of space to grow and can die if eaten more than their minimum size allows
+- Organisms need enough food for a certain period of rounds and can die if they don't find enough food
+- Each round corresponds to a certain unit of time
+- Plants regenerate to a certain extent each round, depending on the plant species
+- Some aspects of the ecosystem depend on randomness, such as hunt success and plant growth
+- The user interface should be console-based and handle user inputs robustly without crashing in case of incorrect input. It should also provide options to pause the ecosystem, simulate multiple rounds, adjust simulation speed, and display the state of the ecosystem.",234,212,{0: 'User inputs for debugging or testing purposes.'},1,"KH,KTC,KC"

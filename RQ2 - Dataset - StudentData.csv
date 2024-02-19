@@ -1,0 +1,5335 @@
+id,code,task,problem
+0,"x = input (""gebe bitte deine Bankleitzahl und Kontonummer ein"") #X ist unsere Variabel und mit Befehl Input wird dem Nutzer/Kunde angzeigt, dass man seine Kontodaten angeben soll.
+y = str(131400) 
+print(int(x+y))
+ver = (int(x+y)) % 97 
+iban= 98 - ver
+if iban > 10:
+     print(""Ihre iban ist DE"" , iban, x)
+else:
+     print(""Ihre iban ist DE"" , 0, iban, x)",0,"0. Unclarified input. 
+1. Input Account number has to be filled with zeros."
+1,"Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)] on win32
+Type ""help"", ""copyright"", ""credits"" or ""license()"" for more information.
+>>> Bankleitzahl = input(""Bitte geben sie Ihre Bankleitzahl ein: ""); B = str(Bankleitzahl)
+Bitte geben sie Ihre Bankleitzahl ein: 12345678
+>>> Kontonummer = input(""Bitte geben sie Ihre Kontonummer ein: ""); K = str(Kontonummer)
+Bitte geben sie Ihre Kontonummer ein: 1234567890
+>>> IBAN = str(B)+str(K)+str(131400)
+>>> PR = int(IBAN) % 97
+>>> print(""Ihre Pruefzahl ist:"",PR)
+Ihre Pruefzahl ist: 11
+>>> print(""Ihre IBAN lautet:"",""DE"",PR,B,K)
+Ihre IBAN lautet: DE 11 12345678 1234567890
+>>> 
+",0,"0. Code does not run. 
+1. Is copied from IDLE interpreter (not a valid .py file).
+2. Check digit is incorrect."
+2,"import re
+
+#Input
+number_1 = input(""Geben Sie bitte eine Bankleitzahl ein. [8-stelliege Nummer. Bitte nur 0-9 eingeben!] "")
+
+if len(number_1) != 8 or not re.search(r""[0-9]{8,8}"", number_1): #hier werden die Fehler abgefanfen, Anzahl der Zeichnen und ob die Zeichen nur aus Ziffern bestehen
+    print(""Ihre Zahl ist nicht 8-stellig oder Sie haben keine Zahlen eingegeben. Bitte starten Sie das Programm von forne an!"")
+    exit()
+else:
+    number_2 = input(""Geben Sie bitte eine Kontonummer ein. [10-stelliege Nummer. Bitte nur 0-9 eingeben!] "")
+    if len(number_2) != 10 or not re.search(r""[0-9]{10,10}"", number_2):
+        print(""Ihre Zahl ist nicht 10-stellig oder Sie haben keine Zahlen eingegeben.. Bitte starten Sie das Programm von forne an!"")
+        exit()
+        
+#Programm
+number = list(number_1) + list(number_2)
+
+iban = '' #Ein passende string f�r den output erstellen
+for i in number:
+  iban += str(i)
+iban = 'DE00' + iban
+
+d = '13' #d und e codieren
+e = '14'
+number.insert(0,d)
+number.insert(1,e)
+number.insert(2,0)
+number.insert(3,0)
+
+
+k = 4 #Umstellung
+new_number =(number[k:len(number)]+ number[0:k])
+
+s = """" #Eine Liste in eine Dezimalzahl umwandeln
+for nr in new_number:
+  s += str(nr)
+
+n = int(s)
+
+
+m = n % 97 #Modulo 97 berechnen
+z = 98 - m  
+
+#Output
+print(f""Danke f�r Ihre Angaben. IBAN lautet {iban}\n Die Pr�fziffer ist {z}"")
+
+#Test
+
+#12345678, 1122334455 -> 37 (soll 37)
+#11111111, 2222222222 -> 16 (soll 16)
+#21050170, 0012345678 -> 68 (soll 68)
+
+",0,0. Resulting IBAN returns with 00 instead of check digit.
+3,"#iBan Nummer f�r den Versuch: DE500502011204103419
+ibannummer=input ('Geben Sie Ihre iBan Nummer ein')
+if 'DE' in ibannummer:  #wenn die iBan Nummer deutsch ist
+    bankleitzahl=ibannummer[4:12]  #Bankleitzahl zb. 70090100
+    kontonummer=ibannummer [12:]   #Kontonummer zb. 1234567123
+    bban=bankleitzahl+kontonummer  # bban 700901001234567123
+    laenderkennung='1314' #denn D wird ersetzt durch 13 und E wird ersetzt durch 14
+    laenderkennung_ergaenzt='131400' #die Laenderkennung wird druch zwei Nullen erg�nzt
+    pruefsumme=bban+laenderkennung_ergaenzt #pr�fsumme
+    pruefsumme_modulo=int(pruefsumme)%97 #pr�fsumme modulo
+    pruefungsziffer=98-pruefsumme_modulo
+    if pruefungsziffer>9:   # wenn die pr�fungsziffer gr��er als 9 ist muss die pr�fsumme von der 98 subtrahiert werden
+        pruefungsziffer=98-pruefsumme_modulo
+    else:
+        pruefungsziffer=98-pruefsumme_modulo #pr�fungsziffer wird berechnet
+        pruefungsziffer=str(pruefungsziffer).zfill(2)
+        print('Ihre Pruefziffer lautet:', pruefungsziffer) #pr�fungsziffer herausgeben
+        pruefung=bban+laenderkennung#pruefungsziffer
+        if int(pruefung)%97==1:  #prozess der Validierung
+            print('Ihre iBan Nummer ist g�ltig') #herausgeben, dass die iBan g�ltig ist",0,"0. Input requests full IBAN.
+1. If check digit is > 9, nothing is printed."
+4,"#Input
+
+Bankleitzahl = eval(input(""Bitte hier Bankleitzahl eingeben: ""))
+
+Kontonummer = eval(input(""Bitte hier Kontonummer eingeben: ""))
+
+#Process
+tempIBAN = int(str(Bankleitzahl)+ str(Kontonummer)+ ""131400"")
+print(tempIBAN)
+
+Pruefsumme = 98 - (tempIBAN % 97)
+print(Pruefsumme)
+
+#Output
+IBAN = ""DE"" + str(Pruefsumme)+ str(Bankleitzahl)+ str(Kontonummer)
+print(IBAN)
+
+if len(IBAN)!= 22:
+    print(""IBAN ungueltig!"")
+else:
+    print(""IBAN gueltig!"")",0,"0. Account number is not filled with zeros.
+1. Cannot enter account number with leading zeros."
+5,"#Input: Als erstes wird ein Jahr eingegeben. Zunaechst wird dies auf integer umgewandelt.
+
+JAHR = int(input(""Bitte geben Sie ein beliebiges Jahr ein (Bem.: nicht frueher als 1582):"" ))
+
+#Prozess: zur Festellung ob es sich um ein Schaltjahr handelt,
+#wird das eingegebene Jahr durch 4 Bedingungen geprueft werden.
+
+if JAHR < 1582:
+    print(""Error. Bitte das Jahr ab 1582 eingeben"")
+
+elif JAHR % 100 == 0:
+    print(""Das Jahr"", JAHR,  ""ist kein Schaltjahr"")
+elif JAHR % 4 == 0:
+    print(""Das Jahr"", JAHR, ""ist ein Schaltjahr"")
+else:
+    print(""Das Jahr"", JAHR, ""ist kein Schaltjahr"")
+
+#Ausgabe: gemaess der erfuellten Bedingung wird entsprechende Aussage ausgedrueckt. ",1,0. Leap years modulo 400 are not identified.
+6,"Jahr=int(input('F�r welches Jahr interessieren Sie sich?'))
+Schaltjahr=False
+if Jahr%4==0:
+    if Jahr%100!=0:
+        Schaltjahr=True
+    elif Jahr%4000:
+            Schaltjahr=True
+
+if Schaltjahr==False:
+    print('Das Jahr '+str(Jahr) +' ist kein Schaltjahr')
+else:
+    print('Das Jahr '+str(Jahr) +' ist ein Schaltjahr')",1,0. All centuries are wrongly identified as leap years. 'Jahr%4000’ is true for every year <4000.
+7,"Jahr= int(input(""Bitte Geben sie ein beliebiges Jahr ein: ""))
+
+if Jahr%4==0:
+    print(""Das Jahr""+str(Jahr)+"" ist ein Schaltjahr"")
+elif Jahr%100!=0:
+    print(""Das Jahr ""+str(Jahr)+"" ist kein Schaltjahr"")
+elif Jahr%400==0:
+    print(""Das jahr""+str(Jahr)+"" ist ein Schaltjahr"")",1,0. Wrong condition order. Every year mod 4 is wrongly printed as leap year.
+8,"#input
+jahr= int ( input ( ""Bitte geben Sie ein Jahr ein :""))
+#process&output
+if jahr in range ( 1900, 2196, 4):
+   print (""Das Jahr "", jahr ,"" ist ein Schaltjahr!"")
+   
+else : 
+    print (""Das Jahr"" , jahr , ""ist kein Schaltjahr!!"")",1,0. Only calculates years from 1900 to 2195.
+9,"x = 2024
+
+'''
+Eingabe eines Jahres (x)
+
+�berpr�fen, ob x ein Schaltjahr ist, indem man es durch die Schaltjahresregeln f�hrt
+
+'''
+
+if x % 4 == 0:
+    print(""{0} ist ein Schaljahr"".format(x))
+    # durch 4 ganzzahlig teilbar
+elif x % 400 == 0:
+    print(""{0} ist ein Schaltjahr"".format(x))
+    # S�kularjahre, die durch 400 ganzzahlig teilbar sind
+elif x % 100 == 0:
+    print(""{0} ist kein Schaltjahr"".format(x))
+    # die Jahre die ein Jahrhundret abschlie�en
+else:
+    print(""{0} ist kein Schaltjahr"".format(x))
+     # {} verwendet man um Dictionary zu definieren
+     # es enth�lt eine Sammlung, die ver�nderbar ist",1,"0. Wrong condition order.
+1. No input possible."
+10,"#Eingabe:
+
+Jahr = int(input(""Bitte geben Sie das Jahr ein:"" ))
+Wochentag = input(""Bitte geben Sie den Wochentag im 1. Jan ein: "")
+
+#Prozess (if und match) und Ausgabe (durch print Befehl):
+
+print(""                                                                   "")
+print(""--------------------------------------------------------------------------"")
+print(""In einem Jahr kann es mindestens 1 und hoechstens 3 Freitag der 13. geben."")
+print(""--------------------------------------------------------------------------"")
+print(""                                                                   "")
+
+if Jahr % 4 == 0:
+    match Wochentag:
+        case ""Montag"": print (""Durch Ihre Angaben gibt es"", 2, ""Freitag der 13. im Jahr"", Jahr)
+        case ""Dienstag"": print (""Durch Ihre Angaben gibt es"", 1, ""Freitag der 13. im Jahr"", Jahr)
+        case ""Mittwoch"": print (""Durch Ihre Angaben gibt es"", 2, ""Freitag der 13. im Jahr"", Jahr) 
+        case ""Donnerstag"": print (""Durch Ihre Angaben gibt es"", 2, ""Freitag der 13. im Jahr"", Jahr)
+        case ""Freitag"": print (""Durch Ihre Angaben gibt es"", 1, ""Freitag der 13. im Jahr"", Jahr)
+        case ""Samstag"": print (""Durch Ihre Angaben gibt es"", 1, ""Freitag der 13. im Jahr"", Jahr)
+        case ""Sonntag"": print (""Durch Ihre Angaben gibt es"", 3, ""Freitag der 13. im Jahr"", Jahr)
+
+else:
+    match Wochentag:
+        case ""Montag"": print (""Durch Ihre Angaben gibt es"", 2, ""Freitag der 13. im Jahr"", Jahr)
+        case ""Dienstag"": print (""Durch Ihre Angaben gibt es"", 2, ""Freitag der 13. im Jahr"", Jahr)
+        case ""Mittwoch"": print (""Durch Ihre Angaben gibt es"", 1, ""Freitag der 13. im Jahr"", Jahr)
+        case ""Donnerstag"": print (""Durch Ihre Angaben gibt es"", 3, ""Freitag der 13. im Jahr"", Jahr)
+        case ""Freitag"": print (""Durch Ihre Angaben gibt es"", 1, ""Freitag der 13. im Jahr"", Jahr)
+        case ""Samstag"": print (""Durch Ihre Angaben gibt es"", 1, ""Freitag der 13. im Jahr"", Jahr)
+        case ""Sonntag"": print (""Durch Ihre Angaben gibt es"", 2, ""Freitag der 13. im Jahr"", Jahr)
+
+     
+
+#Anmerkung:
+#Quelle von Anzahl der Freitage im Schalt- und kein Schaltjahr:
+#https://nondoc.com/2017/01/13/calculate-friday-the-13th/",2,0. No calculation. Just hard coded.
+11,"global count
+count = 0
+def simple_year(date):
+    month = 1
+    while month < 13:
+        date += 7
+        if date == 13:
+            count += 1
+        match month:
+            case 1| 3 | 5 | 7 | 8 | 10 | 12: 
+                if date > 31: 
+                    date -=31; 
+                    month += 1
+            case 4 | 6 | 9 | 11 : 
+                if date > 30:
+                    date -=30
+                    month += 1
+            case 2 :
+                match leap_year:
+                    case 'y':
+                        if date > 29:
+                            date -=29
+                            month += 1
+                    case 'n':
+                        if date > 28:
+                            date -=28
+                            month += 1
+
+def output(week_day, leap_year, count):
+    print(""Schaltjahr?"", leap_year, ""Im Jahr, das mit"", week_day, ""startet, hat"", count)
+
+                 
+
+#        if month%2 == 0:
+#            if date > 31:
+#                date -=31
+#                month += 1
+#        elif month == 2 and leap_year == 'y':
+#            if date > 29:
+#                date -=29
+#                month += 1
+#        elif month == 2 and leap_year == 'n':
+#            if date > 28:
+#                date -=28
+#                month += 1
+#        elif month == 1:
+#           if date > 31:
+#             date -=31
+#             month += 1
+#        else:
+#          if date > 30:
+#            date -=30
+#           month += 1
+       # months(date, month, leap_year)
+    return count
+
+def months(date, month, leap_year):
+    if month%2 == 0:
+        if date > 31:
+            date -=31
+            month += 1
+    elif month == 2 and leap_year == 'y':
+        if date > 29:
+            date -=29
+            month += 1
+    elif month == 2 and leap_year == 'n':
+        if date > 28:
+            date -=28
+            month += 1
+    elif month == 1:
+        if date > 31:
+            date -=31
+            month += 1
+    else:
+        if date > 30:
+            date -=30
+            month += 1
+
+leap_year = ''
+
+while leap_year != 'y' and leap_year != 'n': # proof of value valitidy
+    leap_year = input(""Muss es ein Schaltjahr sein? [y/n]"")
+    
+for date in range(1, 8):
+    simple_year(date)
+    match date:
+        case 1: output(""Freitag"", leap_year)",2,"0. Global count not inside function simple_year.
+1. output(...) has missing parameter.
+2. Only calculates for years starting with Freitag."
+12,"import datetime
+year = int(input(""Geben Sie eine Jahr ein:""))
+days =[31,28,31,30,31,30,31,31,30,31,30,31]
+if (year%4==0) and (year%100 !=0) or (year%400)==0:
+    is_leap_year = 1
+    print(""{} ist ein Schaltjahr."".format(year))
+else:
+    is_leap_year = 0
+    print(""{} ist ein kein Schaltjahr"".format(year))
+
+if is_leap_year == 1:
+    days[1] = 29
+if is_leap_year == 0:
+    days[1] = 28
+
+count = 0
+for i in range(1,13):
+    for j in range(1,days[i-1]):
+        date = datetime.date(year,i,j)
+        weekday = date.isoweekday()
+        if j==13 and weekday ==5:
+            count = count +1
+            print(""Anzahl der Black Fridays in diesem Jahr:"")
+            print(count)
+            print(""Jeder Black Friday findet an folgenden Daten statt:"")
+            print(date)",2,0. Multiple outputs (one for each friday 13 in a year).
+13,"import datetime, sys
+#Eingabe einfordern
+anfang = input(""Startdatum eingeben(Tag.Monat.Jahr): "").split('.')[::-1]
+ende = input(""Enddatum eingeben(Tag.Monat.Jahr): "").split('.')[::-1]
+print()
+ 
+anzahl = 0
+ 
+for i in range(len(anfang)):
+    anfang[i] = int(anfang[i])
+ 
+for i in range(len(ende)):
+    ende[i] = int(ende[i])
+ 
+try:
+    startdatum = datetime.date(anfang[0],anfang[1],anfang[2])
+    enddatum = datetime.date(ende[0],ende[1],ende[2])
+#Falls falsches Datum eingegeben wird
+except:
+    print(""Irgendwas stimmt mit der/dem Eingabe/Datum nicht!"")
+    sys.exit(0)
+ 
+if startdatum > enddatum:
+    print(""Startdatum gr��er Enddatum!"")
+    sys.exit(0)
+ 
+if anfang[2] > 13:
+    anfang[2] = 13
+    anfang[1] += 1
+ 
+while True:
+    if datetime.date(anfang[0],anfang[1],13).weekday() == 4:
+        if len(str(anfang[1])) == 1:
+            print(""13.0"" + str(anfang[1]) + ""."" + str(anfang[0]))        
+ 
+        else:
+            print(""13."" + str(anfang[1]) + ""."" + str(anfang[0]))
+ 
+        anzahl += 1
+         
+    if anfang[1] == 12:
+        anfang[1] = 1
+        anfang[0] += 1
+ 
+    else:
+        anfang[1] += 1
+ 
+    startdatum = datetime.date(anfang[0],anfang[1],anfang[2])
+ 
+    if startdatum > enddatum:
+        break
+ 
+print()
+print(""In der Summe gab es"", anzahl, ""Freitag den 13. im Zeitraum zwischen ihrem Start und Enddatum."")",2,0. Calculates from start to end date instead of full year.
+14,"#input
+jahr= int ( input ( ""Bitte geben Sie ein Jahr ein :""))
+#process&output
+if jahr in range ( 1900, 2196, 4):
+   print (""Im Jahr "", jahr ,"" gibt es max. 2 und min. 1 Freitag der 13. !"")
+   
+else : 
+    print (""Im Jahr"" , jahr , ""gibt es max. 3 und min 2.  Freitag der 13 !!"")",2,"0. No calculation. Only depends on leap year, not starting day."
+15,"# das ist nur ein Ansatz der Aufgabe, da ich nicht mehr wusste wie ich weiter machen soll.
+
+        
+def buchstabenLinksNachRechts():
+# es wird eine Funktion definiert, welche die Buchstaben von links nach rechts ausgibt
+    
+    buchstaben = ""ABCDEFGH""
+    s = ""1""
+# durch die 1 wird bestimmt, was hinter dem ausgegebnen Buchstaben stehen soll
+    for i in range(1):
+# die Zahl, die in der Klammer bei ""range"" steht, bestimmt welcher Buchstabe ausgegeben werden soll. Da der Buchstabe A in der ersten Position steht wird sie auch ausgegben.
+        s = buchstaben[i] + s
+# der Buchstabe, der in der range bestimmt wird, wird hier mit dem Wert kombiniert, den wir der Variable s gegeben haben.
+# dieser Vorgang wird nun immerweiter durchgef�hrt, bis wir A mit jeder Zahl von 1-8 kombiniert haben.
+        print(s)
+    buchstaben = ""ABCDEFGH""
+    s = ""2""
+    for i in range(1):
+        s = buchstaben[i] + s
+        print(s)
+        buchstaben = ""ABCDEFGH""
+    s = ""3""
+    for i in range(1):
+        s = buchstaben[i] + s
+        print(s)
+        buchstaben = ""ABCDEFGH""
+    s = ""4""
+    for i in range(1):
+        s = buchstaben[i] + s
+        print(s)
+        buchstaben = ""ABCDEFGH""
+    s = ""5""
+    for i in range(1):
+        s = buchstaben[i] + s
+        print(s)
+        buchstaben = ""ABCDEFGH""
+    s = ""6""
+    for i in range(1):
+        s = buchstaben[i] + s
+        print(s)
+        buchstaben = ""ABCDEFGH""
+    s = ""7""
+    for i in range(1):
+        s = buchstaben[i] + s
+        print(s)
+        buchstaben = ""ABCDEFGH""
+    s = ""8""
+    for i in range(1):
+        s = buchstaben[i] + s
+        print(s)
+        buchstaben = ""ABCDEFGH""
+    
+        
+
+
+if __name__ == ""__main__"":
+ buchstabenLinksNachRechts()
+
+# mit dieser Bedinging wird festgelegt, dass die definierte Funktion ausgef�hrt werden soll
+",3,0. Prints only first column.
+16,"Chess_Line_List_1 =[""A1"", ""B1"", ""C1"", ""D1"", ""E1"", ""F1"", ""G1"", ""H1""]
+Chess_Line_List_2 =[""A2"", ""B2"", ""C2"", ""D2"", ""E2"", ""F2"", ""G2"", ""H2""]
+Chess_Line_List_3 =[""A3"", ""B3"", ""C3"", ""D3"", ""E3"", ""F3"", ""G3"", ""H3""]
+Chess_Line_List_4 =[""A4"", ""B4"", ""C4"", ""D4"", ""E4"", ""F4"", ""G4"", ""H4""]
+Chess_Line_List_5 =[""A5"", ""B5"", ""C5"", ""D5"", ""E5"", ""F5"", ""G5"", ""H5""]
+Chess_Line_List_6 =[""A6"", ""B6"", ""C6"", ""D6"", ""E6"", ""F6"", ""G6"", ""H6""]
+Chess_Line_List_7 =[""A7"", ""B7"", ""C7"", ""D7"", ""E7"", ""F7"", ""G7"", ""H7""]
+Chess_Line_List_8 =[""A8"", ""B8"", ""C8"", ""D8"", ""E8"", ""F8"", ""G8"", ""H8""]
+#Erstellung von 8 Listen f�r jede Reihe
+
+Chess_Line_List = [Chess_Line_List_1, Chess_Line_List_2, Chess_Line_List_3, Chess_Line_List_4, 
+Chess_Line_List_5, Chess_Line_List_6, Chess_Line_List_7,Chess_Line_List_8]
+Chess = str(input('''Bitte geben Sie das Wort ""Schach"" ein: '''))
+
+#Input des Benutzers zur Erstellung des Brettes
+if Chess == (""Schach""):
+    print (*Chess_Line_List_1)
+    print (*Chess_Line_List_2)
+    print (*Chess_Line_List_3)
+    print (*Chess_Line_List_4)
+    print (*Chess_Line_List_5)
+    print (*Chess_Line_List_6)
+    print (*Chess_Line_List_7)
+    print (*Chess_Line_List_8)    
+   #Bei richtiger Eingabe wird das Brett Zeile f�r Zeile gedruckt.
+Queen_Symbol = (""QQ"") #Definierung des Symbols der Koenigin
+Queen = str(input(""Auf welche Position soll die K�nigin stehen?:"")) #Frage den Nutzer nach 
+#Position der Koenigin
+if (Queen in Chess_Line_List_1):
+        for index, value in enumerate (Chess_Line_List_1):
+            if value == Queen:
+                Chess_Line_List_1[index] = Queen_Symbol 
+#Schaut ob sich der auszutauschende Platz in der Zeile befindet. Wenn ja wird input gegen
+# QQ eingetauscht.                
+    
+elif (Queen in Chess_Line_List_2):
+        for index, value in enumerate (Chess_Line_List_2):
+            if value == Queen:
+                Chess_Line_List_2[index] = Queen_Symbol    
+
+elif (Queen in Chess_Line_List_3):
+        for index, value in enumerate (Chess_Line_List_3):
+            if value == Queen:
+                Chess_Line_List_3[index] = Queen_Symbol  
+
+elif (Queen in Chess_Line_List_4):
+        for index, value in enumerate (Chess_Line_List_4):
+            if value == Queen:
+                Chess_Line_List_4[index] = Queen_Symbol    
+
+elif (Queen in Chess_Line_List_5):
+        for index, value in enumerate (Chess_Line_List_5):
+            if value == Queen:
+                Chess_Line_List_5[index] = Queen_Symbol  
+
+elif (Queen in Chess_Line_List_6):
+        for index, value in enumerate (Chess_Line_List_6):
+            if value == Queen:
+                Chess_Line_List_6[index] = Queen_Symbol    
+
+elif (Queen in Chess_Line_List_7):
+        for index, value in enumerate (Chess_Line_List_7):
+            if value == Queen:
+                Chess_Line_List_7[index] = Queen_Symbol   
+
+elif (Queen in Chess_Line_List_8):
+        for index, value in enumerate (Chess_Line_List_8):
+            if value == Queen:
+                Chess_Line_List_8[index] = Queen_Symbol    
+#Das ganze dann f�r alle Zeilen.
+else:
+    print("" Dieses Feld existiert nicht"")                
+#Wird ein ung�ltiger Wert eingegeben, wird der Nutzer informiert.
+print (*Chess_Line_List_1)
+print (*Chess_Line_List_2)
+print (*Chess_Line_List_3)
+print (*Chess_Line_List_4)
+print (*Chess_Line_List_5)
+print (*Chess_Line_List_6)
+print (*Chess_Line_List_7)
+print (*Chess_Line_List_8) 
+#Gibt das neu erstellte Schachbrett aus
+
+#3 Testf�lle:
+#1) Eingabe: A1; Ausgabe QQ ist auf Platz von A1; Erwartung erf�llt
+#2) Eingabe: D6; Ausgabe QQ ist auf Platz von D6; Erwartung erf�llt
+#3) Eingabe: G9; Ausgabe: QQ wurde nicht ausgetaischt, Feld existiert nicht; Erwartung erf�llt
+",3,"0. No function.
+1. Hard coded, no loops."
+17,"def schachbrett():
+    #input and procsssing
+    liste1 = [""A1"", ""B1"", ""C1"", ""D1"", ""E1"", ""F1"", ""G1"", ""H1""]
+    liste2 = [""A2"", ""B2"", ""C2"", ""D2"", ""E2"", ""F2"", ""G2"", ""H2""]
+    liste3 = [""A3"", ""B3"", ""C3"", ""D3"", ""E3"", ""F3"", ""G3"", ""H3""]
+    liste4 = [""A4"", ""B4"", ""C4"", ""D4"", ""E4"", ""F4"", ""G4"", ""H4""]
+    liste5 = [""A5"", ""B5"", ""C5"", ""D5"", ""E5"", ""F5"", ""G5"", ""H5""]
+    liste6 = [""A6"", ""B6"", ""C6"", ""D6"", ""E6"", ""F6"", ""G6"", ""H6""]
+    liste7 = [""A7"", ""B7"", ""C7"", ""D7"", ""E7"", ""F7"", ""G7"", ""H7""]
+    liste8 = [""A8"", ""B8"", ""C8"", ""D8"", ""E8"", ""F8"", ""G8"", ""H8""]
+#brute force because why not.
+#output
+    print(liste1)
+    print(liste2)
+    print(liste3)
+    print(liste4)
+    print(liste5)
+    print(liste6)
+    print(liste7)
+    print(liste8)
+    return
+
+schachbrett()
+
+
+def schachbrett_koenigin(position):
+    if position == None:
+  
+        liste1 = [""A1"", ""B1"", ""C1"", ""D1"", ""E1"", ""F1"", ""G1"", ""H1""]
+        liste2 = [""A2"", ""B2"", ""C2"", ""D2"", ""E2"", ""F2"", ""G2"", ""H2""]
+        liste3 = [""A3"", ""B3"", ""C3"", ""D3"", ""E3"", ""F3"", ""G3"", ""H3""]
+        liste4 = [""A4"", ""B4"", ""C4"", ""D4"", ""E4"", ""F4"", ""G4"", ""H4""]
+        liste5 = [""A5"", ""B5"", ""C5"", ""D5"", ""E5"", ""F5"", ""G5"", ""H5""]
+        liste6 = [""A6"", ""B6"", ""C6"", ""D6"", ""E6"", ""F6"", ""G6"", ""H6""]
+        liste7 = [""A7"", ""B7"", ""C7"", ""D7"", ""E7"", ""F7"", ""G7"", ""H7""]
+        liste8 = [""A8"", ""B8"", ""C8"", ""D8"", ""E8"", ""F8"", ""G8"", ""H8""]
+
+        print(liste1)
+        print(liste2)
+        print(liste3)
+        print(liste4)
+        print(liste5)
+        print(liste6)
+        print(liste7)
+        print(liste8)
+        pass
+
+       
+        
+
+j = str(input(""Geben Sie ein: ""))
+schachbrett_koenigin(j)",3,"0. Hard coded, no loops.
+1. Prints lists.
+2. Does not print queen."
+18,"#Aufgabe 2a
+#Definiere Zeilen (lines) und Spalten (column)
+number_lines = 8
+number_columns = 8
+
+#Schachbrett -Funktion einbringen durch eine Liste, die die darin enthaltene Liste[0] * die Anzahl der Zeilen in der
+#Anzahl der Spalten (mithilfe der range-Funktion) berechnet
+#For-Schleifen f�r Lines und columns und Erg�nzung der Zahlen und Buchstaben f�r jede Zeile durch chr(Charaktere f�r
+#Zahlen; 65 = A)
+schachbrett = [[0] * number_lines for i in range(number_columns)]
+for line in range(number_lines):
+    for column in range(number_columns):
+        schachbrett[line][column] = str(chr(65 + column)) + str(line + 1)
+
+#For-Schleife f�r Reihe im Schachbrett, um jede 1 zu erh�hen, da zuvor nur die Spalten um eins erh�ht wurden
+for row in schachbrett[:: +1]:
+    print("""".join([str(element) for element in row]))
+    
+#Aufgabe 2b
+#Definieren von schachbrett koenigin durch def
+def schachbrett_koenigin(pos):
+    print(pos)
+
+koenigin = 'QQ'
+#�bergabe von der Position z.B. hier ""C5""
+schachbrett_koenigin(""C5"")
+
+#Eingabe der Zeilen- und Spaltennummer und Ersetzung durch 'QQ'
+for line in range(4):
+     for column in range(2):
+         schachbrett[4][2] = chr(65 + column) + str(line + 1)
+         schachbrett[4][2] = 'QQ'
+         if schachbrett_koenigin(""""):
+             print(schachbrett)
+
+for row in schachbrett[:: + 1]:
+    print("""".join([str(element) for element in row]))",3,"0. No functions.
+1. Bad print (no spaces)."
+19,"def Schachbrett():
+    list1 = [""a"", ""b"" , ""c"", ""d"", ""e"", ""f"", ""g"", ""h""]
+    list2 = [1, 2, 3,4,5,6,7,8]
+    list3 = []
+    for x in list2:
+        for y in list1:
+            list3.append(y+str(x))
+    print(list3)
+
+Schachbrett()",3,0. Prints one-dimensional list.
+20,"print(""Willkommen zum Streichholzspiel..."")
+
+def punkte(p):  #Funktion, damit Eingabe gez�hlt werden kann
+    if p > 0 and p <= 3:  #�berpr�fen der Eingabe
+       p = p  #Zuweisen
+       return p  #R�ckgabe 
+
+
+j = 13
+while j <= 13:  #solange j 13 ist soll Programm weiterlaufen
+#Spieler 1
+   print(""Spieler 1, Sie sind dran..."")
+   a = int(input()) #Eingabe
+   t = punkte(a) #Ausgabe
+   sw = j - t #Subraktion j minus eingebene Zahl
+   if sw <= 12 and sw >= 10: #�berpr�fung
+      match sw:  #Match case, damit Ausgabe besser erfolgen kann
+         case 12: print(""() () () () () () () () () () () ()""), print(""|| || || || || || || || || || || ||""),   print(""|| || || || || || || || || || || ||"")   
+         case 11: print(""() () () () () () () () () () ()"") , print(""|| || || || || || || || || || ||"") , print(""|| || || || || || || || || || ||"")
+         case 10: print(""() () () () () () () () () ()"")  ,  print(""|| || || || || || || || || ||"") ,    print(""|| || || || || || || || || ||"")
+
+#Spieler 2
+   print(""Spieler 2, sie sind dran..."")
+   b = int(input()) #Eingabe
+   p = punkte(b) #Ausgabe
+   sw = j - t - p #Subraktion eingebene Zahl
+   if sw <= 11 and sw >= 7: #�berpr�fung
+      match sw:  #Match case, damit Ausgabe besser erfolgen kann
+         case 11: print(""() () () () () () () () () () ()"") , print(""|| || || || || || || || || || ||"") , print(""|| || || || || || || || || || ||"")
+         case 10: print(""() () () () () () () () () ()"")  ,  print(""|| || || || || || || || || ||"") ,    print(""|| || || || || || || || || ||"")
+         case 9: print(""() () () () () () () () ()""), print(""|| || || || || || || || ||""),   print(""|| || || || || || || || ||"")
+         case 8: print(""() () () () () () () () "") , print(""|| || || || || || || ||"") , print(""|| || || || || || || ||"")
+         case 7: print(""() () () () () () ()"")  ,  print(""|| || || || || || ||"") ,    print(""|| || || || || || ||"")
+
+#Spieler 1
+   print(""Spieler 1, Sie sind dran..."")
+   c = int(input())  #Eingabe
+   q = punkte(c)   #Ausgabe
+   sw = j - t - p - q   #Subraktion eingebene Zahl
+   if sw <= 10 and sw >= 6:  #�berpr�fung
+      match sw:   #Match case, damit Ausgabe besser erfolgen kann
+         case 10: print(""() () () () () () () () () ()"")  ,  print(""|| || || || || || || || || ||"") ,    print(""|| || || || || || || || || ||"")
+         case 9: print(""() () () () () () () () ()""), print(""|| || || || || || || || ||""),   print(""|| || || || || || || || ||"")   
+         case 8: print(""() () () () () () () () "") , print(""|| || || || || || || ||"") , print(""|| || || || || || || ||"")
+         case 7: print(""() () () () () () ()"")  ,  print(""|| || || || || || ||"") ,    print(""|| || || || || || ||"")
+         case 6: print(""() () () () () ()""), print(""|| || || || || ||""),   print(""|| || || || || ||"")
+
+#Spieler 2        
+   print(""Spieler 2, Sie sind dran..."")
+   d = int(input()) #Eingabe
+   r = punkte(d)    #Ausgabe        
+   sw = j - t - p - q - r  #Subraktion eingebene Zahl
+   if sw <= 9 and sw >=  5:  #�berpr�fung
+      match sw:  #Match case, damit Ausgabe besser erfolgen kann
+         case 9: print(""() () () () () () () () ()""), print(""|| || || || || || || || ||""),   print(""|| || || || || || || || ||"")   
+         case 8: print(""() () () () () () () () "") , print(""|| || || || || || || ||"") , print(""|| || || || || || || ||"")
+         case 7: print(""() () () () () () ()"")  ,  print(""|| || || || || || ||"") ,    print(""|| || || || || || ||"")
+         case 6: print(""() () () () () ()""), print(""|| || || || || ||""),   print(""|| || || || || ||"")
+         case 5: print(""() () () () ()"") , print(""|| || || || ||"") , print(""|| || || || ||"")
+
+#Spieler 1
+   print(""Spieler 1, Sie sind dran..."")
+   e = int(input())  #Eingabe
+   s = punkte(e)  #Ausgabe                 
+   sw = j - t - p - q - r - s #Subraktion eingebene Zahl
+   if sw <= 8 and sw >=  4:  #�berpr�fung
+      match sw:   #Match case, damit Ausgabe besser erfolgen kann
+         case 8: print(""() () () () () () () () "") , print(""|| || || || || || || ||"") , print(""|| || || || || || || ||"")
+         case 7: print(""() () () () () () ()"")  ,  print(""|| || || || || || ||"") ,    print(""|| || || || || || ||"")
+         case 6: print(""() () () () () ()""), print(""|| || || || || ||""),   print(""|| || || || || ||"")
+         case 5: print(""() () () () ()"") , print(""|| || || || ||"") , print(""|| || || || ||"")
+         case 4: print(""() () () () "")  ,  print(""|| || || ||"") ,    print(""|| || || ||"")
+
+#Spieler 2 
+   print(""Spieler 2, Sie sind dran..."")
+   f = int(input())   #Eingabe
+   t = punkte(f)   #Ausgabe   
+   sw = j - t - p - q - r - s -t  #Subraktion eingebene Zahl
+   if sw <= 7 and sw >=  3:  #�berpr�fung
+      match sw:  #Match case, damit Ausgabe besser erfolgen kann
+         case 7: print(""() () () () () () ()"")  ,  print(""|| || || || || || ||"") ,    print(""|| || || || || || ||"")
+         case 6: print(""() () () () () ()""), print(""|| || || || || ||""),   print(""|| || || || || ||"")
+         case 5: print(""() () () () ()"") , print(""|| || || || ||"") , print(""|| || || || ||"")
+         case 4: print(""() () () () "")  ,  print(""|| || || ||"") ,    print(""|| || || ||"")
+         case 3: print(""() () ()""), print(""|| || ||""),   print(""|| || ||"")
+
+#Spieler 1
+   print(""Spieler 1, Sie sind dran..."")
+   g = int(input())  #Eingabe
+   u = punkte(g)  #Ausgabe            
+   sw = j - t - p - q - r - s - t - u  #Subraktion eingebene Zahl
+   if sw <= 6 and sw >=  2:  #�berpr�fung
+      match sw:    #Match case, damit Ausgabe besser erfolgen kann
+         case 6: print(""() () () () () ()""), print(""|| || || || || ||""),   print(""|| || || || || ||"")
+         case 5: print(""() () () () ()"") , print(""|| || || || ||"") , print(""|| || || || ||"")
+         case 4: print(""() () () () "")  ,  print(""|| || || ||"") ,    print(""|| || || ||"")
+         case 3: print(""() () ()""), print(""|| || ||""),   print(""|| || ||"")
+         case 2: print(""() ()"") , print(""|| ||"") , print(""|| ||"")
+
+#Spieler 2
+   print(""Spieler 2, Sie sind dran..."")
+   h = int(input())  #Eingabe
+   v = punkte(h)   #Ausgabe           
+   sw = j - t - p - q - r - s - t - u - v  #Subraktion eingebene Zahl
+   if sw <= 5 and sw >=  1:  #�berpr�fung
+      match sw:   #Match case, damit Ausgabe besser erfolgen kann
+         case 5: print(""() () () () ()"") , print(""|| || || || ||"") , print(""|| || || || ||"")
+         case 4: print(""() () () () "")  ,  print(""|| || || ||"") ,    print(""|| || || ||"")
+         case 3: print(""() () ()""), print(""|| || ||""),   print(""|| || ||"")
+         case 2: print(""() ()"") , print(""|| ||"") , print(""|| ||"")
+         case 1: print(""()"")  ,  print(""||"") ,    print(""||"")
+   
+#Spieler 1
+   print(""Spieler 1, Sie sind dran..."")
+   i = int(input()) #Eingabe
+   w = punkte(i)  #Ausgabe           
+   sw = j - t - p - q - r - s - t - u - w   #Subraktion eingebene Zahl
+   if sw <= 4 and sw >=  0: #�berpr�fung
+      match sw:   #Match case, damit Ausgabe besser erfolgen kann
+         case 4: print(""() () () () "")  ,  print(""|| || || ||"") ,    print(""|| || || ||"")
+         case 3: print(""() () ()""), print(""|| || ||""),   print(""|| || ||"")
+         case 2: print(""() ()"") , print(""|| ||"") , print(""|| ||"")
+         case 1: print(""()"")  ,  print(""||"") ,    print(""||"")          
+         case 0: print(""Sieger, Spieler 1.... Herzlichen Gl�ckwunsch!!!"")
+
+#Spieler 2
+   print(""Spieler 2, Sie sind dran..."")
+   jz = int(input()) #Eingabe
+   x = punkte(jz)    #Ausgabe       
+   sw = j - t - p - q - r - s - t - u - v - w - x   #Subraktion eingebene Zahl
+   if sw <= 3 and sw >=  0:  #�berpr�fung
+      match sw:   #Match case, damit Ausgabe besser erfolgen kann
+         case 3: print(""() () ()""), print(""|| || ||""),   print(""|| || ||"")
+         case 2: print(""() ()"") , print(""|| ||"") , print(""|| ||"")
+         case 1: print(""()"")  ,  print(""||"") ,    print(""||"")
+         case 0: print(""Sieger, Spieler 1.... Herzlichen Gl�ckwunsch!!!"")
+
+#Spieler 1
+   print(""Spieler 1, Sie sind dran..."")
+   k = int(input())  #Eingabe
+   y = punkte(k)    #Ausgabe   
+   sw = j - t - p - q - r - s - t - u - v - w - x - y   #Subraktion eingebene Zahl  
+   if sw <= 2 and sw >=  0:  #�berpr�fung
+      match sw:   #Match case, damit Ausgabe besser erfolgen kann
+         case 2: print(""() ()"") , print(""|| ||"") , print(""|| ||"")
+         case 1: print(""()"")  ,  print(""||"") ,    print(""||"")          
+         case 0: print(""Sieger, Spieler 1.... Herzlichen Gl�ckwunsch!!!"")
+                
+#Spieler 2
+   print(""Spieler 2, Sie sind dran, ab hier bitte nur noch maximal zwei Steichh�lzer abziehen"")
+   z = int(input())  #Eingabe
+   if z <= 2 and z >= 0:    #Ausgabe         
+      sw = j - t - p - q - r - s - t - u - v - w - x - y - z  #Subraktion eingebene Zahl  
+   if sw <= 2 and sw >=  0:   #�berpr�fung
+      match sw:    #Match case, damit Ausgabe besser erfolgen kann
+         case 1: print(""()"")  ,  print(""||"") ,    print(""||"")          
+         case 0: print(""Sieger, Spieler 2.... Herzlichen Gl�ckwunsch!!!""),  
+
+#Spieler 1
+   print(""Spieler 1, Sie sind dran, ab hier bitte nur noch maximal zwei Steichh�lzer abziehen"")
+   jb = int(input())  #Eingabe
+   if jb <= 1 and ja >= 0: #Ausgabe             
+      sw = j - t - p - q - r - s - t - u - v - w - x - y - z - jb  #Subraktion eingebene Zahl  
+   if sw <= 1 and sw >=  0:  #�berpr�fung
+      match sw:   #Match case, damit Ausgabe besser erfolgen kann
+         case 0: print(""Sieger, Spieler 1.... Herzlichen Gl�ckwunsch!!!""),  
+    
+   
+       
+   
+else:
+      print(""Sie k�nnen entweder eins, zwei oder drei Streichh�lzer auf einmal ziehen"")",4,"0. Hard coded every player move.
+1. Infinite loop due to j alwas <= 13."
+21,"#Begr��ung
+
+print(""Willkommen zum Streichholzspiel! Das Spiel ist f�r 2 Spieler geeignet.""
+      ""Zu Beginn des Spiels liegen 13 Streichh�lzer auf dem Tisch""
+      ""Jeder Spieler nimmt abwechselnd ein, zwei oder drei Streichh�lzer weg.""
+      ""Der Spieler, der das letzte Streichholz nimmt, gewinnt."")
+      
+      
+#Eingabe
+
+spieler_1= input(""Spieler 1: Wie hei�en Sie?"")
+spieler_2= input(""Spieler 2: Wie hei�en Sie?"")
+
+wert= 13
+gewinner = 1
+
+while wert >13:
+    wegnahme =( input(""Wie viele Streichh�lzer m�chtest du wegnehmen""
+                          + spieler_1 +""?""))
+    print ("" Es sind noch"", wert-wegnahme, ""Streichh�lzer �brig"")
+
+    wert= wert-wegnahme",4,"0. No game start due to false while condition.
+1. No player change.
+2. No remaining matches print."
+22,"#Aufgabe 3
+
+#Streichhoelzer erstellen
+streichhoelzer = [ ""()"", ""()"", ""()"", ""()"", ""()"", ""()"", ""()"", ""()"", ""()"", ""()"", ""()"", ""()"", ""()""]
+
+#Funktion definieren
+def streichhoelzer_spiel(streichhoelzer) :
+#Zahl der Streichhoelzern
+    b = len(streichhoelzer)
+#Eingabe
+    zahl = int(input(""Wie viele Streichhoelzer wollen Sie wegnehmen? : ""))
+    b = b - zahl
+    if b == 1 :
+        print(""Sie gewinnen!"")
+
+    elif b == 0 :
+        print(""Sie gewinnen!"")
+        
+    else :
+#Schleife(wieder ausf�hren, bis der Gewinner entscheiden wird.
+        while 1 < b < 13 :
+            naechstespiel = streichhoelzer[:b]
+            c = "" ""
+            c = str(b)
+            print(""Es verleiben noch"" + "" "" + c + "" "" + ""Streichhoelzer :"")
+            print(naechstespiel)
+            streichhoelzer_spiel(naechstespiel)
+            break
+#Test1
+#Wie viele Streichhoelzer wollen Sie wegnehmen? : 2
+#Es verleiben noch 11 Streichhoelzer :
+#['()', '()', '()', '()', '()', '()', '()', '()', '()', '()', '()']
+
+#Test2
+#Wie viele Streichhoelzer wollen Sie wegnehmen? : 1
+#Es verleiben noch 10 Streichhoelzer :
+#['()', '()', '()', '()', '()', '()', '()', '()', '()', '()']
+
+#Test3
+#Wie viele Streichhoelzer wollen Sie wegnehmen? : 2
+#Sie gewinnen!
+",4,"0. No automated game start.
+1. No player change.
+2. Matches are printed as list."
+23,"#EPR �bungsblatt �E-02
+#Es handelt sich um ein Streichholzspiel bei dem zwei Spieler nacheinander 1 bis 3 Streichh�lzer ziehen.
+#Derjenige, der den lezten Streichholz zieht hat gewonnen.
+
+
+print(""Hallo, dies ist ein Streichholzspiel."")                 #ich erkl�re den Nutzern worum es sich handelt.
+print(""Das Spiel ist auf zwei Spieler ausgelegt und geht so:"")
+print(""Es liegen zu Beginn 13 Streichh�lzer auf dem Tisch."")
+print(""Nun nehmen beide spieler abwechselnd 1 bzw. 2 oder 3 Streichh�lzer. Derjenige, der den letzten zieht, gewinnt"")
+print(""Viel Spa�!."")
+print(""Das Spiel beginnt nun."")                               #das Spiel beginnt.
+
+
+
+
+streichh�lzer = 13                                            #ich deklariere die 13 Streichh�lzer als Varibale.
+
+while streichh�lzer >0:                                       #solange die Anzahl der Streichh�lzer 0> sind, werden die
+                                                              #Nutzer gefragt, wieviele Streichh�lzer sie ziehen wollen.
+
+    ziehen1 = int(input(""Wieviele Streichh�lzer nimmst du weg Spieler 1?"")) #Spieler1 gibt an, wieviele Streichh�lzer
+                                                                              #er ziehen will.
+
+    print(""Jetzt bist du dran, Spieler 2!"")                  #Spieler2 soll jetzt auch Streichh�lzer ziehen.
+
+    print(""Es sind noch"", streichh�lzer-ziehen1, "" Streichh�lzer vorhanden."")
+    streichh�lzer -= ziehen1                                 #die gezogegnen Streichh�lzer werden
+                                                             # von der originalen Anzahl subtrahiert.
+
+
+    if streichh�lzer==1:                                     # wenn nur noch ein Streichholz
+                                                             # �brig ist wird das Spiel beendet.
+        gewinner=2                                           #der Gewinner wird festgelegt.
+        break
+
+
+    ziehen2=int(input(""Wieviele Streichh�lzer nimmst du weg Spieler2?""))         #Spieler2 nimmt wieder Streichh�lzer
+
+    print(""Nun sind noch"", streichh�lzer-ziehen2, "" Streichh�lzer vorhanden."")   #es werden die Anzahl der Streichh�lzer
+                                                                                 # angegeben.
+    streichh�lzer -= ziehen2
+    print(""Nun bist du Spieler 1 wieder dran."")                                  #Spieler1 muss wieder ziehen.
+
+
+if gewinner == 2:
+    print(""Herzlichen Gl�ckwunsch Spieler1, du hast gewonnen!"")            #wenn Spieler1 zuletzt zieht hat er gewonnen.
+else:
+    print(""Herzlichen Gl�ckwunsch Spieler2, du hast gewonnen!"")            #wenn Spieler2 zuletzt zieht hat er gewonnen.
+
+print('Gl�ckwunsch, Spieler1 und Spieler2, das Spiel ist beendet.')        #das Streichholzspiel ist beendet.
+",4,"0. Number of matches can be negative.
+1. gewinner is not necessarily set.
+2. No matches print."
+24,"Streichh�lzer = 13                                                                                                  #Es gibt 13 Streichh�lzer
+print(""Es gibt 13 Streichh�lzer zu ziehen, jeder Spieler zieht  pro Runde jeweils 1-3 Streichh�lzer"")               #Erkl�rung des Spiels
+
+while True:
+    Spieler = int(input(""Ziehe 1-3 Streichh�lzer: ""))                                                                 #Input
+    if Spieler <1 or Spieler > 3:
+        print(""Es d�rfen nur zwischen 1-3 Streichh�lzer gezogen werden"")
+        
+        continue
+    else:                                                                                                             #Process: Die Anzahl der verf�gbaren Streichh�lzer, werden von der Eingabe des Nutzers abgzogen
+        Runde1= Streichh�lzer - Spieler
+        print(""noch""+"" ""+ str(Runde1) + "" ""+""�brig"")
+        print(""()""*Runde1)
+        print(""|"" ""|""*Runde1)
+        print(""|"" ""|""*Runde1)
+        break
+    
+print(""\n"")                                                                                                             #Ausgabe Die neue Anzahl der verf�gbaren Zigartten werden in abst�ndiger Darstllung dargsteellt, damit sie sich nicht vermischen
+
+
+
+
+
+
+Streichh�lzer_Runde2 = Runde1
+print(""Es gibt 13 Streichh�lzer zu ziehen, ziehen sie pro Runde jewils 1-3 H�lzer"")
+
+while True:
+    Spieler = int(input(""Ziehe 1-3 Streichh�lzer: ""))
+    if Spieler <1 or Spieler > 3:
+        print(""Es d�rfen nur zwischen 1-3 Streichh�lzer gezogen werden"")
+        
+        continue
+    else:
+        Runde2= Streichh�lzer_Runde2 - Spieler
+        print(""Noch""+"" ""+ str(Runde2) +"" "" +""�brig"")
+        print(""()""*Runde2)
+        print(""|"" ""|""*Runde2)
+        print(""|"" ""|""*Runde2)
+        break
+    
+print(""\n"")
+
+
+
+
+
+
+
+Streichh�lzer_Runde3 = Runde2
+print(""Es gibt 13 Streichh�lzer zu ziehen, ziehen sie pro Runde jewils 1-3 H�lzer"")
+
+while True:
+    Spieler = int(input(""Ziehe 1-3 Streichh�lzer: ""))
+    if Spieler <1 or Spieler > 3:
+        print(""Es d�rfen nur zwischen 1-3 Streichh�lzer gezogen werden"")
+        
+        continue
+    else:
+        Runde3= Streichh�lzer_Runde3 - Spieler
+        print(""Noch""+"" ""+ str(Runde3) + "" ""+""�brig"")
+        print(""()""*Runde3)
+        print(""|"" ""|""*Runde3)
+        print(""|"" ""|""*Runde3)
+        break
+
+    
+    print(""\n"")
+    
+    
+    
+Streichh�lzer_Runde4 = Runde3
+print(""Es gibt 13 Streichh�lzer zu ziehen, ziehen sie pro Runde jewils 1-3 H�lzer"")
+
+while True:
+    Spieler = int(input(""Ziehe 1-3 Streichh�lzer: ""))
+    if Spieler <1 or Spieler > 3:
+        print(""Es d�rfen nur zwischen 1-3 Streichh�lzer gezogen werden"")
+        
+        continue
+    else:
+        Runde4= Streichh�lzer_Runde4 - Spieler
+        print(""Noch""+"" ""+ str(Runde4) + "" ""+""�brig"")
+        print(""()""*Runde4)
+        print(""|"" ""|""*Runde4)
+        print(""|"" ""|""*Runde4)
+        if Runde4==1:
+            print(""DU HAST GEWONNEN!"")
+            print(""Ende"")
+            
+        break
+    
+    print(""\n"")
+    
+    
+    
+
+
+Streichh�lzer_Runde5 = Runde4
+print(""Es gibt 13 Streichh�lzer zu ziehen, ziehen sie pro Runde jewils 1-3 H�lzer"")
+
+while True:
+    Spieler = int(input(""Ziehe 1-3 Streichh�lzer: ""))
+    if Spieler <1 or Spieler > 3:
+        print(""Es d�rfen nur zwischen 1-3 Streichh�lzer gezogen werden"")
+        
+        continue
+    else:
+        Runde5= Streichh�lzer_Runde5 - Spieler
+        print(""Noch""+"" ""+ str(Runde5) + "" ""+""�brig"")
+        print(""()""*Runde5)
+        print(""|"" ""|""*Runde5)
+        print(""|"" ""|""*Runde5)
+        if Runde5==1:
+            print(""DU HAST GEWONNEN!"")
+            print(""Ende"")
+            
+        break
+    
+    print(""\n"")
+    
+    
+    
+
+
+
+Streichh�lzer_Runde6 = Runde5
+print(""Es gibt 13 Streichh�lzer zu ziehen, ziehen sie pro Runde jewils 1-3 H�lzer"")
+
+while True:
+    Spieler = int(input(""Ziehe 1-3 Streichh�lzer: ""))
+    if Spieler <1 or Spieler > 3:
+        print(""Es d�rfen nur zwischen 1-3 Streichh�lzer gezogen werden"")
+        
+        continue
+    else:
+        Runde6= Streichh�lzer_Runde6 - Spieler
+        print(""Noch""+"" ""+ str(Runde6) + "" ""+""�brig"")
+        print(""()""*Runde6)
+        print(""|"" ""|""*Runde6)
+        print(""|"" ""|""*Runde6)
+        if Runde6==0:
+            print(""DU HAST GEWONNEN!"")
+            print(""Ende"")
+            
+        break
+    
+    print(""\n"")
+    
+    
+    
+    
+
+
+Streichh�lzer_Runde7 = Runde6
+print(""Es gibt 13 Streichh�lzer zu ziehen, ziehen sie pro Runde jewils 1-3 H�lzer"")
+
+while True:
+    Spieler = int(input(""Ziehe 1-3 Streichh�lzer: ""))
+    if Spieler <1 or Spieler > 3:
+        print(""Es d�rfen nur zwischen 1-3 Streichh�lzer gezogen werden"")
+        
+        continue
+    else:
+        Runde7= Streichh�lzer_Runde7 - Spieler
+        print(""Noch""+"" ""+ str(Runde7) + "" ""+""�brig"")
+        print(""()""*Runde7)
+        print(""|"" ""|""*Runde7)
+        print(""|"" ""|""*Runde7)
+        if Runde7==1:
+            print(""DU HAST GEWONNEN!"")
+            print(""Ende"")
+            
+        break
+    
+    print(""\n"")
+    
+    
+    
+    
+    
+    
+    
+Streichh�lzer_Runde8 = Runde7
+print(""Es gibt 13 Streichh�lzer zu ziehen, ziehen sie pro Runde jewils 1-3 H�lzer"")
+
+while True:
+    Spieler = int(input(""Ziehe 1-3 Streichh�lzer: ""))
+    if Spieler <1 or Spieler > 3:
+        print(""Es d�rfen nur zwischen 1-3 Streichh�lzer gezogen werden"")
+        
+        continue
+    else:
+        Runde8= Streichh�lzer_Runde8 - Spieler
+        print(""Noch""+"" ""+ str(Runde3) + "" ""+""�brig"")
+        print(""()""*Runde8)
+        print(""|"" ""|""*Runde8)
+        print(""|"" ""|""*Runde8)
+        if Runde8==1:
+            print(""DU HAST GEWONNEN!"")
+            print(""Ende"")
+            
+        break
+    
+    print(""\n"")
+    
+    
+
+
+Streichh�lzer_Runde9 = Runde8
+print(""Es gibt 13 Streichh�lzer zu ziehen, ziehen sie pro Runde jewils 1-3 H�lzer"")
+
+while True:
+    Spieler = int(input(""Ziehe 1-3 Streichh�lzer: ""))
+    if Spieler <1 or Spieler > 3:
+        print(""Es d�rfen nur zwischen 1-3 Streichh�lzer gezogen werden"")
+        
+        continue
+    else:
+        Runde9= Streichh�lzer_Runde9 - Spieler
+        print(""Noch""+"" ""+ str(Runde9) + "" ""+""�brig"")
+        print(""()""*Runde9)
+        print(""|"" ""|""*Runde9)
+        print(""|"" ""|""*Runde9)
+        if Runde9==1:
+            print(""DU HAST GEWONNEN!"")
+            print(""Ende"")
+            
+        break
+    
+    print(""\n"")
+    
+    
+    
+
+    
+    
+    
+Streichh�lzer_Runde10 = Runde9
+print(""Es gibt 13 Streichh�lzer zu ziehen, ziehen sie pro Runde jewils 1-3 H�lzer"")
+
+while True:
+    Spieler = int(input(""Ziehe 1-3 Streichh�lzer: ""))
+    if Spieler <1 or Spieler > 3:
+        print(""Es d�rfen nur zwischen 1-3 Streichh�lzer gezogen werden"")
+        
+        continue
+    else:
+        Runde10= Streichh�lzer_Runde10 - Spieler
+        print(""Noch""+"" ""+ str(Runde10) + "" ""+""�brig"")
+        print(""()""*Runde10)
+        print(""|"" ""|""*Runde10)
+        print(""|"" ""|""*Runde10)
+        if Runde10==1:
+            print(""DU HAST GEWONNEN!"")
+            print(""Ende"")
+            
+        break
+    
+    print(""\n"")
+    
+    
+    
+
+
+
+Streichh�lzer_Runde11 = Runde10
+print(""Es gibt 13 Streichh�lzer zu ziehen, ziehen sie pro Runde jewils 1-3 H�lzer"")
+
+while True:
+    Spieler = int(input(""Ziehe 1-3 Streichh�lzer: ""))
+    if Spieler <1 or Spieler > 3:
+        print(""Es d�rfen nur zwischen 1-3 Streichh�lzer gezogen werden"")
+        
+        continue
+    else:
+        Runde11= Streichh�lzer_Runde11 - Spieler
+        print(""Noch""+"" ""+ str(Runde11) + "" ""+""�brig"")
+        print(""()""*Runde11)
+        print(""|"" ""|""*Runde11)
+        print(""|"" ""|""*Runde11)
+        if Runde11==1:
+            print(""DU HAST GEWONNEN!"")
+            print(""Ende"")
+            
+        break
+    
+    print(""\n"")
+    
+    
+    
+
+Streichh�lzer_Runde12 = Runde11
+print(""Es gibt 13 Streichh�lzer zu ziehen, ziehen sie pro Runde jewils 1-3 H�lzer"")
+
+while True:
+    Spieler = int(input(""Ziehe 1-3 Streichh�lzer: ""))
+    if Spieler <1 or Spieler > 3:
+        print(""Es d�rfen nur zwischen 1-3 Streichh�lzer gezogen werden"")
+        
+        continue
+    else:
+        Runde12= Streichh�lzer_Runde12 - Spieler
+        print(""Noch""+"" ""+ str(Runde12) + "" ""+""�brig"")
+        print(""()""*Runde12)
+        print(""|"" ""|""*Runde12)
+        print(""|"" ""|""*Runde12)
+        if Runde12==1:
+            print(""DU HAST GEWONNEN!"")
+            print(""Ende"")
+            
+        break
+    
+    print(""\n"")
+    
+    
+    
+    
+    
+Streichh�lzer_Runde13 = Runde12
+print(""Es gibt 13 Streichh�lzer zu ziehen, ziehen sie pro Runde jewils 1-3 H�lzer"")
+
+while True:
+    Spieler = int(input(""Ziehe 1-3 Streichh�lzer: ""))
+    if Spieler <1 or Spieler > 3:
+        print(""Es d�rfen nur zwischen 1-3 Streichh�lzer gezogen werden"")
+        
+        continue
+    else:
+        Runde13= Streichh�lzer_Runde13 - Spieler
+        print(""Noch""+"" ""+ str(Runde13) + "" ""+""�brig"")
+        print(""()""*Runde13)
+        print(""|"" ""|""*Runde13)
+        print(""|"" ""|""*Runde13)
+        if Runde13==1:
+            print(""DU HAST GEWONNEN!"")
+            print(""Ende"")
+
+        break
+    
+    print(""\n"")
+    
+    
+    
+#Testergebnis von 2 Runden: in der Ersten Runde ziehe ich eine und es verbleiben nur noch 12, dann wieder wird eine gezogen, bleiben nur noch 11
+
+#Testergebnis von 4 Runden mit jede Runde wird 3 mal gezogen: in der 4. Runde gewinnt man",4,"0. Hard coded number of rounds.
+1. Negative number of match cases possible."
+25,"def decimal_to_binary(x):
+    if x >= 1:
+        decimal_to_binary(x//2)
+        # using this equation to convert a decimal number into binary
+        print(x % 2, end = '')
+        # to print out the remainder of each performed divison
+
+if __name__ == '__main__':
+     # adding the decimal value
+    x= 87
+    decimal_to_binary(x)
+
+def decimal_to_binary(x):
+    """""" Testf�lle:
+ 
+    >>> decimal_to_binary(6)
+    110
+    >>> decimal_to_binary(45)
+    101101
+    >>> decimal_to_binary(2.9)
+    10.1110011001100110011
+
+   """"""
+
+    if x >= 1:
+        decimal_to_binary(x//2)
+        print(x % 2, end = '')
+from doctest import testmod
+testmod(verbose=True)
+
+import time
+import datetime
+
+def exam_countdown(examday):
+    while True:
+        difference = examday - datetime.datetime.now()
+        # datetime.datetime.now() function dertermines the current year, date and time
+        hours, remainder = divmod(difference.seconds, 3600)
+        # to determine the remaining hours
+        minutes, seconds = divmod(remainder, 60)
+        # detremines the remaining minutes and seconds
+
+        if difference.days == 0 and hours == 0 and minutes == 0 and seconds == 0:
+            break
+        print(str(difference.days) + ""days""
+           + str(hours) + ""hours""
+           + str(minutes) + ""minutes""
+           + str(seconds) + ""seconds"")
+
+        time.sleep(1)
+
+if __name__ == '__main__':
+    remainingtime = datetime.datetime(2023, 2, 16, 10)
+print(exam_countdown(remainingtime))
+
+import webbrowser
+def open_course_page(x):
+    webbrowser.open
+if __name__ == '__main__':
+    course_list = [""ERP"", ""Dismod"", ""LinADi""]
+    #typing in the courses list
+    url_list = [""https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=3292"",
+                ""https://ae.cs.uni-frankfurt.de/dismod22"", ""https://olat-ce.server.uni-frankfurt.de/olat/home?1""]
+    #and there links respectively
+    for course, url in zip(course_list, url_list):
+        #putting them all together in a zip function
+        webbrowser.open(url, new= 2, autoraise= True)
+        continue
+",5,"0. decimal_to_binary only calculates result without prints of steps.
+1. exam_countdown takes exam date instead of any timestamp. 
+2. Calculates difference every second (near infinite loop).
+3. open_course_page does nothing. Interrupted by if __name__==__main__."
+26,"""""""multiple functions that make one tool.
+a function that convert decimal to binary.
+a program that count the time to the EPI exam.
+a program that open modulsites.
+a program that generate a random password""""""
+
+
+import time
+import webbrowser
+import random
+
+def decimal_to_binary(z_number):
+    bin�r = format(z_number, ""b"") #Input decimal convert to binary
+    print(bin�r)
+    print(""Im folgenden eine Erkl�rung wie eine Dezimalzhal in eine Bin�rzahl umgerechnet wird: "")
+    print(""Eine Zahl x ? der nat�rlichen Zahl durch 2 dividieren"")
+    print(""Den Rest notieren"")
+    print(""Falls das Ergebnis ungleich 0, dann Schritt 1 und Schritt 2 wiederholen"")
+    print(""Die notierten Reste, vom letzten bis zum ersten Rest, der Rheinfolge nach notieren und zusammensetzen"")
+
+def exam_countdown():
+    x = time.time() #current seconds gone, since 01.01.1970
+    time_tuple = (2023, 2, 16, 10, 0, 0, 3, 0, 0) #
+    seconds = (time.mktime(time_tuple) - x) #the time difference between the current time and the clausur in seconds
+    seconds_round = round(seconds)
+    days = seconds_round / 86400 #sekonds convert to days
+    hour = (days - int(days)) * 24 #days convert to hour
+    minutes = (hour - int(hour)) * 60 #hour convert to minutes
+    print(f""Bis zur der EPI Klausur vergehen noch {int(days)} Tage, {int(hour)} Stunden und {int(minutes)} Minuten"")
+
+def open_course_page(x):
+    while True:
+        if x == ""EPR"": # if input is ""EPR"", open the EPR website
+            webbrowser.open(""https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=3292"")
+            print(True)
+            break
+        if x == ""GPR"": # if input is ""GPR"", open the GPR website
+            webbrowser.open(""https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=3294"")
+            print(True)
+            break
+        if x == ""Dismod"": # if input is ""Dismod"", open the Dismod website
+            webbrowser.open(""https://moodle.studiumdigitale.uni-frankfurt.de/moodle/mod/page/view.php?id=172779"")
+            print(True)
+            break
+        if x != ""EPR"" and ""GPR"" and ""Dismod"": #if none of these, print false
+            print(False)
+            continue
+
+def passwort_gen(length):
+    list = [""1"", ""2"", ""3"", ""4"", ""5"", ""6"", ""7"", ""8"", ""9"", ""A"", ""a"", ""B"", ""b"", ""C"", ""c"", ""D"", ""d"", ""E"", ""e"", ""F"", ""f"",
+            ""G"", ""g"", ""H"", ""h"", ""I"", ""i"", ""J"", ""j"", ""K"", ""k"", ""L"", ""l"", ""M"", ""m"", ""N"", ""n"", ""O"", ""o"", ""P"", ""p"", ""Q"",
+            ""q"", ""R"", ""r"", ""S"", ""s"", ""T"", ""t"", ""U"", ""u"", ""V"", ""v"", ""W"", ""w"", ""X"", ""x"", ""Y"", ""y"", ""Z"", ""z""]
+    password = """".join(random.sample(list, length)) #creating a password, from objects from the list with a input length
+    print(password)
+
+
+if __name__ == '__main__':
+ decimal_to_binary(4)
+ decimal_to_binary(5)
+ decimal_to_binary(6)
+
+ exam_countdown()
+ exam_countdown()
+ exam_countdown()
+
+ # open_course_page(str(""GPR""))
+ # open_course_page(str(""EPR""))
+ # open_course_page(str(""Dismod""))
+
+ passwort_gen(10)
+ passwort_gen(11)
+ passwort_gen(13)",5,"0. decimal_to_binary prints general explanation but no steps.
+1. exam_countdown has no timestamp parameter, uses actual timestamp instead."
+27,"#Abfrage welches Tool benutzt werden soll
+q = input('Welches Modul soll ausgef�hrt werden?(1 = decimal_to_binary, 2 = exam_countdown, 3 = open_course_page, 4 = password_gen): ')
+
+#Schleife zum Modul ausw�hlen
+if q == '1':
+    z = int(input('Geben sie eine Zahl ein: '))# eingabe der zahl die umgerechnet werden soll
+    bz = bin(z)#zahl in bin�r umwandeln
+
+    print(bz[2:])#und ausgeben
+
+    a = z / 2   #rechnung = immer wieder duch zwei teilen bis null rauskommt
+    a1 = int(a)
+
+    if (a % 1 == 0):    #wenn es eine volle zahl ist, als rest null ausgeben
+        print(z, ' : ', '2', ' = ', a, ' Rest:0')
+
+    else:
+        print(z, ' : ', '2', ' = ', a, ' Rest:1')#wenn es keine volle zahl ist, als rest eins ausgeben
+
+        a = a - 0.5 #minus die Nachkommastelle
+    b = a1 / 2  #rechnung
+
+    if (b % 1 == 0):
+        print(a, ' : ', '2', ' = ', b, ' Rest:0')#abfrage ob null oder eins
+
+    else:
+        print(a, ' : ', '2', ' = ', b, ' Rest:1')
+
+        b = b - 0.5
+    b1 = int(b)
+    c = b1 / 2  #rechnung
+
+    if (c % 1 == 0):
+        print(b, ' : ', '2', ' = ', c, ' Rest:0')#abfrage ob null oder eins
+
+    else:
+        print(b, ' : ', '2', ' = ', c, ' Rest:1')
+
+        c = c - 0.5
+    c1 = int(c)
+    d = c1 / 2  #rechnung
+
+    if (d % 1 == 0):
+        print(c, ' : ', '2', ' = ', d, ' Rest:0')#abfrage ob null oder eins
+
+    else:
+        print(c, ' : ', '2', ' = ', d, ' Rest:1')
+
+        d = d - 0.5
+    d1 = int(d)
+    e = d1 / 2  #rechnung
+
+    if (e % 1 == 0):
+        print(d, ' : ', '2', ' = ', e, ' Rest:0')#abfrage ob null oder eins
+
+    else:
+        print(d, ' : ', '2', ' = ', e, ' Rest:1')
+
+        e = e - 0.5
+    e1 = int(e)
+    f = e1 / 2  #rechnung
+
+    if (f % 1 == 0):
+        print(e, ' : ', '2', ' = ', f, ' Rest:0')#abfrage ob null oder eins
+
+    else:
+        print(e, ' : ', '2', ' = ', f, ' Rest:1')
+
+        f = f - 0.5
+    f1 = int(f)
+    g = f1 / 2  #rechnung
+
+    if (g % 1 == 0):
+        print(f, ' : ', '2', ' = ', g, ' Rest:0')#abfrage ob null oder eins
+
+    else:
+        print(f, ' : ', '2', ' = ', g, ' Rest:1')
+
+        g = g - 0.5
+    g1 = int(g)
+    h = g1 / 2  #rechnung
+
+    if (h % 1 == 0):
+        print(g, ' : ', '2', ' = ', h, ' Rest:0')#abfrage ob null oder eins
+
+    else:
+        print(g, ' : ', '2', ' = ', h, ' Rest:1')
+
+        h = h - 0.5
+
+elif q == '2':
+    import time #import des time modules
+
+    ut = time.clock_gettime(0)  #jetzige zeit holen
+    ctr = round(ut) #nano sec runden
+    et = 1676538000     #datum von der EPI klausur in sec
+
+    endtime = et - ctr  #rechnung
+
+    mm, ss = divmod(endtime, 60)    #umwandlung von sec in min
+    hh, mm = divmod(mm, 60)         #umwandelung von min in hours
+    dd, hh = divmod(hh, 24)         #umwandelung von hours in days
+
+    print('Tage: ', dd, ' Stunden: ', hh, ' Minuten: ', mm, 'bis zur EPI Erstklausur!') #ausgabe des genauen Zeit
+
+elif q == '3':
+    import webbrowser   #import des webbroser modules
+
+    a = input('Welche Website soll ge�fnet werden(EPR, GPR, DisMod, STO): ')    #abfrage welche website ge�fnet werden soll
+
+    EPR = 'https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=3292'  #epr url
+    GPR = 'https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=3294'  #gpr url
+    DisMod = 'https://moodle.studiumdigitale.uni-frankfurt.de/moodle/mod/page/view.php?id=172779'   #dismod url
+    STO = 'https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=3338'  #sto url
+
+    if a == 'EPR':  #schleife zum abfragen welche seite der user �fnen will
+        webbrowser.open_new(EPR)    #�fnen der website
+        print(True)
+    elif a == 'GPR':
+        webbrowser.open_new(GPR)    #�fnen der website
+        print(True)
+    elif a == 'DisMod':
+        webbrowser.open_new(DisMod) #�fnen der website
+        print(True)
+    elif a == 'STO':
+        webbrowser.open_new(STO)    #�fnen der website
+        print(True)
+    else:
+        print(False)    #flasche eingabe
+
+elif q == '4':
+    from random import randint  #import der randint funktion aus dem radom modules
+
+    l = int(input('Wie viele Stellen soll das Password haben?: '))  #abfrage wie lang das pasword sein sol
+
+    p = [chr(randint(48, 122)) for l in range(l)]   #random zahlen umwandeln mit der ASCI Tabelle
+
+    print(''.join(p))   #verkn�pfen der einzelen buchstaben oder zahlen
+
+else:
+    print('Das war keine G�ltige Eingabe...')   #falsche eingabe",5,"0. No functions.
+1. password_gen uses invalid symbols."
+28,"# Function: decimal_to_binary
+def decimal_to_binary():
+    """""" function for converting decimal numbers into binary numbers """"""
+    decimal = int(input(""Enter a positive integer: ""))
+    binarylist = []
+    while (decimal != 0):    # Process of converting decimal numbers to binary numbers.
+        modulo = decimal % 2     # By using modulo calculation.
+        binarylist.append(modulo)
+        decimal = decimal // 2
+    binarylist.reverse()
+    print(""your integer as binary is: "")
+    for i in binarylist:    # for correct output of the binary numbers.
+        print(i,end="""")
+decimal_to_binary()
+
+# Function: open_course_page
+import webbrowser
+def open_course_page():
+    """""" function to open the courses in the default web browser """"""
+    print("" "")
+    print(""Choose from the courses of the first semester:"")
+    print(""EPR"", ""GPR"", ""DISMOD"", ""LinADi"", ""STO"")
+    course = input(""Your course: "")
+    if course == ""EPR"":
+        eprurl = ""https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=3292""
+        webbrowser.open(eprurl)
+        return True
+    elif course == ""GPR"":
+        gprurl = ""https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=3294""
+        webbrowser.open(gprurl)
+        return True
+    elif course == ""DISMOD"":
+        dismodurl = ""https://ae.cs.uni-frankfurt.de/dismod22""
+        webbrowser.open(dismodurl)
+        return True
+    elif course == ""LinADi"":
+        linadiurl = ""https://www.uni-frankfurt.de/125334408/Lineare_Algebra_und_Diskrete_Mathematik_f%C3%BCr_die_Informatik__WS22_23""
+        webbrowser.open(linadiurl)
+        return True
+    elif course == ""STO"":
+        stourl = ""https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=3338""
+        webbrowser.open(stourl)
+        return True
+    else:
+        return False
+open_course_page()  ",5,"0. Functions have no parameters, instead uses input within functions.
+1. exam_countdown and password_gen missing."
+29,"'''
+    Die Funktion wandelt eine Zahl aus dem Dezimalsystem in eine Bin�rzahl um,
+   indem sie st�ndige Divisionen mit 2 durchf�hrt, bis der Quotient 0 wird.
+   Wenn die zu teilende Zahl ungerade ist, wird 1 in die Konsole geschrieben, wenn sie gerade ist, dann 0 wird geschrieben.
+  Am Ende gibt die Funktion die komplette Bin�rzahl zur�ck.
+
+    '''
+def decimal_to_binary(number):
+        
+    if number >= 1:   
+        decimal_to_binary(number // 2)
+        print(number % 2, end = """")
+
+
+
+
+'''Die Funktion berechnet die verbleibende Zeit im Format: (Tagen, Stunden, Minuten), bis der EPI Pr�fung (16.02.2023).
+  Die verbleibende Zeit ergibt sich aus der Differenz zwischen dem Zeitstempel des Pr�fungstages und der aktuellen Uhrzeit.
+  Es wird dann in Tage, Stunden und Minuten umgerechnet.Am Ende gibt die Funktion die verbleibende Zeit zur�ck.'''
+def exam_countdown():
+
+    import time
+    tDiff = int(1676538000) - int(time.time())
+
+    days = (tDiff // 86400)
+    print(""Left days : "",days)
+    hours = (tDiff // 3600) % 24
+    print(""Left hours : "",hours)
+    mins = (tDiff // 60) % 60
+    print(""Left Minutes : "", mins)
+
+
+
+'''Mit dieser Funktion gelangen Sie in einem Schritt zur gew�nschten Kurs-Website.'''
+
+def open_course_page(courses):
+
+    import webbrowser
+ 
+    if courses == ""epr"":
+      link = ""https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=3292""
+    elif courses == ""gpr"":  
+      link = ""https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=3294""
+    elif courses == ""sto"":
+      link = ""https://moodle.studiumdigitale.uni-frankfurt.de/moodle/enrol/index.php?id=3338""
+  
+    webbrowser.open(link)
+
+
+
+    '''Diese Funktion gibt ein Passwort aus, das aus Buchstaben und Zahlen besteht
+       Bei der Funktion geben zuf�llig so viele Zahlen und Buchstaben aus wie die eingegebene Zahl'''
+
+def passwort_gen(length):
+    import random
+    Characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
+                  'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    password = ''
+    for x in range(length):
+      password += random.choice(Characters)
+    return password   
+   
+
+
+   # Testf�lle f�r a):                         
+# Zahl = 123  Bin�rzahl = 1111011           
+# Zahl = 876 Bin�rzahl = 1101101100
+# Zahl = 8401087  Bin�rzahl = 100000000011000010111111
+
+# Testf�lle f�r b):
+# Um 00:45 wurde es getested
+#Left days :  87
+#Left hours :  9
+#Left Minutes :  15
+
+# Testf�lle f�r c):
+# Eingabe = gpr  Ausgabe = (GPR Moodle Webseite wurde im Browser ge�ffnet)
+# Einagbe = epr  Ausgabe = (EPR Moodle Webseite wurde im Browser ge�ffnet)
+# Eingabe = sto  Ausgabe = (STO Moodle Webseite wurde im Browser ge�ffnet)
+
+#Testf�lle f�r d):
+# L�nge = 12 ,       Passwort = 326scqbf4y81
+# L�nge = 123,       Passwort = fu54d3ss5x5y9ixcemoqs52al8tkit9lmeydls4zw69r40daskrrj3i76u1ijgib97h7vjk7djzn8psgnlqgr9g0q39393xp3niuyvhrbp69o1jwhmgt5jh7f7o
+# L�nge = 31,       Passwort = apqnm98r2gyexv8ckb35ulkz23or5pf
+# L�nge = -12 ,       Ausgabe = The password length must be greater than 0. Please try again",5,"0. decimal_to_binary only calculates result without prints of steps.
+1. exam_countdown takes exam date instead of any timestamp.
+2. exam_countdown has wrong print format.
+3. open_course_page returns None instead of boolean."
+30,"import time
+import random
+import memory as mem
+import os
+
+CARDS = [""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"",
+         ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?""]
+
+def game():
+    game = True
+    random.shuffle(CARDS)
+    game_cards = mem.create_grid(CARDS)
+    rounds = 0
+    while game:
+        # inputs
+        print(""Enter the position of your cards. Please only use numbers\n"" +
+            ""For example '31' would be the third row the first card\n"" +
+            ""ENTER to see the normal grid an 'q' to quit"")
+        mem.draw_grid (game_cards, None, None)
+        card_1 = input(""Card 1: "")
+        card_2 = input(""Card 2: "")
+        if card_1 == ""q"" or card_2 == ""q"":
+            print(""------QUIT------"")
+            break
+        elif card_2 == """" and card_1 == """":
+            mem.draw_grid (game_cards, None, None)
+            continue
+        else:
+            try:
+                int(card_1[0])
+                int(card_2[0])
+                int(card_1[1])
+                int(card_2[1])
+            except (ValueError):
+                mem.draw_grid (game_cards, None, None)
+                print(""Remember that you can only input numbers!"")
+                continue
+            if int(card_1[0]) > 5 or int(card_2[0]) > 5:     # number to big 4 elemente in 5 Zeilen
+                print(""There are only 5 rows"")
+                mem.draw_grid (game_cards, None, None)
+                continue
+            elif int(card_1[1]) > 4 or int(card_2[1]) > 4:
+                print(""There are only 4 elements per row"")
+                mem.draw_grid (game_cards, None, None)
+                continue
+            else:
+                mem.draw_grid(game_cards, card_1, card_2)
+                time.sleep(3)
+                os.system(""cls"")
+
+        symbol_both = mem.get_symbols(game_cards, card_1, card_2)
+        if symbol_both[0] == symbol_both[1]:
+            print(symbol_both[0], symbol_both[1])
+            if symbol_both[0] == ""X"" or symbol_both[1] == ""X"":
+                print("" You selected a position of an already found card pair"")
+                pass
+            else:
+                mem.take_cards(game_cards, card_1, card_2)
+            rounds += 1
+        else:
+            rounds += 1
+            pass
+        if game_cards[1:] == game_cards[:-1]:              # alle Elemente in list gleich X also keine paare mehr vorhanden
+            print(""You have found all pairs!\nRounds played: "" + str(rounds))
+            game = False
+        else:
+            pass
+
+
+if __name__ == ""__main__"":
+    while True:
+        game()
+        try:
+            play = int(input(""Enter 1 to play another round or 0 to close the programm""))
+        except ValueError:
+            continue
+        if play:            # play == 1 == True
+            game()
+        else:
+            False
+            break",6,"0. Confusing card selection.
+1. Can choose same card twice, which then gets removed.
+2. Program not stable (crashes on input <= 9)."
+31,"""""""
+This program consists of 4 different functions that can replecate parts of a memorygame. 
+made in collaboration with Leonardo Kneifel. 
+""""""
+
+CARDS = [""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"",
+        ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?""]
+
+
+
+def create_grid(cards):   
+    """"""
+    This function receives a list of cards and aranges the cards in a 5x4 pattern.
+    """"""
+    column = 5
+    # Creating a nested list of the cards. 
+    card_list = [cards[items: items + column] for items in range(0, len(cards), column)]
+    # Returning every list inside of the list in order to get a 5x4 pattern.
+    for row in card_list:
+        return row
+       
+
+
+def get_symbols(grid, pos1, pos2):
+    """"""
+    This function receives a list of cards and two cardpositions. It returns both symbols in a tuple.
+    """"""
+    # Split each input into two. 
+    pos1_y = int(pos1[0])
+    pos1_x = int(pos1[2])
+    pos2_y = int(pos2[0])
+    pos2_x = int(pos2[2])
+
+    # Index for the rows of the grid is one part of the input. 
+    row1 = grid[pos1_y]
+    row2 = grid[pos2_y]
+    # Index for the clumns of the grid is one part of the input.
+    result = (row1[pos1_x],row2[pos2_x])
+    return result
+    
+    
+
+    
+
+ 
+def take_cards(grid, pos1, pos2):
+    """"""
+    This function receives a list of cards and two cardpositions. 
+    It returns the grid without the two cards that have been picked. 
+    """"""
+    # Split each input into two. 
+    pos1_y = int(pos1[0])
+    pos1_x = int(pos1[2])
+    pos2_y = int(pos2[0])
+    pos2_x = int(pos2[2])
+
+    # Replaces the given positon with ""/"".
+    grid[pos1_y][pos1_x] = ""/""
+    grid[pos2_y][pos2_x] = ""/""
+    
+    for row in grid:
+        return row       
+        
+        
+
+
+
+def draw_grid(grid, pos1=None, pos2=None):
+    '''
+    This function receives a list of cards and two cardpositions. 
+    it returns the grid with a combination of letters and numbers 
+    '''
+    import time
+    import os 
+    from sys import platform
+
+    items = [""A1"" ,""B1"" ,""C1"" ,""D1"" ,""E1"" ,""A2"" ,""B2"" ,""C2"" ,""D2"" ,""E2"" 
+            ,""A3"" ,""B3"" ,""C3"" ,""D3"",""E3"" ,""A4"" ,""B4"" ,""C4"" ,""D4"" ,""E4""]
+
+    # Creating a 5x4 pattern.
+    new_grid = [items[x:x + 5] for x in range(0, len(items),5)] 
+    for x in range(4):
+        for y in range(3):
+            if grid[y][x] == ""/"":
+                new_grid[y][x] = ""/""
+
+    
+    if pos1 != None and pos2 != None:
+        # Split each input into two. 
+        pos1_x = int(pos1[0])
+        pos1_y = int(pos1[2])
+        pos2_x = int(pos2[0])
+        pos2_y = int(pos2[2])
+        cards = (grid[pos1_x][pos1_y],grid[pos2_x][pos2_y])
+
+        # removes cards if a pair is found
+        if cards[0] == cards[1]: 
+            new_grid[pos1_x][pos1_y] = ""/""
+            new_grid[pos2_x][pos2_y] = ""/""
+           # return new_grid
+            for row in new_grid:
+                return row
+                 
+
+      
+        elif cards[0] != cards[1]:
+
+            new_grid[pos1_x][pos1_y] = grid[pos1_x][pos1_y]
+            new_grid[pos2_x][pos2_y] = grid[pos2_x][pos2_y]
+
+
+           
+            time.sleep(3)
+
+            # clears the console after returning the field
+            if platform == ""linux"":
+                os.system('clear')
+            elif platform == ""win32"":
+                os.system('cls')
+            for row in new_grid:
+                return row
+        
+       
+
+
+if __name__ == ""__main__"":
+    card_list = [CARDS[items: items + 5] for items in range(0, len(CARDS), 5)]
+    create_grid(CARDS)
+    get_symbols(card_list, pos1, pos2) 
+    take_cards(card_list, pos1, pos2)
+    draw_grid(card_list, pos1, pos2)
+",6,"0. Grid is only one line (return within for loop).
+1. pos1/pos2 unknown when testing."
+32,"""""""Game that is called memory.""""""
+import sys
+
+CARDS3=[]
+
+CARDS2=[""k""]
+
+CARDS = [""? "", ""? "", ""? "", ""? "", ""? "", ""? "", ""? "", ""? "", ""? "", ""? "",
+         ""? "", ""? "", ""? "", ""? "", ""? "", ""? "", ""? "", ""? "", ""? "", ""? ""]
+
+grid = [CARDS[i:i + 4] for i in range(0, len(CARDS), 4)]
+
+# TODO: Implement fucntion
+def create_grid(CARDS):
+ print()
+ print()
+ print()
+ grid = [CARDS[i:i + 4] for i in range(0, len(CARDS), 4)]
+ for zeile in grid:
+  z = ''
+  for element in zeile:
+    z += element + ' '
+  print(z)
+ return(grid)
+
+ print()
+ print()
+ print()
+ 
+
+def get_symbols(grid,pos1,pos2): 
+    if  pos1==""A1"":
+        pos1=grid[0][0]
+    elif pos1==""A2"":
+        pos1=grid[0][1]
+    elif pos1==""A3"":
+        pos1=grid[0][2]
+    elif pos1==""A4"":
+        pos1=grid[0][3]
+    elif pos1==""B1"":
+        pos1=grid[1][0]
+    elif pos1==""B2"":
+        pos1=grid[1][1]
+    elif pos1==""B3"":
+        pos1=grid[1][2]
+    elif pos1==""B4"":
+        pos1=grid[1][3]
+    elif pos1==""C1"":
+        pos1=grid[2][0]
+    elif pos1==""C2"":
+        pos1=grid[2][1]
+    elif pos1==""C3"":
+        pos1=grid[2][2]
+    elif pos1==""C4"":
+        pos1=grid[2][3]
+    elif pos1==""D1"":
+        pos1=grid[3][0]
+    elif pos1==""D2"":
+        pos1=grid[3][1]
+    elif pos1==""D3"":
+        pos1=grid[3][2]
+    elif pos1==""D4"":
+        pos1=grid[3][3]
+    elif pos1==""E1"":
+        pos1=grid[4][0]
+    elif pos1==""E2"":
+        pos1=grid[4][1]
+    elif pos1==""E3"":
+        pos1=grid[4][2]
+    elif pos1==""E4"":
+        pos1=grid[4][3]
+    else:
+        print(""Eingabe ung�ltig"")
+        sys.exit()
+        
+    if  pos2==""A1"":
+        pos2=grid[0][0]
+    elif pos2==""A2"":
+        pos2=grid[0][1]
+    elif pos2==""A3"":
+        pos2=grid[0][2]
+    elif pos2==""A4"":
+        pos2=grid[0][3]
+    elif pos2==""B1"":
+        pos2=grid[1][0]
+    elif pos2==""B2"":
+        pos2=grid[1][1]
+    elif pos2==""B3"":
+        pos2=grid[1][2]
+    elif pos2==""B4"":
+        pos2=grid[1][3]
+    elif pos2==""C1"":
+        pos2=grid[2][0]
+    elif pos2==""C2"":
+        pos2=grid[2][1]
+    elif pos2==""C3"":
+        pos2=grid[2][2]
+    elif pos2==""C4"":
+        pos2=grid[2][3]
+    elif pos2==""D1"":
+        pos2=grid[3][0]
+    elif pos2==""D2"":
+        pos2=grid[3][1]
+    elif pos2==""D3"":
+        pos2=grid[3][2]
+    elif pos2==""D4"":
+        pos2=grid[3][3]
+    elif pos2==""E1"":
+        pos2=grid[4][0]
+    elif pos2==""E2"":
+        pos2=grid[4][1]
+    elif pos2==""E3"":
+        pos2=grid[4][2]
+    elif pos2==""E4"":
+        pos2=grid[4][3]
+    else:
+        print(""Eingabe ung�ltig"")   
+        sys.exit()
+    symbole=(pos1,pos2)
+    print(symbole)
+    return(symbole)
+
+# TODO: Implement fucntion
+def take_cards(grid, pos1, pos2):
+    if  pos1==""A1"":
+        a=0
+        b=0
+    elif pos1==""A2"":
+        a=0 
+        b=1
+    elif pos1==""A3"":
+        a=0
+        b=2
+    elif pos1==""A4"":
+        a=0
+        b=3
+    elif pos1==""B1"":
+        a=1 
+        b=0
+    elif pos1==""B2"":
+        a=1 
+        b=1
+    elif pos1==""B3"":
+        a=1 
+        b=2
+    elif pos1==""B4"":
+        a=1 
+        b=3
+    elif pos1==""C1"":
+        a=2 
+        b=0
+    elif pos1==""C2"":
+        a=2 
+        b=1
+    elif pos1==""C3"":
+        a=2 
+        b=2
+    elif pos1==""C4"":
+        a=2 
+        b=3
+    elif pos1==""D1"":
+        a=3
+        b=0
+    elif pos1==""D2"":
+        a=3 
+        b=1
+    elif pos1==""D3"":
+        a=3 
+        b=2
+    elif pos1==""D4"":
+        a=3
+        b=3
+    elif pos1==""E1"":
+        a=4
+        b=0
+    elif pos1==""E2"":
+        a=4
+        b=1
+    elif pos1==""E3"":
+        a=4
+        b=2
+    elif pos1==""E4"":
+        a=4
+        b=3
+    else:
+        print(""Eingabe ung�ltig"")
+        quit()
+        
+    if  pos2==""A1"":
+        c=0
+        d=0
+    elif pos2==""A2"":
+        c=0
+        d=1
+    elif pos2==""A3"":
+        c=0
+        d=2
+    elif pos2==""A4"":
+        c=0
+        d=3
+    elif pos2==""B1"":
+        c=1
+        d=0
+    elif pos2==""B2"":
+        c=1
+        d=1
+    elif pos2==""B3"":
+        c=1
+        d=2
+    elif pos2==""B4"":
+        c=1
+        d=3
+    elif pos2==""C1"":
+        c=2
+        d=0
+    elif pos2==""C2"":
+        c=2
+        d=1
+    elif pos2==""C3"":
+        c=2
+        d=2
+    elif pos2==""C4"":
+        c=2
+        d=3
+    elif pos2==""D1"":
+        c=3
+        d=0
+    elif pos2==""D2"":
+        c=3
+        d=1
+    elif pos2==""D3"":
+        c=3
+        d=2
+    elif pos2==""D4"":
+        c=3
+        d=3
+    elif pos2==""E1"":
+        c=4 
+        d=0
+    elif pos2==""E2"":
+        c=4
+        d=1
+    elif pos2==""E3"":
+        c=4
+        d=2
+    elif pos2==""E4"":
+        c=4
+        d=3
+    else:
+        print(""Eingabe ung�ltig"")
+        quit()
+    print()
+    print()
+    print()
+    grid[a][b]="" ""
+    grid[c][d]="" ""
+    print(grid)
+    
+# TODO: Implement fucntion
+def draw_grid(grid,pos1,pos2): 
+ spielfeld = [""A1"",""B1"",""C1"",""D1"",""E1"",""A2"",""B2"",""C2"",""D2"",""E2"",""A3"",""B3"",""C3"",""D3"",""E3"",""A4"",""B4"",""C4"",""D4"",""E4""]
+ CARDS=[]
+ print()
+ print()
+ print()
+ print()
+ print()
+ print()
+ for zeile in grid:
+  for element in zeile:
+    CARDS.append(element)
+ n=-1
+ i=-1
+ m=-1
+ if pos1 and pos2 is None:
+    for reihe in grid:
+     for element in reihe:
+      i+=1
+      if element=="" "":
+       spielfeld[i]=""  "" 
+       
+    spielfeldmatrix= [spielfeld[i:i + 5] for i in range(0, len(spielfeld), 5)]
+    
+    for zeile in spielfeldmatrix:
+     z = ''
+     for element in zeile:
+        z += element + ' '
+     print(z)
+ else:
+    
+    for e in spielfeld:
+     m+=1
+     if pos1==e:
+        spielfeld[m]=CARDS[m]
+     elif pos2==e:
+        spielfeld[m]=CARDS[m]
+    
+    for reihe in grid:
+     for element in reihe:
+      i+=1
+      if element=="" "":
+       spielfeld[i]=""  "" 
+       
+    spielfeldmatrix= [spielfeld[i:i + 5] for i in range(0, len(spielfeld), 5)]
+    
+    for zeile in spielfeldmatrix:
+     z = ''
+     for element in zeile:
+        z += element + ' '  
+     print(z)
+    
+print()
+print()
+print()
+print()
+print()
+print()
+#Testf�lle
+if __name__ == ""__main__"":
+    create_grid(CARDS3)
+     
+if __name__ == ""__main__"":
+    create_grid(CARDS2)
+    
+if __name__ == ""__main__"":
+    create_grid(CARDS)
+    
+if __name__ == ""__main__"":
+    get_symbols(grid,'A1','B3')
+
+if __name__ == ""__main__"":
+    get_symbols(grid,'A3','C2')
+    
+if __name__ == ""__main__"":
+    get_symbols(grid,'D4','E4')  
+    
+if __name__ == ""__main__"":
+    take_cards(grid, ""A1"", ""C3"")
+
+if __name__ == ""__main__"":
+    take_cards(grid, ""C1"", ""A1"")
+    
+if __name__ == ""__main__"":
+    take_cards(grid, ""D2"", ""E3"")
+
+
+if __name__ == ""__main__"":
+    draw_grid(grid,""45"",""E3"")
+
+if __name__ == ""__main__"":
+    draw_grid(grid,""E2"", ""E3"")
+
+if __name__ == ""__main__"":
+    draw_grid(grid,pos1=None, pos2=None)",6,0. Symbol selection hard coded.
+33,"# EPR 4
+"""""" memory.py """"""
+
+import random
+
+CARDS = [""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"",
+         ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?""]
+
+print(CARDS)
+
+grid = [[0] * 5 for i in range(5)]
+current_grid = [[0] * 5 for i in range(5)]
+
+
+# TODO: Implement function
+def create_grid(CARDS):
+    random.shuffle(CARDS)
+    n = 0
+    for i in range(4):
+        for j in range(5):
+            grid[i][j] = CARDS[n]
+            n += 1
+    for i in range(4):
+        for j in range(5):
+            current_grid[i][j] = chr(65 + j)
+            current_grid[i][j] += str(i + 1)
+    for i in range(4):
+        for j in range(5):
+            print(grid[i][j], end="" "")
+        print()
+    draw_grid(grid)
+
+
+# TODO: Implement fucntion
+def get_symbols(grid, pos1, pos2):
+    pos1_sep = list(pos1)
+    pos2_sep = list(pos2)
+    if pos1_sep[0] not in ""ABCDE"" or pos1_sep[1] not in ""123456789"" or len(pos1_sep) != 2:
+        print(""Geben Sie die richtige Positions ein!"")
+        get_symbols(grid, pos1, pos2)
+    if pos2_sep[0] not in ""ABCDE"" or pos2_sep[1] not in ""123456789"" or len(pos2_sep) != 2:
+        print(""Geben Sie die richtige Positions ein!"")
+        get_symbols(grid, pos1, pos2)
+
+    for i in range(4):
+        for j in range(5):
+            if current_grid[i][j] == pos1:
+                current_grid[i][j] = grid[i][j]
+            if current_grid[i][j] == pos2:
+                current_grid[i][j] = grid[i][j]
+    for i in range(4):
+        for j in range(5):
+            print(current_grid[i][j], end="" "")
+        print()
+    input()
+    take_cards(grid, pos1, pos2)
+
+
+def take_cards(grid, pos1, pos2):
+    pos1_coord_x, pos1_coord_y, m, n = 0, 0, 0, 0
+    # save_grid = []
+    # for i in range(4):
+    #     for j in range(5):
+    #         save_grid[i][j] = current_grid[i][j]
+    for i in range(4):
+        for j in range(5):
+            if str(current_grid[i][j]) in ""??????????"":
+                pos1_coord_x = i
+                pos1_coord_y = j
+                print(pos1_coord_x, pos1_coord_y)
+                break
+    for i in range(4):
+        for j in range(5):
+            if str(current_grid[i][j]) in ""??????????"":
+                if str(current_grid[i][j]) == str(current_grid[pos1_coord_x][pos1_coord_y]):
+                    print(pos1_coord_x, pos1_coord_y)
+                    current_grid[i][j] = ""  ""
+                    current_grid[pos1_coord_x][pos1_coord_y] = ""  ""
+                else:
+                    print(i, j)
+                    print(pos1_coord_x, pos1_coord_y)
+                    if (pos1_coord_x > i) or (pos1_coord_x == i and pos1_coord_y > j):
+                        current_grid[pos1_coord_x][pos1_coord_y] = pos2
+                        current_grid[i][j] = pos1
+                    if (i > pos1_coord_x) or (i == pos1_coord_x and j > pos1_coord_y):
+                        current_grid[pos1_coord_x][pos1_coord_y] = pos1
+                        current_grid[i][j] = pos2
+                print(pos1, pos2)
+    draw_grid(grid, pos1, pos2)
+
+
+def draw_grid(grid, pos1=None, pos2=None):
+    for i in range(4):
+        for j in range(5):
+            print(current_grid[i][j], end="" "")
+        print()
+    pos1 = str(input(""Position 1: ""))
+    pos2 = str(input(""Position 2: ""))
+    get_symbols(grid, pos1, pos2)
+
+
+if __name__ == ""__main__"":
+    create_grid(CARDS)
+    # get_symbols(grid, pos1, pos2)
+    # take_cards(grid, pos1, pos2)
+    # draw_grid(grid, pos1=None, pos2=None)",6,"0. Overall game functionality mixed in different functions.
+1. Found pairs do not get deleted.
+2. Infinite loop on wrong inputs."
+34,"import random
+CARDS = [""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"",
+         ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?"", ""?""]
+
+
+# TODO: Implement fucntion
+
+#erstehlt das spielfeld 5X4
+"""""" 
+
+Args :
+    create a list to put the grid togehtert
+Input :
+    no input needed
+return :
+    gives out a 5x4 grid 
+""""""
+def create_grid(cards):
+    random.shuffle(cards)
+    grid = []
+    count = 0
+
+    for i in range (5):
+        row = []
+        for j in range(4):
+            row.append(cards[count])
+            count += 1
+        grid.append(row)
+
+    return grid
+
+print(create_grid(CARDS))
+
+# TODO: Implement fucntion
+
+#symoble werden plaziert
+def get_symbols(grid, pos1: tuple, pos2: tuple):
+    return (grid[pos1[0]][pos1[1]], grid[pos2[0]][pos2[1]])
+ 
+# TODO: Implement fucntion
+
+
+def take_cards(grid, pos1, pos2):  
+
+    grid[pos1[0]][pos1[1]] = None
+    grid[pos2[0]][pos2[1]] = None
+    return grid
+ 
+
+
+# TODO: Implement fucntion
+
+#hier wird das spielfeld plaziert
+def draw_grid(grid, pos1 = None, pos2 = None):
+    letter = [""A"", ""B"", ""C"", ""D""]
+    field = """"
+
+
+    for i in range(4):
+        for j in range(5):
+            if pos1 != None:
+                field = str(field + grid[pos1[0]][pos1[1]] + "" "")
+            elif pos2 != None:
+                field = str(field + grid[pos2[1]][pos2[2]] + "" "")
+            else:
+                field = field + letter[i] + str(j + 1) + "" ""
+        field += ""\n""
+
+    print(field)
+
+if __name__ == ""__main__"":
+    draw_grid(create_grid(CARDS), (1,2), (2,3))",6,0. draw_grid only draws one symbol (fixed index instead of loop variable).
+35,"""""""We create a contactbook in a list,where each contact is a dictioanry.
+
+Each contact consists of atleast a name and also other details.
+We run different functions given in the question and print result for each function.
+""""""
+
+contact_book=[{'name':'Max Mustermann','age':30,'city':'Frankfurt'},
+              {'name':'David Gilmour','age':40,'city':'London'}]   #This is our contactbook using which we use our functions as given in question.
+
+def add_contact(*contact):
+    """"""This is a function to create a contact and add this contact to our contactbook.""""""
+    return contact_book
+#Input
+
+Name=input(""Enter a name:"")
+Age=eval(input(""Enter his/her age:""))
+City=input(""Enter the place he/she lives in:"")
+
+new_contact={'name':Name,'age':Age,'city':City}   #We define the key and value for our contact dictionary.
+add_contact(*new_contact)
+contact_book.append(new_contact)   #We add the contact,we created to the contactbook.
+
+#Outout
+print('the new contact is:')
+print(new_contact)   #First we print our new contact.
+print('the new contact_book is:')
+print(contact_book)   #And then we print our contactbook with the new contact in it.
+
+if __name__ == '__main__':
+    add_contact()
+
+
+def del_contact(Name):
+    """"""This is a function that deletes a certain contact with certain name from our contackbook.""""""
+    for contact in contact_book.copy():   #This gives us a shallow copy of our list and is necessary to iterate over and remove element. 
+        if contact.get('name')== Name:   #It returns the value of the key 'name' and sees if that is same with the name we give as input.
+            contact_book.remove(contact)   #It removes the matching contact from our contactbook.
+            break
+Name=input(""Enter the name whose contact is to be deleted:"")
+del_contact(Name)
+print(contact_book)   #It prints out the updated contactbook.
+
+
+if __name__ == '__main__':
+    del_contact(Name)
+",7,"0. add_contact does not add a contact. 
+1. Invalid parameters (only splash, no name)."
+36,"##############################################################################
+#  Defining our initial contactbook makes sense to choose user as default
+#  parameters, where we use mail prename and birthday as information
+contacts_book = {}
+
+def add_contact(name_user, mail_user, birthday_user):
+    '''Takes name as string mail as string and birthday as string and adds it 
+    to our initial dictionary to get a conatactbook
+    '''
+    contacts_book[str(name_user)] = [str(mail_user), str(birthday_user)]
+    return contacts_book
+
+
+if __name__ == '__main__':
+    # Test cases for user input to have bigger variablity
+    user_to_book_one = add_contact(input('please tell me your name: '), 
+                                   input('please give me your mail: '), 
+                                   input('please tell me your birthday: '))
+    print(contacts_book)
+    user_to_book_two = add_contact(input('please tell me your name: '), 
+                                   input('please give me your mail: '), 
+                                   input('please tell me your birthday: '))
+    print(contacts_book)
+    user_to_book_one = add_contact(input('please tell me your name: '), 
+                                   input('please give me your mail: '), 
+                                   input('please tell me your birthday: '))
+    print(contacts_book)
+",7,0. add_contact has only fixed list of parameters.
+37,"""""""
+Docstring: This module takes single contatcs and puts them together in a list.
+
+the function edit_contact() is missing. 
+""""""
+
+contacts = {""Albus Dumbledore"": {'city': ""Hogsmeade"", ""occupation"": ""Teacher""}, ""Hermine Granger"": {'city': ""Hogwarts""}, ""Ron Weasley"": {'city': ""The Burrow"", 'age': 17, 'occupation': 'Student'}}
+
+def add_contact(kontaktbuch):
+    """"""
+    Docstring: This function takes a new contact and puts it into a
+    preexisting contact book. 
+    """"""
+    name = input(""Geben Sie den Namen des neuen Kontakts ein. "")
+    city = input(""Geben Sie die Stadt des neuen Kontaktes ein. "")
+    kontaktbuch.update({name : {'city' : city}})
+
+    return kontaktbuch
+
+def del_contact(kontaktbuch, name):
+    """"""Docstring: This function deletes a contact.""""""
+
+    while True:
+        try:
+            kontaktbuch.pop(name)
+            break
+        except KeyError:
+            print(""Dieser Name wurde bereits gel�scht."")
+            break
+
+    return kontaktbuch   
+
+def list_contact(kontaktbuch):
+    """"""Docstring: This function lists all the contacts in contact list.""""""
+    for name in kontaktbuch:
+        print(name)
+
+def show_contact(kontaktbuch, name):
+    """"""Docstring: This function lists all information to a contact.""""""
+    for i in kontaktbuch[name]:
+        print (kontaktbuch[name][i], end=""\n"")
+        
+        
+if __name__ == '__main__':
+    """"""Docstring: includes three testcases.""""""
+    
+    # Test1:
+    list_contact(contacts)
+    showthis = input(""Geben Sie den Namen ein, dessen Informationen Sie wollen."")
+    show_contact(contacts, showthis) 
+    add_contact(contacts)
+    delthis = input(""Geben Sie den Namen ein, den Sie l�schen wollen."")
+    del_contact(contacts, delthis)
+
+    # Test2:
+    list_contact(contacts)
+    showthis = input(""Geben Sie den Namen ein, dessen Informationen Sie wollen (einen anderen wie im ersten Testfall."")
+    show_contact(contacts, showthis)
+    add_contact(contacts)
+    delthis = input(""Geben Sie den Namen ein, den Sie l�schen wollen. Zum Testen: denselben Namen wie oben l�schen."")
+    del_contact(contacts, delthis)
+
+    # Test3:
+    list_contact(contacts)
+    add_contact(contacts)
+    delthis = input(""Geben Sie den Namen ein, den Sie l�schen wollen."")
+    del_contact(contacts, delthis)
+    list_contact(contacts)
+    showthis = input(""Geben Sie den Namen ein, dessen Informationen Sie wollen."")
+    show_contact(contacts, showthis)
+    ",7,"0. add_contact does not use parameters for adding, instead uses input. 
+1. Only fixed informations can be added."
+38,"kontaktbuch = [{""Name"": 'Liam', ""Telefon"": '015734523723',
+               ""Geburtstag"": ""15.11.2001""}]  # Kontakt bereits gegeben
+
+
+def add_contact(kontaktbuch, personen_name, **rest_daten):
+    rest_daten.update({""Name"": personen_name})  # In Kwargs wird die Variable
+    kontaktbuch.append(rest_daten)  # personen_name hinzugef�gt
+    print(kontaktbuch)
+
+
+def del_contact(kontaktbuch, personen_name):  # L�schen des Kontakts
+    del kontaktbuch[personen_name]  # Mit del wird ein Element des Dictionarys
+    print(kontaktbuch)  # Gel�scht
+
+
+if __name__ == ""__main__"":
+    add_contact(kontaktbuch, 'Leith', Telefon=""017620050409"",
+                Geburtstag=""18.12.2004"")
+    add_contact(kontaktbuch, ""Luai"", Telefon=""123456789"",
+                Geburtstag=""15.11.2001"")
+    add_contact(kontaktbuch, ""Peter"", Telefon=""4567892345"",
+                Geburtstag=""23.7.2002"")
+    del_contact(kontaktbuch, 1)
+    del_contact(kontaktbuch, 2)
+    del_contact(kontaktbuch, 0)
+
+
+'''Habe mit einem Anfangs Kontakt begonnen um so mit update und append 
+ so in die Liste die weiteren Dictionarys hinzuzuf�gen. Bei der zweiten Funk-
+ tion habe ich mit del gearbeitet und habe den Index gel�scht in der Liste,
+ jedoch kam ich nicht drauf, wie man statt einem Index einen Namen eingibt'''",7,"0. Missing functions.
+1. del_contact required index instead of name."
+39,"def add_contact(Kontaktbuch, Kontakt):
+    Kontaktbuch.append(Kontakt)
+    #print(Kontaktbuch)
+    return Kontaktbuch
+
+
+def del_contact(name, Kontaktbuch):
+    for i in range(0,len(Kontaktbuch)):
+        if name in Kontaktbuch[i].values():
+            Kontaktbuch.pop(i)
+            break
+    #print(Kontaktbuch)
+    return Kontaktbuch
+
+
+def edid_contact(name, Kontaktbuch, **ae):
+    for i in range(0,len(Kontaktbuch)):
+        if name in Kontaktbuch[i].values():
+            Kontaktbuch[i].update(ae)
+    #print(Kontaktbuch)
+
+def list_contacts(Kontaktbuch):
+    for i in range(0,len(Kontaktbuch)):
+        print(Kontaktbuch[i]['name'])
+
+def show_contact(Kontaktbuch, name):
+    for i in range(0,len(Kontaktbuch)):
+        if name in Kontaktbuch[i].values():
+            for key, value in Kontaktbuch[i].items():
+                print(value)
+
+    
+    
+
+def main():
+    Kontaktbuch = [{'name': 'Horst M�ller', 'number': '12345', 'adresse': 'Bismark'},
+               {'name': 'Laura Fischer', 'number': '23456', 'adresse': 'M�nchen'}]
+
+    Kontakt = {'name': 'Frank', 'number': '34567', 'adresse': 'Berlin'}
+    Kontaktbuch = add_contact(Kontaktbuch, Kontakt)
+        
+    Kontaktbuch = del_contact('Horst M�ller', Kontaktbuch)
+
+    edid_contact('Laura Fischer', Kontaktbuch, number='524909428', adresse='Hamburg')
+
+    list_contacts(Kontaktbuch)
+
+    show_contact(Kontaktbuch, 'Laura Fischer')
+
+if __name__ == ""__main__"":
+    main()",7,"0. add_contact uses dictionary of contact instead of parameters (splash).
+1. edid_contact named wrongly."
+40,"'''
+This programm performes the two codes shown in exercise 2. 
+
+'''
+
+
+#Iterativ
+#Function takes a list and subtracts the the next list element with the
+#current one.
+def differences1(values):
+    result = []
+    for i in range(len(values) - 1):
+        result.append(values [i+1] - values[i])
+    return result
+
+
+#Rekursion
+def differences2(values):
+    result = []
+    while len(values) > 1:
+        result.append(values[1] - values[0])
+        return differences2(values[1:])
+    return result
+
+
+#Rekursion
+#Function takes a string and checks wether it is spelled the same
+#from the back and front.
+def palindrome1(word):
+    if len(word) <=1:
+        return True
+    if word[0] != word[-1]:
+        return False
+    return palindrome1(word[1:-1])
+
+
+#Iteration
+def palindrome2(word):
+    for i in range(len(word)//2):
+        if word[i-1] == word[-i]:
+            comparison = True
+            return comparison
+        else:
+            comparison = False
+            return comparison
+    return palindrome2(word[1:-1])
+
+palindrome2(""appa"")
+
+def main():
+    print(""differences functions test:\n"")
+    print(""Test 1"")
+    differences1([1,2,3,4,5])
+    differences2([1,2,3,4,5])
+    print(""\nTest 2"")
+    differences1([2,4,6,8,10])
+    differences2([2,4,6,8,10])
+    print(""\nTest3"")
+    differences1([10,5,50,100])
+    differences2([10,5,50,100])
+
+    print(""Bug: Program does not show the result of the\
+          palindrome function unless manually typed in console"")
+    print(""palindrome functions test:\n"")
+    print(""Test 1"")
+    palindrome2(""uhu"")
+    palindrome1(""uhu"")
+    print(""\nTest 2"")
+    palindrome2(""kajak"")
+    palindrome1(""kajak"")
+    print(""\nTest 3"")
+    palindrome1(""level"")
+    palindrome2(""level"")
+    
+
+if __name__=='__main__':
+    main()",8,"0. differences2 returns empty list.
+1. palindrome2 only checks outer characters."
+41,"def differences(values):
+    '''This rekursive function receives a list with an unlimited amount of numbers.
+The second number is always subtracted from the first number.
+The results are being output in the terminal in a list.'''
+    if len(values) == 1:
+        return []
+#if there is just one number in the function there is no other number to subtract
+#it from so the number itself will be output in a list
+    else:
+        return [values[0] - values[1]] + differences(values[1:])
+#otherwise the first number of the list is subtracted from the second one, which  
+#which continues for every number in the given list
+
+
+#Testfaelle
+print(differences([5,7,4]))
+print(differences([0,4,1,7,2]))
+print([4])
+
+if __name__ == '__main__':
+    differences
+",8,0. differences have wrong sign.
+42,"#Aufgabe 2a
+def differences(values):
+    """"""
+    calculates the differences between contained elements in a list of values,
+    if the Value is higher then 1 and not 1,
+    so they will return the result.
+    :param values: Is the list that the user will give in
+    :return: we will return once the list wirh nothing in it or the
+    list with the result and the input of the user.
+    """"""
+    result = []
+    if len(values) <= 1:  # check if the number is not 1 or lower than one
+        return result
+    result = values[1] - values[0]
+    return [result]
+
+
+#Aufgabe 2b
+def palindrome(word):
+    """"""
+    The program examines the character in the middle of 
+    each word and compares it to the corresponding character at
+    the other end of the word, at first we for in 
+    range i of the string, then we create a new variable. On this
+    Variable we will integer division i with 2, 
+    after that we check if the variable is unequal the word with the
+    lenght of the string. If that is unequal, 
+    so we return false, if it's not unequal we return True.
+    :param word: is the string that the user will give in
+    :return: we return false if unequal, 
+    and we will return True if it's not unequal
+    """"""
+    for i in range(len(word)):  # go in range i of the lenhgt of the string
+        y = i // 2
+        if word[y] != word[len(word) - y - 1]:
+            return False  # False is returned if another pair is found
+    return True  # If the word is successfully 
+                 # tried without an odd pair, True is returned.
+
+
+
+if __name__ == '__main__':
+    print(differences([3, 6, 2, 1]))
+    print(differences([2, 3, 4, 5]))
+    print(differences([3, 1, 23, 4]))
+    print(palindrome('anna'))
+    print(palindrome('level'))
+    print(palindrome('servus'))",8,0. differences returns only one value (list concat missing).
+43,"#Aufgaabe2a)
+""""""
+'iteration into Recursion'
+This function is iteration because of for!
+
+
+def differences(values):
+ result = []
+ for i in range(len(values) - 1):
+ result.append(values [i+1] - values[i])
+ return result
+""""""
+
+def differences_d(values):
+    if len(values) < 2:
+        return []
+    else:
+        return [ values[1] - values[0]] + differences_d(values[:1]) 
+
+
+###Aufgabe2b)
+""""""
+'Recursion into Iteration'
+This function is Recursion because of if!
+def palindrome(word):
+    if len(word) <=1:
+       return True
+    if word[0] != word[-1]:
+       return False
+    return palindrome(word[1:-1])
+
+
+""""""
+
+if __name__ =='__main__':
+
+    print(differences_d([8, 9, 10]))
+    print(differences_d([5, 10, 15]))
+    print(differences_d([2, 10]))",8,"0. differences_d recursive call is wrong. Called with only first element instead of rest list.
+1. palindrome missing."
+44,"def palindrome(word):
+    """"""
+    This Funtion takes in a word as a parameter
+    and checks if it reads the same backward or forward.
+    """"""
+    for elem in range(len(word)):
+        if word[elem] == word[-(elem+1)]:
+            return True
+        else:
+            return False
+
+
+if __name__ == '__main__':
+    a = palindrome(""hallo"")
+    print(a)
+    # Output: False
+    b = palindrome(""ABBA"")
+    print(b)
+    # Output: True
+    c = palindrome(""ABBBA"")
+    print(c)
+    # Output: True",8,"0. difference is missing.
+1. palindrome only checks outer characters."
+45,"import random
+
+def createMatrix(list, n):
+    """"""Create a matrix n with random numbers.""""""
+    for i in range(n):
+        a =[]
+        for j in range(n):
+            a.append(random.randint(0,9))
+        list.append(a)
+    return list
+
+
+def minCostCalc(list):
+    """"""Shortest path is calculated.""""""
+    # M * N matrix.
+    (M, N) = (len(list) , len(list[0]))
+    # T[i][j] maintains the minimum cost to reach cell (i, j) from cell (0, 0).
+    T = [[0 for x in range(N)] for y in range(M)]
+    # Fill the matrix in a bottom-up manner.
+
+    for i in range(M):
+        for j in range(N):
+
+            T[i][j] = list[i][j]
+            # Fill the first row ##there is only one way to reach any cell in the
+            # First row from its adjacent left cell##.
+
+            if i == 0 and j > 0:
+                T[0][j] += T[0][j - 1]
+                # Fill the first column ##there is only one way to reach any cell in
+                # the first column from its adjacent top cell##.
+                
+            elif j == 0 and i > 0:
+                T[i][0] += T[i - 1][0]
+                # fill the rest with the matrix ##there are two ways to reach any
+                # cell in the rest of the matrix, from its adjacent
+                # left cell or adjacent top cell##.
+                
+                
+            elif i > 0 and j > 0:
+                T[i][j] += min(T[i - 1][j] , T[i][j - 1])
+                
+
+                  
+    
+    # last cell of `T[][]` stores the minimum cost to reach destination cell
+    # (M-1, N-1) from source cell (0, 0).
+    return T[M - 1][N - 1]
+              
+
+
+
+if __name__ == ""__main__"":
+    
+    randomList = []
+    print('Testfall 1:')
+    print(createMatrix(randomList , 2 ))
+    print('The path with the lowest cost:',
+            minCostCalc(randomList))
+    
+    #
+    randomList = []
+    print('Testfall 2:')
+    print(createMatrix(randomList , 3 ))
+    print('The path with the lowest cost:', 
+            minCostCalc(randomList))
+    #
+    randomList = []
+    print('Testfall 3:')
+    print(createMatrix(randomList , 5 ))
+    print('The path with the lowest cost:',
+             minCostCalc(randomList))",9,"0. CamelCase naming.
+1.list used as variable name."
+46,"'''Finds the best way through a matrix.'''
+
+import random
+import copy
+
+def create_matrix(n):
+    '''Creates a matrix (n x n).'''
+    
+    matrix = []
+    i = 0
+    j = 0
+    while i < n:
+        matrix.append([])
+        while j < n:
+            matrix[i].append(random.randint(0,9))
+            j = j + 1
+        i = i + 1
+        j = 0
+    return matrix
+
+def print_matrix(matrix):
+    '''Gives out the given matrix.'''
+    
+    for i in range(len(matrix)):
+        print(matrix[i])
+
+
+def pathfinder(matrix, path, pathlist, pos=(0, 0)):
+    '''Finds the optimal path through the given matrix.'''
+    
+    n = len(matrix) - 1
+    matrix_copy = copy.deepcopy(matrix)
+
+    # Terminate if endposition is reached
+    if pos == (n, n):
+        path.append(pos)
+        pathlist.append(path)
+        return pathlist
+    else:
+        # pos --> (down, right)
+        # condition for going right
+        if pos[1] + 1 <= n and matrix_copy[pos[0]][pos[1] + 1] != 'XX':
+            matrix_copy[pos[0]][pos[1]] = 'XX'
+            path.append(pos)
+            path = copy.deepcopy(path)
+            pathlist = pathfinder(matrix_copy, path, pathlist, (pos[0], pos[1] + 1))
+        # condition for going left
+        if pos[1] - 1 >= 0 and matrix_copy[pos[0]][pos[1] - 1] != 'XX':
+            matrix_copy[pos[0]][pos[1]] = 'XX'
+            path.append(pos)
+            path = copy.deepcopy(path)
+            pathlist = pathfinder(matrix_copy, path, pathlist, (pos[0], pos[1] - 1))
+
+        # condition for going down
+        if pos[0] + 1 <= n and matrix_copy[pos[0] + 1][pos[1]] != 'XX':
+            matrix_copy[pos[0]][pos[1]] = 'XX'
+            path.append(pos)
+            path = copy.deepcopy(path)
+            pathlist = pathfinder(matrix_copy, path, pathlist, (pos[0] + 1, pos[1]))
+
+        # condition for going up
+        if pos[0] - 1 >= 0 and matrix_copy[pos[0] - 1][pos[1]] != 'XX':
+            matrix_copy[pos[0]][pos[1]] = 'XX'
+            path.append(pos)
+            path = copy.deepcopy(path)
+            pathlist = pathfinder(matrix_copy, path, pathlist, (pos[0] - 1, pos[1]))
+
+    return pathlist
+
+
+    # TODO liste mit kosten und weg
+
+matrix = create_matrix(3)
+print_matrix(matrix)
+print(pathfinder(matrix, [], []))",9,0. Return of optimal path including costs missing.
+47,"#�bungsblatt �E-06
+#implementation of minimum cost path
+import sys
+
+# cell (m, n) from cell (0, 0)
+def MinCost(cost, m=5, n=5):
+    # initialize m and n
+    if not m and not n:
+        m, n = len(cost), len(cost[0])
+    # base case
+    if not cost or not len(cost):
+        return 0
+    # base case
+    if n == 0 or m == 0:
+        return sys.maxsize
+    # if we are in the first cell (0, 0)
+    if m == 1 and n == 1:
+        return cost[0][0]
+    # include the current cell's cost in the path and recur to find the minimum
+    # of the path from the adjacent left cell and adjacent top cell.
+    return min(MinCost(cost, m - 1, n), MinCost(cost, m, n - 1))\
+        + cost[m - 1][n - 1]
+
+if __name__ == '__main__':
+    cost = [                #choose matrix here m and n = 5 here
+        [0, 5, 8, 0, 8],
+        [9, 2, 8, 3, 1],
+        [7, 3, 1, 7, 6],
+        [2, 1, 4, 6, 6],
+        [9, 3, 5, 8, 2]
+    ]
+    print('Der billigste Weg kostet', MinCost(cost),'�')",9,"0. Path only considers down and right (instead of horizontal/vertical).
+1. Returns only costs, no path."
+48,"#�bungsblatt �E-06
+#Aufgabe 3)
+
+import random
+#implement matrix
+def matrix(n):
+    for i in range(n):      #set dimension
+        n = [random.randint(0,9), #5x5, choose row and column
+            random.randint(0,9),
+            random.randint(0,9),
+            random.randint(0,9),
+            random.randint(0,9)]
+        print(n)
+
+if __name__ == ""__main__"":
+    matrix(5)",9,"0. No pathfinder.
+1. Matrix is only printed, not returned."
+49,"#3b)
+def find_optimal_path(matrix: list[list[int]]) -> tuple[int, list[tuple[int, int]]]:
+    # Entgegennahme der Dimension der Matrix
+    n = len(matrix)
+    m = len(matrix[0])
+
+    if n == 1 and m == 1:
+        return matrix[0][0], [(0, 0)]
+
+
+    # Setzen des optimalen Weg und der Kosten auf unendlich
+    optimal_path = []
+    optimal_cost = float(""inf"")
+
+
+    for i in range(n):
+        for j in range(m):
+
+            if i > 0 or j > 0:
+                # Berechne die Kosten und den Weg f�r die Submatrix ab beim aktuellen Element
+                sub_cost, sub_path = find_optimal_path([row[j:] for row in matrix[i:]])
+
+                # Hinzuf�gen des aktuellen Elements zum Pfad und Aktualisierung der Kosten
+                # um die Kosten des aktuellen Elements zu ber�cksichtigen
+                path = [(i, j)] + sub_path
+                cost = matrix[i][j] + sub_cost
+
+                if cost < optimal_cost:
+                    optimal_path = path
+                    optimal_cost = cost
+
+    return optimal_cost, optimal_path
+
+if __name__ == '__main__':
+    matrix = [    [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ]
+    optimal_cost, optimal_path = find_optimal_path(matrix)
+    print(optimal_cost)
+    print(optimal_path)
+    print(""-----------------"")  # lediglich f�r �bersicht
+
+if __name__ == '__main__':
+    matrix = [    [2, 7, 8],
+        [4, 6, 9],
+        [1, 3, 5]
+    ]
+    optimal_cost, optimal_path = find_optimal_path(matrix)
+    print(optimal_cost)
+    print(optimal_path)
+    print(""-----------------"")  # lediglich f�r �bersicht
+
+if __name__ == '__main__':
+    matrix = [    [7, 6, 2],
+        [1, 4, 3],
+        [9, 2, 8]
+    ]
+    optimal_cost, optimal_path = find_optimal_path(matrix)
+    print(optimal_cost)
+    print(optimal_path)",9,"0. Returned path only contains end and start.
+1. Returned costs is just 2 times last cell cost."
+50,"import re
+
+# Dateinamen festlegen
+
+# Text aus der Datei einlesen
+with open(""PythonEntwicklungG.txt"", ""r"") as f:
+    text = f.read()
+
+sought_1 = re.findall(r'<[^>]*>', text)
+sought_2 = re.findall(r""20[0-9][0-9]"", text)
+sought_3 = re.findall(r""19[0-9][0-9]"", text)
+
+for i in range(len(sought_1)):
+    print(sought_1[i], end = "" "")
+
+for i in range(len(sought_2)):
+    print(sought_2[i])
+
+for i in range(len(sought_3)):
+    print(sought_3[i])",10,0. Years starting with 19/20 are two regex searches (should be one).
+51,"# EPR Uebungsblatt 7 - Pairprogramming
+
+import re
+
+# Aufgabe 1
+
+# a.)
+""""""In this task, all expressions from the text (copied from the Moodle 
+course), that start with a '<' and end with a '>' should be printed. The 
+characters themselves should also be printed. Herefore we'll import the 
+module 're' and firstly define the text as a variable called 
+'PythonEntwicklungG'. After that we use the built-in function of the module 
+'re' re.findall(). """"""
+
+PythonEntwicklungG = """"""<h2><span class=""mw-headline"" 
+id=""Entwicklungsgeschichte"">Entwicklungsgeschichte</span><span 
+class=""mw-editsection""><span class=""mw-editsection-bracket"">[</span><a 
+href=""/w/index.php?title=Python_(
+Programmiersprache)&amp;veaction=edit&amp;section=1"" 
+class=""mw-editsection-visualeditor"" title=""Abschnitt bearbeiten: 
+Entwicklungsgeschichte"">Bearbeiten</a><span class=""mw-editsection-divider""> 
+| </span><a href=""/w/index.php?title=Python_(
+Programmiersprache)&amp;action=edit&amp;section=1"" title=""Abschnitt 
+bearbeiten: Entwicklungsgeschichte"">Quelltext bearbeiten</a><span 
+class=""mw-editsection-bracket"">]</span></span></h2> <div class=""thumb 
+tright""><div class=""thumbinner"" style=""width:172px;""><a 
+href=""/wiki/Datei:Guido_van_Rossum.jpg"" class=""image""><img alt="""" 
+src=""//upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Guido_van_Rossum
+.jpg/170px-Guido_van_Rossum.jpg"" decoding=""async"" width=""170"" height=""228"" 
+class=""thumbimage"" srcset=""//upload.wikimedia.org/wikipedia/commons/thumb/c
+/c6/Guido_van_Rossum.jpg/255px-Guido_van_Rossum.jpg 1.5x, 
+//upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Guido_van_Rossum.jpg
+/340px-Guido_van_Rossum.jpg 2x"" data-file-width=""447"" data-file-height=""600"" 
+/></a>  <div class=""thumbcaption""><div class=""magnify""><a 
+href=""/wiki/Datei:Guido_van_Rossum.jpg"" class=""internal"" title=""vergr��ern 
+und Informationen zum Bild anzeigen""></a></div><a 
+href=""/wiki/Guido_van_Rossum"" title=""Guido van Rossum"">Guido van Rossum</a>, 
+der Entwickler von Python</div></div></div> <p>Die Sprache wurde Anfang der 
+1990er Jahre von <a href=""/wiki/Guido_van_Rossum"" title=""Guido van 
+Rossum"">Guido van Rossum</a> am <a 
+href=""/wiki/Centrum_Wiskunde_%26_Informatica"" title=""Centrum Wiskunde &amp; 
+Informatica"">Centrum Wiskunde &amp; Informatica</a> in <a 
+href=""/wiki/Amsterdam"" title=""Amsterdam"">Amsterdam</a> als Nachfolger f�r 
+die Programmier-Lehrsprache <i><a href=""/wiki/ABC_(Programmiersprache)"" 
+title=""ABC (Programmiersprache)"">ABC</a></i> entwickelt und war urspr�nglich 
+f�r das verteilte <a href=""/wiki/Betriebssystem"" 
+title=""Betriebssystem"">Betriebssystem</a> <a href=""/wiki/Amoeba_(
+Betriebssystem)"" title=""Amoeba (Betriebssystem)"">Amoeba</a> gedacht. 
+</p><p>Der Name geht nicht (wie das Logo vermuten lie�e) auf die 
+gleichnamige Schlangengattung (<a href=""/wiki/Pythons"" 
+title=""Pythons"">Pythons</a>) zur�ck, sondern bezog sich urspr�nglich auf die 
+englische Komikertruppe <a href=""/wiki/Monty_Python"" title=""Monty 
+Python"">Monty Python</a>. In der Dokumentation finden sich daher auch einige 
+Anspielungen auf Sketche aus dem <a 
+href=""/wiki/Monty_Python%E2%80%99s_Flying_Circus"" title=""Monty Python�s 
+Flying Circus"">Flying Circus</a>.<sup id=""cite_ref-14"" class=""reference""><a 
+href=""#cite_note-14"">&#91;14&#93;</a></sup> Trotzdem etablierte sich die <a 
+href=""/wiki/Assoziation_(Psychologie)"" title=""Assoziation (
+Psychologie)"">Assoziation</a> zur Schlange, was sich unter anderem in der 
+Programmiersprache <a href=""/wiki/Cobra_(Programmiersprache)"" title=""Cobra (
+Programmiersprache)"">Cobra</a><sup id=""cite_ref-15"" class=""reference""><a 
+href=""#cite_note-15"">&#91;15&#93;</a></sup> sowie dem Python-Toolkit 
+�Boa�<sup id=""cite_ref-16"" class=""reference""><a 
+href=""#cite_note-16"">&#91;16&#93;</a></sup> �u�ert. Die erste Vollversion 
+erschien im Januar 1994 unter der Bezeichnung Python 1,0. Gegen�ber fr�heren 
+Versionen wurden einige Konzepte der funktionalen Programmierung 
+implementiert, die allerdings sp�ter wieder aufgegeben wurden.<sup 
+id=""cite_ref-17"" class=""reference""><a 
+href=""#cite_note-17"">&#91;17&#93;</a></sup> Von 1995 bis 2000 erschienen 
+neue Versionen, die fortlaufend als Python 1.1, 1.2 etc. bezeichnet wurden. 
+</p><p>Python 2.0 erschien am 16.&#160;Oktober 2000. Neue Funktionen 
+umfassten eine voll funktionsf�hige <a href=""/wiki/Garbage_Collection"" 
+title=""Garbage Collection"">Garbage Collection</a> (automatische 
+Speicherbereinigung) und die Unterst�tzung f�r den <a href=""/wiki/Unicode"" 
+title=""Unicode"">Unicode</a>-Zeichensatz.<sup id=""cite_ref-18"" 
+class=""reference""><a href=""#cite_note-18"">&#91;18&#93;</a></sup> In Version 
+2.6 wurde eine Hilfe eingebaut, mit der angezeigt werden kann, welche 
+Code-Sequenzen vom Nachfolger Python 3 nicht mehr unterst�tzt werden und 
+daher in darauf aufbauenden Versionen nicht mehr lauff�hig sind.<sup 
+id=""cite_ref-19"" class=""reference""><a 
+href=""#cite_note-19"">&#91;19&#93;</a></sup> </p><p>Python 3.0 (auch Python 
+3000) erschien am 3.&#160;Dezember 2008 nach l�ngerer Entwicklungszeit. Es 
+beinhaltet einige tiefgreifende �nderungen an der Sprache, etwa das 
+Entfernen von Redundanzen bei Befehlss�tzen und veralteten Konstrukten. Da 
+Python 3.0 hierdurch teilweise inkompatibel zu fr�heren Versionen ist,
+<sup id=""cite_ref-20"" class=""reference""><a 
+href=""#cite_note-20"">&#91;20&#93;</a></sup> beschloss die <i>Python Software 
+Foundation</i>, Python 2.7 parallel zu Python 3 bis Ende 2019 weiter mit 
+neuen Versionen zu unterst�tzen (f�r Hinweise zu noch erscheinenden 
+2er-Versionen, dem Supportende und Hilfe zur Migration siehe Abschnitt <i><a 
+href=""#Ende_von_Python_2"">Ende von Python 2</a></i>). </p> """"""
+
+matches = re.findall(r""<.*?>"", PythonEntwicklungG)
+""""""We define the matches as 'matches' and print them out after using the 
+function re.findall(). """"""
+
+# print(matches)
+
+if __name__ == '__main__':
+    print(matches)
+
+# b.)
+
+""""""In this task, we are supposed to extract all years from 1900 - 2099, 
+using the module 're'. Herefore we firstly define the matches (years 1900 - 
+2099, which are included in the text) as the variable 'matchesyears'. To 
+find the matching years, we use re.findall() again. """"""
+matchesyears = re.findall(r""\b(19[0-9][0-9]|20[0-9][0-9])\b"",
+                          PythonEntwicklungG)
+
+""""""The regular expression r""\b(19[0-9][0-9]|20[0-9][0-9])\b"" uses \b to 
+ensure, that the four-digit numbers it matches are not part of a larger 
+word. The main part of the expression (19[0-9][0-9]|20[0-9][0-9]), uses two 
+alternation groups (separated by |), to match four-digit numbers starting 
+with ""19"" or ""20"". This regular expression could be used with the 
+re.findall() function, to extract all four-digit numbers between 1900 and 
+2099 from the given text (PythonEntwicklungG). """"""
+
+# print(matchesyears)
+
+if __name__ == '__main__':
+    print(matchesyears)",10,0. <> interrupted by new lines are ignored.
+52,"""""""This program searches for strings in a given text.
+
+After finding the strings they will displayed in the console.
+""""""
+
+import re
+
+# Opens the text for the purpose of being able to use regex on it
+text = open(""PythonEntwicklungG.txt"", ""r"", encoding=""utf-8"").readlines()
+text_all = open(""PythonEntwicklungG.txt"", ""r"", encoding=""utf-8"").read()
+
+#Searches for all iterations of strings between < and >
+#And then prints them, including themselves
+search = '(\<(.*?)\>)'
+x = re.findall(search, text_all)
+print(x)
+
+# Searches for all dates, but only years in the format of YYYY
+search = '([1-9][0-9][0-9][0-9])'
+x = re.findall(search, text_all)
+print(x)",10,0. Year 3000 is wrongly returned.
+53,"""""""This module is used to read the file 'PythonEntwicklungG.txxt' 
+and to print out the special expressions in said file under
+the conditions set in exercise task 1
+""""""
+
+import re
+
+pattern_brackets = re.compile(r'<[\w\W\>]*>')  # definition of what we are looking for
+pattern_number = re.compile(r'[12][09]\d\d')  # definition of what we are looking for
+
+with open('PythonEntwicklungG.txt', 'r') as t:  # get access to file
+    text = t.read()
+    matches_brackets = pattern_brackets.finditer(text)  # use definition from above
+    for i in matches_brackets:
+        print(i)
+    matches_number = pattern_number.finditer(text)  # use definition from above
+    for j in matches_number:
+        print(j)",10,"0. Returns match objects instead of strings.
+1. Only one <> is found, due to missing lazy operator."
+54,"""""""Aufgabe 1""""""
+
+import re
+
+datei = open('PythonEntwicklungG.txt', 'r')
+string = datei.read()
+
+print(re.findall([0 - 9][1900 - 2099], string))
+
+print(re.findall(""<.*?>"", string))",10,0. IndexError: Search for years is not a string.
+55,"import random
+
+def create_cards():
+    """"""
+    This function creates a list of dictionaries, where each dictionary represents a playing card.
+    The keys in the dictionary are ""color"" and ""card"", representing the card's suit and value, respectively.
+    The function generates all 52 cards in a standard deck.
+    :return:
+
+    """"""
+
+    # list of card suits
+    list_color = [""Karo"", ""Herz"", ""Pik"", ""Kreuz"" ]
+
+    # list of card values
+    list_cards = [""2"", ""3"", ""4"", ""5"", ""6"", ""7"", ""8"", ""9"", ""10"", ""Bube"", ""Dame"", ""K�nig"", ""Ass""]
+
+    # list to store the dictionaries representing each card
+    dic_cards = []
+
+    # iterate through each suit and value to create a card dictionary
+    for i in list_color:
+        for j in list_cards:
+
+            # create a card dictionary and append it to the list
+            dic_cards.append({""color"": i, ""card"": j})
+
+    # return the list of card dictionaries
+    return dic_cards
+
+
+def deal_cards(cards, player_num, round_num):
+    """"""
+    This function deals cards to a specified number of players for a specified number of rounds.
+    It takes a list of cards (`cards`), the number of players (`player_num`),
+    and the number of rounds (`round_num`) as input.
+    It returns a tuple of lists, where each list represents the cards held by a player.
+
+    """"""
+
+    # list to store the cards held by each player
+    hands = []
+
+    # create an empty list for each player to hold their cards
+    for i in range(player_num):
+        hands.append([])
+
+    # deal cards to each player for the specified number of rounds
+    for i in range(round_num):
+        for j in range(player_num):
+
+            # choose a random card from the remaining cards
+            chosen_card = random.choice(cards)
+
+            # add the chosen card to the player's hand
+            hands[j].append(chosen_card)
+
+            # remove the chosen card from the remaining cards
+            cards.remove(chosen_card)
+
+    # return the tuple of lists representing each player's hand
+    return tuple(hands)
+
+
+def compare_cards(trump_card, *cards):
+    """"""
+    This function compares a set of
+    cards based on their suit and value.
+    It takes a trump card (`trump_card`)
+    and an arbitrary number of cards to compare (`*cards`) as input.
+    The function returns a list of indices,
+    where the index represents the relative strength of the card.
+    The trump card has the highest strength,
+    followed by the other cards in the order
+    of the suits listed in `list_color`.
+    Within each suit, the cards are ranked
+    in the order listed in `list_cards`.
+    """"""
+
+    # list of card suits
+    list_color = [""Karo"", ""Herz"", ""Pik"", ""Kreuz""]
+
+    # list of card values
+    list_cards = [""2"", ""3"", ""4"", ""5"", ""6"", ""7"", ""8"", ""9"", ""10"", ""Bube"", ""Dame"", ""K�nig"", ""Ass""]
+
+    # list to store the dictionaries representing each card
+    dic_cards = []
+
+    # move the trump suit to the end of the list
+    list_color.remove(trump_card)
+    list_color.append(trump_card)
+
+    # create the dictionaries for each card
+    for i in list_color:
+        for j in list_cards:
+            dic_cards.append({""color"": i, ""card"": j})
+
+    # list to store the indices of the cards
+    index_list = []
+
+    # find the index of each card in the list of dictionaries
+    for card in cards:
+        index = dic_cards.index(card)
+
+        # add the index to the list
+        index_list.append(index)
+        
+    # return the list of indices
+    return index_list
+
+
+print(""Willkommen im Spiel"")
+print(""Das sind die Spielregeln:"")
+print("" - "" * 50)
+print(""Es wird mit 52 Karten (13 * 4 Farben) gespielt (Kartendeck). \n""
+      ""Das Spiel kann mit 2-5 Spieler gespielt werden . \n""
+      ""Es wird ein Startspieler und eine Reihenfolge festgelegt.\n""
+	  ""Sie k�nnen entscheiden ob ein Computer mitmacht. Wenn er mitmacht, ""
+	  ""wird sich die Spieleranzahl sich ver�ndern auf 1-4 Spielern.\n"")
+print("" - "" * 50)
+
+
+while True:
+	try:
+		rules = int(input(""M�chten sie die Genaueren Regeln lesen? F�r Ja geben [1], f�r Nein geben sie [0] ein: ""))
+		if rules == 0:
+			break
+		if rules == 1:
+			print(""Eine Runde verl�uft folgenderma�en:\n""
+				  ""Jedem Spielenden werden Karten ausgeteilt (die Anzahl der Karten soll der Rundennummer\n ""
+				  ""entsprechen). In der ersten Runde erh�lt jede*r eine Karte, in der zweiten Runde erh�lt jede*r\n ""
+				  ""zwei Karten und so weiter.\n""
+				  ""Die Trumpffarbe f�r die Runde wird ermittelt: Hierzu wird eine zuf�llige Wahl der Farbe vorgenommen.\n""
+				  ""Es wird nun um Stiche gespielt. Die Anzahl der Stiche entspricht der Anzahl Karten auf der Hand. \n""
+				  ""Um einen Stich wird folgenderma�en gespielt:\n""
+				  ""\n""
+				  ""Jede*r legt nacheinander eine Karte (beginnend bei dem*der Startspieler*in).\n""
+				  ""Der*Die Spieler*in mit der h�chstwertigen Karte gewinnt den Stich.\n""
+				  ""Nun ist der n�chste Spieler an der Reihe, um die erste Karte zu legen.\n""
+				  ""Am Ende der Runde werden alle Karten zusammengetan und neu gemischt. In der n�chsten \n""
+				  ""Runde startet der*die n�chste Spieler*in in der Reihenfolge als Startspieler."")
+			print("" - "" * 50)
+			break
+		if type(rules) == int and not 1 or  not 0 :
+			print(""Bitte geben sie [1] f�r Ja, [0] f�r Nein ein"")
+			print("" - "" * 50)
+		else:
+			break
+	except ValueError:
+		print(""Bitte geben sie [1] f�r Ja, [0] f�r Nein ein"")
+		print("" - "" * 50)
+
+
+while True:
+	try:
+		computer_choice = int(input(""M�chten Sie, dass ein Computer mitspielt? [1] f�r Ja, [0] f�r Nein: ""))
+		if computer_choice == 0:
+			print(f""Ok Sie haben keinen Computer ausgew�hlt."")
+			break
+		if computer_choice == 1:
+			print(f""Ok Sie haben einen Computer ausgew�hlt."")
+			break
+		if type(computer_choice) == int and not 1 or  not 0 :
+			print(""Bitte geben sie [1] f�r Ja, [0] f�r Nein ein"")
+			print("" - "" * 50)
+		else:
+			break
+	except ValueError:
+		print(""Bitte geben sie [1] f�r Ja, [0] f�r Nein ein"")
+		print("" - "" * 50)
+
+
+if computer_choice == 0:
+	while True:
+		try:
+			player_num = int(input(""Wie viele Spieler sollen spielen?: ""))
+			if player_num > 5 or player_num < 2:
+				print(""Die Spieleranzahl liegt zwischen 2-5 Spieler"")
+				continue
+			else:
+				break
+		except ValueError:
+			print(""Bitte geben Sie eine g�ltige Zahl ein."")
+
+
+if computer_choice == 1:
+	while True:
+		try:
+			player_num = int(input(""Wie viele Spieler sollen spielen?: ""))
+			player_num += 1
+			if player_num > 4 or player_num < 1:
+				print(""Die Spieleranzahl liegt zwischen 1-4 Spieler"")
+				continue
+			else:
+				break
+		except ValueError:
+			print(""Bitte geben Sie eine g�ltige Zahl ein."")
+
+
+player_list = []
+for num in range(1,player_num):
+	player_list.append(f""Player{num}"")
+if computer_choice == 1:
+	player_list.append(""Computer"")
+rounds = (52//int(len(player_list)))
+print(player_list)
+print(f""Es werden insgesamt {rounds} gespielt. "")
+print("" - "" * 50)
+
+
+while True:
+	try:
+		start_stop_game = int(input(""Wollen Sie jetzt das Spiel starten? F�r Start [1], f�r Stop [0] eingeben: ""))
+		if start_stop_game == 0:
+			exit(""Ok das Spiel wird geschlossen."")
+		if start_stop_game == 1:
+			print(f""Ok das Spiel startet jetzt."")
+			print(""-"" * 50)
+			break
+		if type(start_stop_game) == int and not 1 or  not 0 :
+			print(""Bitte geben sie [1] f�r Start, [0] f�r Stop ein"")
+			print("" - "" * 50)
+		else:
+			break
+	except ValueError:
+		print(""Bitte geben sie [1] f�r Start, [0] f�r Stop ein"")
+		print("" - "" * 50)
+
+
+round_numbers = []
+for number in range(rounds+1):
+	round_numbers.append(number)
+random.shuffle(player_list)
+print(f""Die Spieler Reihenfolge lautet: {player_list}"")
+print("" - "" * 50)
+
+
+
+for i in range(player_num):
+	print(f"" Deine Handkarten sind :{deal_cards(create_cards(),player_num,round_numbers[1])[i]}"")
+	while True:
+		try:
+			selected_card = int(input(""Welche Karte m�chtest du setzten? (Die Karte die ganz links ist, w�re die 0. Eins weiter rechts die 1 und so weiter)""))
+			if selected_card > round_numbers[i+1]:
+				print(""Bitte geben Sie eine g�ltige Zahl ein:1 "")
+				break
+			if selected_card < round_numbers[i+rounds]:
+				print(""Bitte geben Sie eine g�ltige Zahl ein:2 "")
+				break
+			if type(selected_card) == int and not selected_card < round_numbers[1] or not selected_card > round_numbers[rounds]:
+				print(""Bitte geben Sie eine g�ltige Zahl ein:3 "")
+				print("" - "" * 50)
+			else:
+				break
+		except ValueError:
+			print(""Bitte geben Sie eine g�ltige Zahl ein:4 "")
+			print("" - "" * 50)",11,"0. Card selection not possible. selected_card < round_numbers[i+rounds] is always false. Next step jumps into next round, resulting in index error."
+56,"#!/user/bin/env python3
+"""""" Wizard mal anders """"""
+
+import random
+
+
+# 52 Karten (13*4 Farben)=> Farbe Kreuz, Pik, Herz, Karo
+# 2- 5 Spieler 
+# Stratspieler und Reihenfolge wird festgelegt 
+# Runden =  anzahl karten durch spieleranzahl 
+    # 2 Spieler = 26 Runden 
+    # 3 Spieler = 17,3333 Runden
+    # 4 SPieler = 13 Runden 
+    # 5 Spieler = 10, 4 Runden 
+
+# Runde verl�uft so: 
+# Karte(n) werden ausgeteilt 
+    # 1. Runde 1 Karte 
+    # 2. Runde 2 Karten ...
+# Trumpffarbe f�r die Runde wird ermittelt (zuf�llige Wahl der Farbe)
+# Spiel um Stiche (Stichanzahl entspricht Anzahl der Karten auf der Hand)
+# Jeder Spieler legt eine Karte auf den Tisch (Stratspieler beginnt) 
+#   => Gewinner mit der h�chstenwertigen Karte 
+# n�chste Runde f�ngt der n�chste Spieler in der Reihenfolge an und legt die erste Karte
+
+# Gewinner kann durch Stiche oder gewonnenne Runden ermittelt werden
+# Falsche Eingaben sollen abgefangen werden.
+
+print (""Willkommen zu Wizard mal anders!"")
+
+
+def spieler_anzahl_ermitteln():
+    """""""" Gibt die Anzahl an Spielern, mit denen gespielt wird aus.""""""
+    while True:
+        anzahl_spieler = int (input(""Gib die Anzahl an Spielern ein, mit denen gesielt werden soll (2-5):""))
+        try:
+            anzahl_spieler = int(anzahl_spieler)
+            if anzahl_spieler >= 2 and anzahl_spieler <= 5:
+                return anzahl_spieler
+            else:
+                print(""Spieleranzahl ist nicht erlaubt. Gib erneut eine Zahl ein."")
+        except ValueError:
+            print(""Eingabe ist nicht erlaubt. Gib eine Zahl zwischen 2 und 5 ein."")
+
+# test the function
+anzahl_spieler = spieler_anzahl_ermitteln()
+print(""Das ist nun die Zahl an Spielern, mit der das Spiel beginnt:"")
+print (anzahl_spieler) 
+
+def create_opponents(anzahl_spieler, staerke_gegner):
+    """""" Erstellt einen starken oder schwachen Gegner.""""""
+
+    # Create a list to store the opponents.
+    gegner_liste = []
+
+    # Check if the number of players is greater than 5.
+    if anzahl_spieler > 5:
+    # If the number of players is greater than 5, set it to 5.
+        anzahl_spieler = 5
+
+    # Loop through the number of players.
+    for i in range(anzahl_spieler):
+        # Create a dictionary to store the opponents properties.
+        gegner = {}
+
+    # Set the opponents name.
+    gegner[""name""] = f""Opponent {i+1}""
+
+    # Set the opponents strength based on the users input.
+    if staerke_gegner == ""weak"":
+      gegner[""strength""] = ""weak""
+
+    elif staerke_gegner == ""strong"":
+      gegner[""strength""] = ""strong""
+
+    else:
+      # If the user input is invalid, set the opponents strength to ""average"".
+      gegner[""strength""] = ""average""
+
+    # Add the opponent to the list.
+    gegner_liste.append(gegner)
+
+    # Return the list of opponents.
+    return gegner_liste
+
+
+def create_cards():
+    """""" Erstellt die Spielkarten des Spiels.""""""
+
+    # All sorts of cards that can exist.
+    werte = list(range(2, 11)) + [""K�nig"", ""Dame"", ""Bube"", ""Ass""]
+    farben = [""Kreuz"", ""Herz"", ""Pik"", ""Karo""]
+
+    # List of cards are stored as a dictionary
+    karten = []
+    for value in werte:
+        for suit in farben:
+            karte = {""Wert"": value, ""Farbe"": suit}
+            karten.append(karte)
+
+    return karten
+
+# Maps are created. 
+karten = create_cards()
+# print (karten) => entferne das # dann siehst du alle Karten 
+
+
+# austeilen der karten an die Spieler 
+# funktion soll karten als liste , anzahl der spieler, anzhal an karten f�r jeden spieler �bergebenn 
+# R�ckgabe soll die Funktion ein Tupel zur�ckgeben, das die Karten von jedem Spieler in einer Liste enth�lt
+def deal_cards(anzahl_spieler, anzahl_karten_pro_spieler):
+    """""" Verteilt die Karten an die Spieler. """"""
+
+    # Create a deck of cards
+    deck = [i for i in range(1,53)]
+    # Shuffle the deck
+    random.shuffle(deck)
+    # Divide the deck into equal piles for each player.
+    piles = [deck[i:i+anzahl_karten_pro_spieler] for i in range(0, len(deck), anzahl_karten_pro_spieler)]
+    # Return the cards for each player as a tuple.
+    return tuple(piles)
+
+# Example usage:
+karten = deal_cards(4, 13)
+print(karten)
+
+# Vergleichen der Karten. 
+# Es sollen beliebig viele Karten zum Vergleichen zu �bergeben werden
+# Die Funktion soll den Index der gr��ten Karte zur�ckgeben,
+# und dabei die Wertigkeit der Farben mit ber�cksichtigen
+# Der Vergleich von Karten soll dabei folgenden Kriterien folgen:
+# Eine Karte mit der Trumpffarbe ist immer h�herwertiger als alle anderen Farben. 
+#   Bsp. Bei Trumpf Karo, ist die Karte Karo 2 h�herwertiger als die Kreuz 3.
+# Die Farben (Kreuz,Pik,Herz,Karo) sind in Absteigender Reihenfolge sortiert .D.h.Kreuz ist
+# h�herwertiger als Pik. Bei gleichem Kartenwert entscheidet die Farbe.
+#def compare_cards():
+
+
+# es soll die M�glichkeit geben das Spiel jederzeit zu beenden oder ein neues spiel zu starten
+def stopp_spiel():
+    """""" Stoppt das Spiel auf Wunsch des Nutzers. """"""
+
+    while True:
+    # At the end of each round, ask the user if they want to continue.
+        spielende = input(""M�chtest du das Spiel weiter spielen? (j/n) "")
+        if spielende.lower() == 'n':
+            break
+
+# Start the game.
+stopp_spiel()
+
+
+def gewinner_ermitteln(spiel_stand, anzahl_spieler):
+    """""" Ermittlung des Gewinners. """"""
+    # Extract the relevant information from the game state.
+    stiche_gewonnen = spiel_stand[""stiche_gewonnen""]
+    runden_gewonnen = spiel_stand[""runden_gewonnen""]
+
+    # Determine the winner based on tricks or rounds won.
+    if anzahl_spieler == 2:
+        if stiche_gewonnen > runden_gewonnen:
+            return ""Spieler 1""
+        elif stiche_gewonnen < runden_gewonnen:
+            return ""Spieler 2""
+        else:
+            return ""Es steht unentschieden!""
+
+    elif anzahl_spieler == 3:
+        if stiche_gewonnen > runden_gewonnen:
+            return ""Spieler 1""
+        elif stiche_gewonnen < runden_gewonnen:
+            return ""Spieler 2""
+        elif stiche_gewonnen == runden_gewonnen:
+            return ""Spieler 3""
+    
+    elif anzahl_spieler == 4:
+        if stiche_gewonnen > runden_gewonnen:
+            return ""Spieler 1""
+        elif stiche_gewonnen < runden_gewonnen:
+            return ""Spieler 2""
+        elif stiche_gewonnen == runden_gewonnen:
+            return ""Spieler3""
+        else:
+            return ""Spieler 4""
+
+    elif anzahl_spieler == 5:
+        if stiche_gewonnen > runden_gewonnen:
+            return ""Spieler 1""
+        elif stiche_gewonnen < runden_gewonnen:
+            return ""Spieler 2""
+        elif stiche_gewonnen == runden_gewonnen:
+            return ""Spieler 3""
+        elif stiche_gewonnen == runden_gewonnen:
+            return ""Spieler 4""
+        else:
+            return ""Spieler 5""
+    else:
+        return ""Anzahl der Spieler stimmt nicht.""",11,"0. Overall game logic is missing. No rounds can be played, players not changed.
+1. Infinite loop until option to end game is chosen.
+2. Computing the winner is hard coded (no loops)."
+57,"""""""
+Docstring: Aufgabe 3: Wizard mal anders
+
+This program is a command-line implementation of the card game Wizard. It allows the user
+to play a full game of Wizard against one or more computer-controlled opponents.
+
+The program defines a number of functions that are used to play the game, including functions
+for creating a deck of cards, shuffling the deck, dealing the cards to players, determining
+the value of a card, comparing the values of two cards, and playing a round of the game. It
+also includes global variables for the different suits and values of the cards, and for the
+ranks of the cards.
+
+The create_cards() function creates a list of tuples representing a deck of cards, where each
+tuple consists of a suit name (string) and a value name (string). The shuffle_cards() function
+shuffles the given list of cards and returns the shuffled list. The deal_cards() function deals
+the given list of cards into a list of hands, where each hand is a list of cards. The number of
+hands is determined by the num_players parameter. The get_card_value() function returns the value
+of the given card, taking into account the trump suit. The compare_cards() function compares the
+given cards and returns 0 if the first card wins, 1 if the second card wins, and None if the cards
+are tied. The play_round() function plays a round of Wizard, taking in the hands of the players,
+the current player, and the trump suit as parameters. It prompts the user to choose a card to play,
+compares the chosen card to the previously played card (if any), and determines the winner of the
+round. The determine_game_winner() function takes a list of hands and returns the index of the hand
+with the fewest cards. The card_to_string() function takes a card (a tuple of a suit name and a value name)
+and returns a string representation of the card. The choose_card() function takes a list of available
+cards and a trump suit and prompts the user to choose a card. It returns the chosen card.
+The play_game() function plays a full game of Wizard, taking in the number of players and the trump
+suit as parameters. It deals the cards, plays rounds until one player has no cards left, and then
+declares the winner. The main() function is the main entry point of the program and handles user
+input and program flow.
+""""""
+
+import random
+
+SUITS = {""Herz"": 0, ""Karo"": 1, ""Pik"": 2, ""Kreuz"": 3}
+VALUES = {""7"": 0, ""8"": 1, ""9"": 2, ""10"": 3, ""Bube"": 4, ""Dame"": 5, ""K�nig"": 6, ""Ass"": 7}
+
+RANKS = {""7"": 0, ""8"": 1, ""9"": 2, ""10"": 3, ""Bube"": 4, ""Dame"": 5, ""K�nig"": 6, ""Ass"": 7}
+
+
+
+
+def create_cards():
+    """"""
+    This function creates a list of tuples representing a deck of cards.
+    Each tuple consists of a suit name (string) and a value name (string).
+    """"""
+    
+    cards = []
+    
+    # Iterating over the items in the SUITS and VALUES dictionaries.
+    for suit, suit_value in SUITS.items():
+        for value, value_value in VALUES.items():
+            # Appending a tuple for each combination of suit and value to the list of cards.
+            cards.append((suit, value))
+            
+    return cards
+
+
+
+
+def shuffle_cards(cards):
+    """"""
+    This function shuffles the given list of cards (which should be a list of tuples)
+    and returns the shuffled list.
+    """"""
+    
+    # Shuffling the list in place.
+    random.shuffle(cards)
+    
+    return cards
+
+
+
+
+def deal_cards(deck, num_players):
+    """"""
+    This function deals the given list of cards (which should be a list of tuples)
+    into a list of hands, where each hand is a list of cards.
+    The number of hands is determined by the num_players parameter.
+    """"""
+    
+    hands = []
+    
+    # Creating an empty list for each player.
+    for i in range(num_players):
+        hands.append([])
+        
+    # Iterating over the cards in the deck and distribute them to the hands.
+    for i, card in enumerate(deck):
+        # Calculating the index of the current player.
+        current_player = i % num_players
+        # Adding the card to the current player's hand.
+        hands[current_player].append(card)
+        
+    return hands
+
+
+
+
+def get_card_value(card, trump_suit):
+    """"""
+    This function returns the value of the given card, with the given trump suit.
+    The card is a tuple consisting of a suit name (string) and a value name (string).
+    The trump suit is a string and the returned value is an integer.
+    """"""
+    
+    # Looking up the rank value of the card.
+    rank_value = RANKS[card[1]]
+    
+    # If the card is a trump, adding 100 to the rank value.
+    if card[0] == trump_suit:
+        rank_value += 100
+        
+    return rank_value
+
+
+
+
+def compare_cards(card1, card2, trump_suit):
+    """"""
+    This function compares the given cards and returns 0 if card1 wins, 1 if card2 wins,
+    and None if the cards are tied.
+    The cards are tuples consisting of a suit name (string) and a value name (string).
+    The trump suit is a string.
+    """"""
+    
+    # Unpacking the card tuples into variables.
+    suit1, value1 = card1
+    suit2, value2 = card2
+    # Checking if one card is a trump and the other is not.
+    if suit1 == trump_suit and suit2 != trump_suit:
+        return 0
+    
+    elif suit1 != trump_suit and suit2 == trump_suit:
+        return 1
+    
+    # If both cards are trumps or both cards are not trumps, their ranks will be compared.
+    elif RANKS[value1] > RANKS[value2]:
+        return 0
+    
+    elif RANKS[value1] < RANKS[value2]:
+        return 1
+    
+    else:
+        # If the ranks are equal.
+        return None
+
+
+
+
+def determine_game_winner(hands):
+    """"""
+    This function determines the index of the hand with the fewest cards in the given list of hands.
+    The list of hands is a list of lists of cards, where each card is a tuple consisting of
+    a suit name (string) and a value name (string).
+    The returned value is an integer.
+    """"""
+    
+    # Calculating the number of cards in each hand.
+    scores = [len(hand) for hand in hands]
+    
+    # Returning the index of the hand with the fewest cards.
+    return scores.index(min(scores))
+
+
+
+
+def card_to_string(card):
+    """"""
+    This function converts the given card (which is a tuple consisting of a suit name and a value name)
+    to a human-readable string.
+    """"""
+    
+    # Using string formatting to create the desired string.
+    return f""{card[1]} {card[0]}""
+
+
+
+
+def play_round(hands, start_player):
+    """"""
+    This function simulates a round, where each player plays one card from their hand.
+    The function returns the index of the player who won the round.
+    The hands parameter is a list of lists of cards, where each card is a tuple consisting of
+    a suit name (string) and a value name (string).
+    The start_player parameter is an integer representing the index of the player who starts the round.
+    """"""
+    
+    tricks = []
+    
+    # Choosing a random trump suit.
+    trump_suit = random.choice(list(SUITS.keys()))
+    print(f""Trumpf ist {trump_suit}."")
+    
+    # Iterating over the players and have them play a card.
+    for i in range(len(hands)):
+        # Calculating the index of the current player.
+        current_player = (start_player + i) % len(hands)
+        print(f""Spieler {current_player} ist am Zug."")
+        print(f""Spieler {current_player}'s Hand:"")
+        
+        # Printing the player's hand.
+        for j, card in enumerate(hands[current_player]):
+            print(f""{j + 1}. {card}"")
+            
+        # Getting a card choice from the player.
+        while True:
+            try:
+                choice = int(input(""Bitte w�hle eine Karte aus deiner Hand: "")) - 1
+                if choice < 0 or choice >= len(hands[current_player]):
+                    print(""Ung�ltige Auswahl. Bitte w�hle eine Karte aus deiner Hand!!"")
+                    continue
+                break
+            except ValueError:
+                print(""Ung�ltige Eingabe. Bitte gib eine g�ltige Karte aus deiner Hand an!!"")
+                
+        # Adding the chosen card to the list of tricks.
+        tricks.append(hands[current_player][choice])
+        # Removing the chosen card from the player's hand.
+        del hands[current_player][choice]
+
+    # Determining the winner of the round.
+    winner = compare_cards(tricks[0], tricks[1], trump_suit)
+    print(f""Der Spieler {winner} hat den Trick gewonnen!"")
+
+    return winner
+
+
+
+
+def choose_card(available_cards, trump_suit):
+    """"""
+    This function chooses a card from the given list of available cards that has the highest value,
+    with the given trump suit.
+    If multiple cards have the same highest value, a random one is chosen.
+    The available_cards and trump_suit parameters are as described in the previous comments.
+    The returned value is a tuple consisting of a suit name (string) and a value name (string).
+    """"""
+    
+    # Calculating the highest value among the available cards.
+    highest_value = max([get_card_value(card, trump_suit) for card in available_cards])
+    
+    # Getting a list of the cards with the highest value.
+    highest_value_cards = [card for card in available_cards if get_card_value(card, trump_suit) == highest_value]
+    
+    # Choosing a random card from the list of highest value cards.
+    return random.choice(highest_value_cards)
+
+
+
+
+def main():
+    """"""
+    This is the main function of the program. It creates a deck of cards, deals them to the players,
+    and plays rounds until the deck is empty.
+    
+    """"""
+    
+    # Creating a deck of cards.
+    deck = create_cards()
+    
+    # Getting the number of players from the user.
+    num_players = int(input(""Wie viele Spieler spielen hier mit? (2-5) =>  ""))
+    
+    # Dealing the cards to the players.
+    hands = deal_cards(deck, num_players)
+    
+    # Setting the start player for the first round.
+    start_player = 0
+    
+    # Playing rounds until the deck is empty.
+    while len(deck) > 0:
+        # Playing a round.
+        start_player = play_round(hands, start_player)
+        
+        # Removing the played cards from the deck.
+        for hand in hands:
+            deck = [card for card in deck if card not in hand]
+            
+        # Determining the winner of the game.
+        winner = determine_game_winner(hands)
+        print(f""Spieler {winner} hat gewonnen!"")
+
+
+
+
+if __name__ == ""__main__"":
+    print(""Herzlich Willkommen zum Spiel!"")
+    print(""Bitte w�hle eine der folgenden Optionen aus:"")
+    print(""Um das Spiel zu starten => 1"")
+    print(""Um das Spiel zu beenden => 0"")
+    choice = int(input())
+
+    if choice == 1:
+        main()
+    elif choice == 0:
+        exit()
+    else:
+        print(""Ung�ltige Eingabe. Bitte versuche es erneut!!"")
+
+    try:
+        chosen_card = int(input()) - 1
+        played_card = hands[current_player].pop(chosen_card)
+    except ValueError:
+        print(""Ung�ltige Eingabe. Bitte gib eine Zahl ein!!"")
+    except IndexError:
+        print(""Ung�ltige Eingabe. Versuche es erneut!!"")",11,"0. Game does not finish when all cards are played. Infinite loop when no cards can be selected.
+1. Interface not stable (crashes when negative numbers are entered)."
+58,"""""""For this project, we need to import the modules 'random' and 'itertools'.""""""
+
+import random
+import itertools
+
+# We first define the elements of the cards and a function, which creates the cards for the game:
+
+""""""Define suits of the cards in a list.""""""
+suits = ['Club', 'Spade', 'Heart', 'Diamond']
+
+""""""Define the card-ranks in a list.""""""
+ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
+
+""""""Define trump suit of the round as a random choice of an element in the suits-list.""""""
+trump_suit = random.choice(suits)
+
+# Now we write the function, which creates the cards for the game.
+
+
+def create_cards():
+    """"""Function creates cards the card-game.""""""
+    suits = ['Club', 'Spade', 'Heart', 'Diamond']
+    ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
+    cards = []
+    for suit, rank in itertools.product(suits, ranks):
+        trump_suit = random.choice(suits)
+        cards.append({'rank': rank, 'suit': suit})
+    return cards
+
+
+# Now we define a variable called 'cards', as the function which was created before (create_cards()).
+cards = create_cards()
+
+""""""Now we define a function, which deals the cards to the players.""""""
+
+
+def deal_cards(cards, player_number, num_cards):
+    """"""Function deals cards to the players
+
+  :param cards: defined cards
+  :param player_number: amount of players in the round
+  :param num_cards: amount of cards in the round
+  """"""
+    while True:
+        # Creating the user-interface:
+        player_number = int(input(""Welcome to our Wizard-Card-Game! Tell me how many players there are: ""))
+        # Explaining player restriction, if user types invalid player number (2-5 players):
+        if player_number < 2 or player_number > 5:
+            print(""You need at least two players and a maximum of five players."")
+            continue
+        else:
+            print(f""Okay! So we have {player_number} players"")
+        break
+
+    amount_cards = len(create_cards())
+    amount_rounds = len(create_cards()) / player_number
+
+    print(f""That means we have {int(amount_rounds)} rounds in this game."")
+    print()
+    # Coding all possibilities of players (2-5 players):
+    if player_number < 3:
+        player1 = input(""Name of player one: "")
+        player2 = input(""Name of player two: "")
+        players = [player1, player2]
+        print(f""Get ready {player1} and {player2}!"")
+
+    elif player_number < 4:
+        player1 = input(""Name of player one: "")
+        player2 = input(""Name of player two: "")
+        player3 = input(""Name of player three: "")
+        players = [player1, player2, player3]
+        print(f""Get ready {player1}, {player2} and {player3}!"")
+
+    elif player_number < 5:
+        player1 = input(""Name of player one: "")
+        player2 = input(""Name of player two: "")
+        player3 = input(""Name of player three: "")
+        player4 = input(""Name of player four: "")
+        players = [player1, player2, player3, player4]
+        print(f""Get ready {player1}, {player2}, {player3} and {player4}!"")
+
+    elif player_number <= 5:
+        player1 = input(""Name of player one: "")
+        player2 = input(""Name of player two: "")
+        player3 = input(""Name of player three: "")
+        player4 = input(""Name of player four: "")
+        player5 = input(""Name of player five: "")
+        players = [player1, player2, player3, player4, player5]
+        print(f""Get ready {player1}, {player2}, {player3}, {player4} and {player5}!"")
+
+    # Choose a random player, who starts the game:
+    random_index = random.randint(0, len(players) - 1)
+    """"""Added -1 at the end, so an IndexError can't occur.""""""
+    chosen_player = players[random_index]
+    print()
+    print(f""{chosen_player} starts! These are all cards at the beginning: "")
+    print()
+
+    # Shuffle the cards, using random.shuffle():
+    random.shuffle(cards)
+
+    # Create a list to hold the cards for each player:
+    player_cards = [[] for _ in range(player_number)]
+
+    # Distribute the cards among the players:
+    for i in range(num_cards):
+        for j in range(player_number):
+            player_cards[j].append(cards[i])
+            i += 1
+
+    # Return the cards for each player as a tuple:
+    return tuple(player_cards)
+
+
+# We set the parameters of the function deal_cards() as 4 and 5 for 5 cards.
+player_cards = deal_cards(cards, 4, 5)
+
+
+# Display the cards for each player
+for i, player in enumerate(player_cards):
+    print(f""Player {i + 1}:"")
+    for card in player:
+        print(f""  {card['rank']} of {card['suit']}"")
+
+if __name__ == '__main__':
+    print(create_cards())
+    print(trump_suit)
+",11,"0. After player creation and cards being dealed, program finishes. Cannot be played."
+59,"import random
+
+def create_cards():
+    '''Generates a Deck of Cards'''
+    for suite in suites:
+        for value in values:
+            all_cards.append({'Color': suite, 'Rank': value})
+        return all_cards
+
+def deal_cards(cards, number_players, cards_player):
+    '''Takes in the cards to be dealt, number of players, as well as the number of cards per player. Returns a tuple of dealt 
+    cards.'''
+    random.shuffle(cards)
+
+    dealt_cards = []
+
+    for player_number in range(number_players):
+        for card in range(cards_player):
+            dealt_cards.append(cards[cards_player * player_number: cards_player * player_number+1])
+
+    decks = tuple(dealt_cards)
+    return decks 
+
+def compare_cards(cards, trump_colour):
+    '''Takes in the cards to be compared as well as the trump_color to determine the strongest card among them.'''
+    trump_cardsi = [i for i in range(len(cards)) if cards[i]['Color'] == trump_colour] 
+
+    trump_cards = [cards[i] for i in trump_cardsi]
+
+    if trump_cards:
+        return trump_cardsi[compare_cards(trump_cards, """")]
+
+    ranks = ['2','3','4','5','6','7','8','9','10', 'Jack', 'Queen', 'King', 'Ace']
+    colours = ['Clubs', 'Spades', 'Hearts', 'Diamonds']
+    strongest = 0
+
+    for i in range(1, len(cards)): 
+        if ranks.index(cards[strongest]['Rank']) == ranks.index(cards[i]['Rank']): 
+            if colours.index(cards[strongest]['Color']) < colours.index(cards[i]['Color']): 
+                strongest = i
+        elif ranks.index(cards[strongest]['Rank']) < ranks.index(cards[i]['Rank']):
+            strongest = i  
+
+    return strongest
+
+# Computer Player
+def artificial_intelligence(cards):
+    '''Takes in a list of cards and randomly selects one.'''
+    selected = random.choice(cards)
+    return selected
+
+# Welcome Screen
+print(""Welcome to Wizards! Please read the ReadMe File Before Proceeding To Gain An Understanding Of How The Game Works."")
+print("""")
+print(""Wizards supports 2 - 5 Players, With The Last One Always Being An Artificial Intelligence."")
+
+# Input Number of Players
+while True:
+    number_players = int(input(""Please enter the desired number of players: ""))
+
+    if number_players < 2 or number_players > 5:
+        print(""Wizards Only Supports 2 - 5 Players. Please try again. "")
+        continue
+    else:
+        break
+
+print(""You have selected "" + str(number_players) + "" players. The Game Will Be Played In Ascending Order. Player 1 Starts."")
+print(""Player "" + str(number_players) + "" Will Be An Artificial Intelligence."")
+
+rounds = 52 // number_players
+
+print(""There will be "" + str(rounds) + "" Rounds played."")
+
+print(""The Player Who Wins The Most Rounds Wins The Game. "")
+print(""Good luck :)"")
+
+current_round = 1
+cards_player = current_round
+
+computer_player = number_players
+variant = ""trick""
+
+values = ['2','3','4','5','6','7','8','9','10', 'Jack', 'Queen', 'King', 'Ace']
+suites = ['Clubs', 'Spades', 'Hearts', 'Diamonds']
+all_cards = []
+
+cards = []",11,"0. Only partially implemented. Player number can be chosen, but AI is fixed.
+1. Implemented functions are not used."
+60,""""""" Ecosystem; EPR Sheet 8
+
+Das Programm ist leider nicht fertig geworden, vielleicht ist es moeglich
+einige Punkte f�r das Grundkonzept und die erstelle Klassenstruktur zu
+erhalkten.
+""""""
+
+import random
+
+
+# -- Part 1: Plants
+
+
+class Ferny:
+    """"""Small plant.""""""
+
+    def __init__(self):
+        self.size = 0.1
+        self.min_size = 0.1
+        self.max_size = 0.5
+
+    def grow(self, weather):
+        """"""Plant grows depending on weather.""""""
+        # Grow by 20cm if it rains.
+        if weather == 1:
+            self.size += 0.2
+        else:
+            pass
+        # Clip the size to 50cm.
+        if self.size > 0.5:
+            self.size = 0.5
+
+    def breed(self):
+        pass
+
+    def die(self):
+        pass
+
+
+class PalmTree:
+    """"""Medium size plant.""""""
+
+    def __init__(self):
+        self.size = None
+        self.min_size = None
+        self.max_size = None
+
+    def grow(self):
+        pass
+
+    def breed(self):
+        pass
+
+    def die(self):
+        pass
+
+
+class Baobab:
+    """"""Large tree.""""""
+
+    def __init__(self):
+        self.size = None
+        self.min_size = None
+        self.max_size = None
+
+    def grow(self):
+        pass
+
+    def breed(self):
+        pass
+
+    def die(self):
+        pass
+
+
+# -- Part 2: Animals
+
+
+class Giraffe:
+    """"""Plant eating animal.""""""
+    def __init__(self):
+        self.weight = None
+        self.age = None
+        self.min_weight = 100
+        self.max_weight = 400
+        # Assign random gender: 0 female, 1 male.
+        self.gender = random.randint(0,1)
+
+    def eat_plants(self,
+                   baobab_list,
+                   palm_tree_list):
+
+        # They eat only if there are below the max weight:
+        if self.weight < self.max_weight:
+            # They eat one meter of baobab and gain 20 kg.
+            pass
+
+            # They eat one meter of baobab and gain 20 kg.
+
+    def breed(self):
+        pass
+
+    def die(self):
+        # 1. Dies if it is too light (under-nutrition)
+        # 2. Dies if too old (with random component)
+        pass
+
+
+class Bear:
+    """"""Eats plants and hunts.""""""
+    def __init__(self):
+        self.weight = 20
+        self.age = 0
+        self.gender = None
+        self.min_weight = 20
+        self.max_weight = 300
+
+        # Assign random gender: 0 female, 1 male.
+        self.gender = random.randint(0, 1)
+
+    def eat_plants(self):
+        # 1. Eat plants (easier the more plants exist)
+        pass
+
+    def hunt(self):
+        # 2. Hunt giraffes (probability of success, depending on number of
+        # giraffes)
+        pass
+
+    def breed(self):
+        pass
+
+    def die(self):
+        pass
+
+
+class Lion:
+    """"""Meat eater class.""""""
+    def __init__(self):
+        self.weight = None
+        self.age = None
+        self.min_weight = None
+        self.max_weight = None
+
+        # Assign random gender: 0 female, 1 male.
+        self.gender = random.randint(0, 1)
+
+    def hunt(self):
+        # Hunt giraffes (probability of success, depending on number of
+        # giraffes)
+        pass
+
+    def breed(self):
+        pass
+
+    def die(self):
+        pass
+
+
+# -- Part 3: Ecosystem and Simulation
+
+
+class Ecosystem:
+    """"""Class which controls the ecosystem. It is initialized in the
+    beginning depending on the user input, then it is updated during
+    the simulation.
+    """"""
+
+    def __init__(self,
+                 overall_area=100,
+                 init_num_ferns=10,
+                 init_num_palm_trees=10,
+                 init_num_baobabs=10,
+                 init_num_giraffs=10,
+                 init_num_bears=10,
+                 init_num_lions=10,
+                 ):
+        """"""
+        When the ecosystem is initialized, the initial number of
+        plants and animals is initiated and appended to the respective
+        list.
+        """"""
+
+        # Empty lists to store instances of plants and animals into.
+        # Store the initial number to each class.
+        self.ferns = []
+        for _ in range(init_num_ferns):
+            self.ferns.append(Ferny())
+        self.palm_trees = []
+        for _ in range(init_num_palm_trees):
+            self.palm_trees.append(PalmTree())
+        self.baobabs = []
+        for _ in range(init_num_baobabs):
+            self.baobabs.append(Baobab())
+        self.giraffes = []
+        for _ in range(init_num_giraffs):
+            self.giraffes.append(Giraffe())
+        self.bears = []
+        for _ in range(init_num_bears):
+            self.bears.append(Bear())
+        self.lions = []
+        for _ in range(init_num_lions):
+            self.lions.append(Lion())
+
+        # Start in week 0 of 52.
+        self.week = 0
+
+        # Track available area.
+        self.overall_area = overall_area
+
+        self.used_area = 0
+        self.available_area = 0
+
+    def next_week(self):
+        """"""Go to the next week of the year and conduct all weekly tasks.""""""
+        # Weather: 1 = rain, 0 = sun.
+        weather = random.randint(0, 1)
+        # 1) Plants grow and recover if it rains.
+        for ferny in self.ferns:
+            # The plants can only grow if there is available space left.
+            if self.available_area > 0:
+                ferny.grow(weather=weather)
+        # 2) Animals eat and hunt, they find more food when it does not rain.
+
+        # 3) Check if there are animals or plants which are dying.
+        # Plants die when they undercut their minimum weight.
+        for ferny in self.ferns:
+            if ferny.size < ferny.min_size:
+                self.ferns.remove(ferny)
+
+    def __iter__(self):
+        """"""to be called with next.""""""
+        pass
+
+
+class EcoSimulator:
+    """"""Run the ecosystem simulation""""""
+    def __init__(self):
+        pass
+
+
+# Run the Ecosystem simulator.
+if __name__ == ""__main__"":
+    eco = Ecosystem()
+",12,"0. Only foundation (classes) implemented. Class structure is present, but logic (methods) have to be implemented."
+61,"""""""
+In this module the simulation for our artificial habitat is created. The User can enter
+a few variables which the module uses to simulate the habitat.
+""""""
+
+import Habitat
+import Plant
+import Animal
+import random
+
+
+# habitat setup
+habitat = Habitat.Habitat(1000, 200)
+# adding plants and animals in the habitat
+starting_plants=int(input(""Geben Sie die Anzahl der Pflanzen ein: ""))
+for i in range(starting_plants):
+    habitat.add_plant(random.choice(['Typ1', 'Typ2', 'Typ3']))
+starting_veg=int(input(""Geben Sie die Anzahl der Pflanzenfresser ein: ""))
+for i in range(starting_veg):
+    habitat.add_animal('herbivore')
+starting_omni=int(input(""Geben Sie die Anzahl der Allesfresser ein: ""))
+for i in range(starting_omni):
+    habitat.add_animal('omnivore')
+starting_carni=int(input(""Geben Sie die Anzahl der Fleischfresser ein: ""))
+for i in range(starting_carni):
+    habitat.add_animal('carnivore')
+
+
+for round in range(50):
+    # grow plants
+    for plant in habitat.plants:
+        max = 0
+        for i in range(0, len(habitat.plants)):
+            max = max + habitat.plants[i].size
+        if max < habitat.size:
+            plant.grow()
+    # animals eat
+    for animal in habitat.animals:
+        if animal.diet == 'herbivore' or animal.diet == 'omnivore':
+            if (len(habitat.plants)/200) > random.random():
+                animal.eat()
+                plant_eaten=random.choice(habitat.plants)
+                plant_eaten.size-=1
+                if plant_eaten.size <= 0:
+                    habitat.remove_plant(plant_eaten)
+            elif animal.diet == 'omnivore':
+                if (len(habitat.animals) / 200) > random.random():
+                    animal_eaten = random.choice(habitat.animals)
+                    if animal_eaten.diet == 'herbivore':
+                        animal.eat()
+                        habitat.remove_animal(animal_eaten)
+                    else:
+                        animal.health -= 10
+                        if animal.health <= 0:
+                            habitat.remove_animal(animal)
+            else:
+                animal.health -= 10
+                if animal.health <= 0:
+                    habitat.remove_animal(animal)
+        if animal.diet == 'carnivore':
+            if (len(habitat.animals) / 200) > random.random():
+                animal_eaten = random.choice(habitat.animals)
+                if animal_eaten.diet == 'herbivore' or animal_eaten.diet == 'omnivore':
+                    animal.eat()
+                    habitat.remove_animal(animal_eaten)
+                else:
+                    animal.health -= 5
+                    if animal.health <= 0:
+                        habitat.remove_animal(animal)
+            else:
+                animal.health -= 5
+                if animal.health <= 0:
+                    habitat.remove_animal(animal)
+    # grow animals
+#    for animal in habitat.animals:
+#        animal.grow()
+#        if animal.hunger > animal.hunger_threshold:
+#            prey = animal.hunt_random()
+#            if not prey:
+#                habitat.remove_animal(animal)
+#        if animal.is_dead():
+#            habitat.remove_animal(animal)
+    # reproduce
+    for animal in habitat.animals:
+        if random.random() < 0.05:
+            habitat.add_animal(animal.diet)
+    for plant in habitat.plants:
+        typ1_size = 0
+        typ2_size = 0
+        typ3_size = 0
+        for i in range(0, len(habitat.plants)):
+            if habitat.plants[i].type == 'Typ1':
+                typ1_size += habitat.plants[i].size
+            elif habitat.plants[i].type == 'Typ2':
+                typ2_size += habitat.plants[i].size
+            elif habitat.plants[i].type == 'Typ3':
+                typ3_size += habitat.plants[i].size
+    print(""Planttype1 :"" + str(int(typ1_size*100)/100))
+    print(""Planttype2 :"" + str(int(typ2_size*100)/100))
+    print(""Planttype3 :"" + str(int(typ3_size*100)/100))
+    for animal in habitat.animals:
+        herb_amount = 0
+        omni_amount = 0
+        carn_amount = 0
+        for i in range(0, len(habitat.animals)):
+            if habitat.animals[i].diet == 'herbivore':
+                herb_amount += 1
+            elif habitat.animals[i].diet == 'omnivore':
+                omni_amount += 1
+            elif habitat.animals[i].diet == 'carnivore':
+                carn_amount += 1
+    print(""Pflanzenfresser :"" + str(herb_amount))
+    print(""Allesfresser :"" + str(omni_amount))
+    print(""Fleischfresser :"" + str(carn_amount))",12,"0. Confusing output.
+1. Fixed number of rounds (should be variable)."
+62,"class Habitat:
+
+    def __init__(self, size, round_duration):
+        self.size = size
+        self.plants = []
+        self.animals = []
+        self.round_count = 0
+        self.round_duration = round_duration
+
+    # Erstellung von Charakteristiken des Habitates
+
+    def simulate_round(self):
+        self.round_count += 1
+        for animal in self.animals:
+            animal.grow_age()
+            animal.find_food()
+            animal.reproduce()
+            animal.die()
+        for plant in self.plants:
+            plant.growth()
+            plant.reproduce()
+            plant.regenerate()
+            plant.die()
+        # Hier wird das Simulieren einer Runde erstellt
+
+    def add_plant(self, plant_type, count):
+        for i in range(count):
+            self.plants.append(plant_type())
+        # Pflanzen k�nnen hier hinzugef�gt werden
+
+    def add_animal(self, animal, count):
+        for i in range(count):
+            self.animals.append(animal())
+        # Tiere k�nnen hier hinzugef�gt werden
+
+    def animal_pop(self):
+        pass
+
+    @staticmethod
+    def plant_pop():
+        print(plants.count(plant1))
+        print(plants.count(plant2))
+        print(plants.count(plant3))
+        # Wollten die Werte der Pflanzen addieren, damit wir diese in den De
+        # tails addieren k�nnen
+
+
+"""""" Erstellen der Class Plant und Unterklassen """"""
+
+
+class Plant:
+
+    def __init__(self, name, plant_size, min_size, max_size):
+        self.name = name
+        self.plant_size = plant_size
+        self.min_size = min_size
+        self.max_size = max_size
+        # Charakteristik von der Pflanze
+
+    def growth(self):
+        if self.plant_size < self.max_size:
+            self.plant_size += growth_rate
+        # Wachstumsrate
+
+    def regenerate(self):
+        self.size += self.regeneration_rate
+        # Regeneration der Pflanze
+
+    def reproduce(self):
+        if self.count_plants >= self.max_size:
+            new_plant = Plant(self.name, self.min_size, self.max_size)
+            habitat.add_organism(new_plant)
+            # Reproduzierung der Pflanzen
+
+    def die(self):
+        if self.plant_size > min_size:
+            self.habitat.remove_plant()
+            # Entfernung der Pflanze, falls diese stirbt
+
+
+"""""" Unterklassen der Klasse Plant """"""
+
+
+class Plant1(Plant):
+    regeneration_rate = 3
+    growth_rate = random.randint(2, 19)
+    reporduce_rate = random.randint(4, 9)
+    # Werte f�r Pflanze1
+
+
+class Plant2(Plant):
+    regeneration_rate = 1
+    growth_rate = random.randint(10, 15)
+    reporduce_rate = random.randint(4, 9)
+    # Werte f�r Pflanze2
+
+
+class Plant3(Plant):
+    regeneration_rate = 2
+    growth_rate = random.randint(5, 10)
+    reporduce_rate = random.randint(3, 7)
+    # Werte f�r Pflanze3
+
+
+"""""" Erstellung der Klasse Animal und Unterklassen """"""
+
+
+class Animal:
+
+    def __init__(self, animal_age, max_animal_age, animal_reproduce):
+        self.hunger = 0
+        self.max_hunger = 10
+        self.animal_age = animal_age
+        self.max_animal_age = max_animal_age
+        self.animal_reproduce = animal_reproduce
+        self.animal_count = 0
+        # Charakteristik der Tiere
+
+    def grow_age(self):
+        for i in rounds():
+            self.animal_age += 1
+            # Erh�hung des Alters
+
+    def reproduce(self):
+        reproduce = self.animal_reproduce
+        # Reproduzierung der Tiere
+
+    def die(self):
+        if self.hunger > self.max_hunger:
+            habitat.remove_animal(self)  # Hungertod
+        if self.animal_age > self.max_animal_age:
+            habitat.remove_animal(self)  # Alterstod
+
+
+class Herbivore(Animal):
+
+    def __init__(self, name, plant_diet, animal_age, max_animal_age,
+                 animal_reproduce):
+        super().__init__(animal_age, max_animal_age, animal_reproduce)
+        self.name = name
+        self.plant_diet = plant_diet
+        # Erstellung der Pflanzenfresser Klasse mit Vererbung durch super()
+
+    def find_food(self):
+        find_food_success = random.randint(0, 100)
+        if find_food_success > 50:
+            potential_food = [plant for plant in self.habitat.plant]
+            # Zuf�llige Wahrscheinlichkeit das Tier Pflanze findet
+
+
+class Carnivore(Animal):
+
+    def __init__(self, name, animal_diet, animal_age, max_animal_age,
+                 animal_reproduce):
+        super().__init__(animal_age, max_animal_age, animal_reproduce)
+        self.name = name
+        self.animal_diet = animal_diet
+        # Erstellung der Fleischfresser Klasse mit Vererbung durch super()
+
+    def hunt(self):
+        hunting_success = random.randint(0, 100)
+        if hunting_success > 50:
+            potential_prey = [animal for animal in self.habitat.animals]
+            # Zuf�llige Wahrscheinlichkeit das Tier erfolgreiche Jagd hatte
+
+
+class Omnivore(Animal):
+
+    @staticmethod
+    def find_food():
+        find_food_success = random.randint(0, 100)
+        if find_food_success > 50:
+            potential_food = [plant for plant in habitat.plant]
+
+    @staticmethod
+    def hunt():
+        hunting_success = random.randint(0, 100)
+        if hunting_success > 50:
+            potential_prey = [animal for animal in habitat.animal]
+
+
+plants = [
+    Plant1(""Heidelbeere"", 10, 10, 65),
+    Plant2(""Strauch"", 10, 10, 50),
+    Plant3(""Kleiner Baum"", 20, 20, 120)
+]
+
+# Unterklassen Werte geben
+
+animals = [
+    Herbivore(""Wolf"", 1, 12, 3, 7),
+    Carnivore(""Reh"", 1, 8, 1, 8),
+    Omnivore(""Wildschwein"", 1, 10, )
+]
+
+# Unterklassen Werte geben
+
+# Geschwindigkeit festlegen
+speed = 1  # 1 Sekunde warten
+
+
+def set_speed(mode):
+    if mode == 'fast':
+        speed = 0.5
+    elif mode == 'normal':
+        speed = 1
+    elif mode == 'slow':
+        speed = 2
+    else:
+        speed = 1
+
+
+"""""" Festlegung einer Rundenanzahl """"""
+
+a = Habitat(1, 20)
+rounds = int(input(""Please enter the number of rounds: ""))
+if rounds <= 0:
+    rounds = int(input(""Invalid input. Please enter a number bigger than 0: ""))
+
+"""""" Benutzereingabe des Benutzers """"""
+
+running = True
+while running:
+    action = input(
+        ""Enter 'run' to simulate a round, 'pause' to pause ""
+        ""the simulation, or 'quit' to exit: "")
+    if action == ""run"":
+        # Bei run l�uft Runde weiter
+        a.simulate_round()
+        print(""Round"", rounds)
+        rounds += 1
+        if rounds > rounds:
+            running = False
+    elif action == ""pause"":
+        # Bei Pause wird Simulation pausiert
+        input(""Simulation paused. Press enter to continue..."")
+    elif action == ""quit"":
+        # Simulation wird beendet
+        running = False
+    else:
+        print(""Invalid input. Please enter 'run', 'pause', or 'quit'."")
+
+print(""Simulation complete."")
+
+
+def set_speed(mode):
+    if mode == 'fast':
+        speed = 0.5
+    elif mode == 'normal':
+        speed = 1
+    elif mode == 'slow':
+        speed = 2
+    else:
+        speed = 1
+
+
+"""""" Ausgabe der Endwerte von Simulation des Habitats """"""
+
+
+# Add this line before the while loop to set the speed
+set_speed('normal')
+
+display_mode = input(
+    ""Enter 'brief' for a brief summary, 'detailed' for a ""
+    ""detailed summary, or 'verbose' for a verbose output: "")
+
+if display_mode == 'brief':
+    print(""Population: "", animal_pop)
+elif display_mode == 'detailed':
+    print(""Population: "", animal_pop, ""\nMax Population: "", plant_pop)
+elif display_mode == 'verbose':
+    print(""Population: "", animal_pop, ""\nMax Population: "", plant_pop,
+          ""\nRounds: "", rounds)
+else:
+    input(""Invalid input. Please enter 'brief', 'detailed', or 'verbose'. "")",12,"0. Number of rounds confusing.
+1. No console output about the habitat. 
+2. Results in an error when summary should be produced in the end (animal_pop not implemented)."
+63,"'''Die Klasse der Habitate und Organismen und specifische Formen von organismen'''
+import numpy as np  
+import numpy.random as rnd
+
+
+
+class habitat:
+    '''Klasse f�r alle spieler um die Basic funktionen festzulegen, darin sind haupt�chlich Karten und Punkte gespeichert'''
+    def __init__(self, size):
+        self.size = size
+    def fill_with_organisms(self):
+        self.no_plants = rnd.randint(1, 10, size = 1)
+        self.plants = []
+        for i in range(plants):
+            self.plants.append(plant())
+        print(no_plants)
+        # todo analoges f�r Tiere, vllt. bias mit arten anteile f�r vrsch. habitate einf�hren, spezifische tier und pflanzenarten implementieren
+    def time_step():
+        print('ToDo')
+        #does it happen here? idk, gotta think 'bout this
+    def no_space(self):
+        '''hungriest plant dies first'''
+        while self.filled_space > self.size:
+            hunger = np.full(self.no_plants, 0)
+            for i in range(self.no_plants):
+                hunger[i] = plants[i].hunger
+            hungriest = np.whereis(np.max(hunger))[0]
+            self.delete_plant(hungriest)
+            
+    def delete_plant(self, index):
+        plants_new = []
+        for k in range(index-1):
+            plants_new.append(plants[k])
+        for k in range(index + 1, no_plants):
+            plants_new.append(plants[k])
+            
+    def calculate_need():
+        print('yea, auch ToDo')
+        
+                
+class organism:
+    '''Klasse f�r alle Spieler um die Basic funktionen festzulegen, darin sind haupt�chlich Karten und Punkte gespeichert'''
+    def __init__(self, size):
+        self.size = size
+
+        
+
+    def time_step():
+        print('vllt sollte das Zeug altern und so')
+        print('und verbauchen Energie')
+        print('und reproduzieren sich')
+        print('Wie w�rs wenn weibchen einen reproduktionszyklus haben?')
+        
+        #does it happen here? idk, gotta think 'bout this
+
+
+class plant(organism):
+    # Init f�r Pflanzen
+    def __init__(self, water_bedarf, size, max_size, habitat, alter, min_energie, energie, motivation, flucht, jagd, vorteil, einschraenkung, foodsource):
+        self.size = size
+        self.size_per_time = 2
+        self.hunger = 0
+        self.water_bedarf
+        self.max_size = max_size
+        self.habitat = habitat
+        self.alter = alter
+        self.min_energie = min_energie
+        self.energie = energie
+        self.einschraenkung = einschraenkung
+        self.vorteil = vorteil  # Hier k�nnen Eigenschaften f�r Pflanzen wie ""giftig"", ""stachelig"", ""bitter"", stehen, die beim Fressen abgefragt werden 
+        self.foodsource = foodsource
+
+    def be_eaten(self, size):
+        if size < self.size:
+            self.size -= size
+            return True
+        else:
+            return False
+    def regenerate(self):
+        self.mass += self.mass_per_time
+
+class animal(organism):
+    def __init__(self, size, size_per_time, max_size, durst, habitat, alter, min_energie, energie, motivation, flucht, jagd, foodsource):
+        self.size = size
+        self.size_per_time = 2
+        self.max_size = max_size
+        self.durst = durst
+        self.habitat = habitat
+        self.alter = alter
+        self.min_energie = min_energie
+        self.energie = energie  # eventuell gedoppelt mit motivation
+        self.motivation = motivation
+        self.flucht = flucht
+        self.jagd = jagd
+        self.foodsource = foodsource
+    def eat(self, kcal):
+        self.energy += kcal
+
+# TODO wenn sich Tiere vermehren sollen, muss �berpr�ft werden, wie viele ihrer Gattung �brig sind: m/w einfach mal ignoriert    
+class herbivor(animal):
+    def die(self, size, alter, durst, energie, min_energie, motivation):
+        if size > alter or energie > min_energie or motivation <= 0:
+            #TODO aus Liste entfernen
+            pass
+        else:
+            #Tier Lebt weiter
+            pass
+
+      
+
+class carnivor(animal):
+    def jagd(self, habitat):
+        print('Did I mention that this is to do?')
+    
+
+class omnivor(carnivor, herbivor):
+    def check_footsource(self):
+        print('ToDo')
+        if habitat.plant_mass > habitat.animal_plant_need:
+            print('Pflanzen fressen')
+        else:
+            print('Tiere fressen')
+        
+    
+
+if __name__ == 'main':
+    '''Sehr kurze wenige einzel Testf�lle'''
+    habititi=habitat(100)
+    for i in range(100):
+        habititi.time_step()",12,0. Incomplete. ToDos marked.
+64,"import random
+
+class Habitat:
+    """"""Determination of the attributes and methods
+        of the Habitat class.""""""
+    
+    def __init__(self, area, plant_list, animal_list):
+        self.area = area
+        self.animal_list = animal_list   #Assigning attributes
+        self.plant_list = plant_list
+
+    def new_area_size(self):
+
+        """"""Determines the new place from the habitat.""""""
+
+        for  plant in self.plant_list:
+            self.area = self.area - 10   #Subtracts the space from the habitat with the plants
+
+            if self.area < 0:   #Printes, when the space from habitat is 0
+                print(""Habitat has no more space."")
+            break
+        
+    def dead(self):
+
+        """"""Removes the animals from the habitat when they die.""""""
+
+        for animal in list(self.animal_list):   #Is executed when an animal dies
+                if animal.getDead():
+                    self.animal_list.remove(animal)  #Removes the dead animal from the habitat
+        
+    def time(self, rounds):   #Simulates the rounds
+
+        """"""Function specifies the laps and runs the functions in the laps.""""""
+
+        Habitat.new_area_size(self)
+        for round in range(rounds):
+            for plant in self.plant_list:
+                plant.grow(self.area)   #The grow function is executed
+                Habitat.new_area_size(self)
+            for animal in self.animal_list:
+                animal.old(animal.getAge())   #The old function is executed
+            Habitat.dead(self)
+            for animal in self.animal_list:
+                if isinstance(animal, Carnivore) or isinstance(animal, Omnivore):
+                    animal.hunt()   #Omnivore and carnivore function hunt is performed
+            Habitat.dead(self)
+            if self.animal_list == []:
+                print(f""At the end of round {round+1} there are no animals left."")   #Outputs the rounds
+
+                
+class Plants:
+
+    """"""Determination of the attributes and methods
+        of the Plants class.""""""
+    
+    def __init__(self, current, maximum, name):
+        self.current = current   #Assigning attributes
+        self.maximum = maximum
+        self.name = name
+
+    def getName(self):
+        return self.name   #Assumes the name of the animal
+
+    def getCurrent(self):
+        return self.current   #Assumes the getAktuell of the function
+        
+
+    def grow(self, habitat_size):
+        new_size = self.current + 10   #Plants grow by 10
+        if new_size > habitat_size:
+            print(f""{Plants.getName(self)} has no more room to grown."")
+            self.current = self.maximum
+        else:
+            print(f""{Plants.getName(self)} has grown.The new size is:"",self.current)
+            self.current = new_size
+
+
+class Carnivore:
+
+    """"""Determination of the attributes and methods
+        of the Carnivore class.""""""
+    
+    def __init__(self, name):
+        self.hunger = 50   #Assigning attributes
+        self.name = name
+        self.dead = False
+        self.age = 1
+
+    def getAge(self):
+        return self.age   #Assumes the age
+
+    def getName(self):
+        return self.name   #Assumes the name of the animal
+
+    def getDead(self):
+        return self.dead   #Assumes the dead
+    
+
+    def hunt(self):
+
+        """"""Function for that animals hunt.""""""
+        
+        self.successful = 0
+        self.starved = 1
+        self.hunted = 2
+        self.old = 3
+
+        hunt_execution = random.randint(-1,3)   #Random selection whether the animal dies or stays alive
+
+        
+        if hunt_execution == 0:
+            print(self.name,""successfully hunted and slowly feels full."")   #Stays alive
+        elif hunt_execution == 1:
+            print(""The hunt was not successful and"", self.name,""is starved."")   #Animal dies
+            self.dead = True
+        elif hunt_execution == 2:
+            print(""During the hunt"",self.name,""himself was hunted and died."")   #Animal dies
+            self.dead = True
+        elif hunt_execution == 3:
+            print(""During the hunt"",self.name,""was injured and bled to death."")   #Animal dies
+            self.dead = True
+
+    def old(self, n):
+        
+        """"""Function for the aging of animals.
+        param n: for the age
+        """"""
+    
+        n = n + 1   #Adds the age
+        if n == 2:
+            print(self.name,""is born."")   #Animal is born
+        elif n == 3:
+            print(self.name,""has aged and comes to retirement."")   #Animal has aged
+        elif n > 3:
+            print(self.name,""has had his last breaths and died."")   #Animal died
+            self.dead = True
+        self.age = n
+        
+            
+
+
+class Omnivore:
+
+    """"""Determination of the attributes and methods
+        of the Omnivore class.""""""
+
+    def __init__(self, name):
+        self.hunger = 50   #Assigning attributes
+        self.name = name
+        self.dead = False
+        self.age = 1
+
+    def getAge(self):
+        return self.age    #Assumes the age
+    
+    def getName(self):
+        return self.name    #Assumes the name of the animal
+
+    def getDead(self):
+        return self.dead   #Assumes the dead
+
+
+    def hunt(self):
+        
+        """"""Function for that animals hunt.""""""
+        
+        self.successful = 0
+        self.starved = 1
+        self.hunted = 2
+
+        hunt_execution = random.randint(-1,3)   #Random selection whether the animal dies or stays alive
+        
+        if hunt_execution == 0:
+            print(self.name,""successfully hunted and slowly feels full."")   #Stays alive
+        elif hunt_execution == 1:
+            print(""The hunt was not successful and"", self.name,""is starved."")   #Animal dies
+            self.dead = True
+        elif hunt_execution == 2:
+            print(""During the hunt"",self.name,""himself was hunted and died."")   #Animal dies
+            self.dead = True
+        elif hunt_execution == 3:
+            print(""During the hunt"",self.name,""was injured and bled to death."")   #Animal dies
+            self.dead = True
+
+    def old(self, n):
+        
+        """"""Function for the aging of animals.
+        param n: for the age
+        """"""
+        n = n + 1
+        if n == 2:
+            print(self.name,""is born."")
+        elif n == 3:
+            print(self.name,""has aged and comes to retirement."")
+        elif n > 3:
+            print(self.name,""has had his last breaths and died."")
+            self.dead = True
+        self.age = n
+
+if  __name__ == '__main__':
+    
+    #Input from the animals     
+    lion = Omnivore(""Lion"")
+    baer = Carnivore(""Baer"")
+
+
+    #Input from the plants
+    spinach = Plants(10,40, ""Spinach"")
+    flower = Plants(5,15, ""Flower"")
+    tree = Plants(30,60, ""Tree"")
+
+    #Input from the plants
+    spinach = Plants(5,35, ""Spinach"")
+    flower = Plants(6,20, ""Flower"")
+    tree = Plants(10,55, ""Tree"")
+    
+    habitat = Habitat(100, [flower, spinach, tree], [baer, lion])   #Entering from habitat
+
+    habitat.time(3)  #Entering the laps",12,"0. No input/control of habitat possible.
+1. Just a small example of simulation rounds."

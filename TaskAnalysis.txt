@@ -1,0 +1,62 @@
+
+Criteria:
+		- Word Count
+
+		- Repetition (count same words)
+
+		- Completeness ({0: input missing, 1: output missing, 2: constraint missing}
+
+		- Correctness 
+			- 0: no, some explanation or code is not correct
+			- 1: yes
+
+		- Feedback Types
+			- KTC: Knowledge about task constraints
+
+			- KC: Knowledge about concepts
+
+			- KM: Knowledge about mistakes
+
+			- KH: Knowledge about how to proceed
+
+			- KMC: Knowledge about meta-cognition
+
+			- Solution: No real feedback is given except a code solution
+
+			- INFO: more information is requested
+	
+		- valid Code (0: no code, 1: executable, 2: not executable)
+
+		- solved problems
+
+		- concepts
+			- found
+				- missing
+				- additional
+
+
+
+concepts: documentation mandatory, but only when explicit mentioned counting as required
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Towards Giving Timely Formative Feedback and Hints to
+Novice Programmers
+
+Feedback Categories	31
+
+Narciss		48	2006 Würfel
+	Informatives tutorielles Feedback

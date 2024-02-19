@@ -1,0 +1,14 @@
+RQ1: How do computer science students use ChatGPT in a programming introductory course?
+	1. How do students interact with ChatGPT for programming tasks?
+	2. What is the students' perception of ChatGPT's responses?
+
+
+RQ2: To what extend can programming novices utilize ChatGPT 3.5 for following problem solving steps:
+	1. Problem Understanding
+	2. Identifying Necessary Programming Concepts
+	3. Error Analysis and Debugging
+
+
+
+
+

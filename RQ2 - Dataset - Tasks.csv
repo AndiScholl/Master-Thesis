@@ -1,0 +1,540 @@
+id,original text,translation,concepts
+0,"Erstellen Sie ein Python 3.x Programm, welches eine Bankleitzahl und eine Kontonummer
+entgegennimmt. Das Programm soll die vollständige IBAN inklusive der Prüfsumme ausgeben und
+erläutern. Für Anfänger reicht es, wenn man die Länderkennung „DE“ fest vorgibt, wer mag, kann
+aber auch die Länderkennung als weitere Eingabe fordern.
+Eine Anleitung zur Berechnung der Prüfsumme ist zu finden unter:
+https://de.wikipedia.org/wiki/Internationale_Bankkontonummer#Pr%C3%BCfsumme
+
+Zusatzanleitungen bzw. Anforderungen:
+ - Achten Sie darauf bei Eingabeaufforderungen den Benutzer auch entsprechend zu
+ informieren, was er eingeben soll (und was dies bedeutet). … ebenso bei der Ausgabe.
+ - Nutzen Sie Kommentare im Code auch zur Strukturierung und besseren Lesbarkeit.
+ - Gehen Sie in der Dokumentation auch darauf ein, welche Eingaben nicht erlaubt sind, also
+ z.B. zu Fehlermeldungen führen (falls nicht alles abgefangen wird). ","Create a Python 3.x program that accepts a bank code (Bankleitzahl) and an account number (Kontonummer). The program should output and explain the complete IBAN (International Bank Account Number) including the checksum. For beginners, it is sufficient to hardcode the country code ""DE,"" but if desired, the program can also prompt for the country code as an additional input.
+
+Instructions for calculating the checksum can be found at:
+https://en.wikipedia.org/wiki/International_Bank_Account_Number#Check_digits
+
+Additional guidelines or requirements:
+ - Ensure that input prompts adequately inform the user about what they should enter and its significance. The same applies to output messages.
+ - Use comments in the code to improve structure and readability.
+ - Address in the documentation which inputs are not allowed and may lead to error messages (if not already handled)","input/output handling,variables,string manipulation,comments,documentation"
+1,"Erstellen Sie ein Python 3.x Programm, welches eine Jahreszahl in der Konsole einliest und berechnet, ob es sich
+im gregorianischen Kalender um ein Schaltjahr handelt. Geben Sie das Ergebnis in der Konsole als ganzen Satz
+aus, z.B. ""Das Jahr 1993 ist kein Schaltjahr."", ""Das Jahr 2024 ist ein Schaltjahr."".
+
+Die Regelungen für Schaltjahre können Sie hier nachlesen:
+https://de.wikipedia.org/wiki/Schaltjahr#Gregorianischer_Kalender","Create a Python 3.x program that reads a year from the console and determines whether it is a leap year in the Gregorian calendar. Display the result in the console as a complete sentence, such as ""The year 1993 is not a leap year."" or ""The year 2024 is a leap year.""
+
+You can refer to the rules for leap years here:
+https://en.wikipedia.org/wiki/Leap_year#Gregorian_calendar","input/output handling,variables,string manipulation,conditionals"
+2,"Schreiben Sie ein Python 3.x Programm, welches berechnet, wie viele solcher Freitage es in einem Jahr
+mindestens gibt und wie viele es maximal sein können. Beachten Sie, dass das Ergebnis auch davon abhängt, ob
+es sich um ein Schaltjahr oder kein Schaltjahr handelt. Was von beiden berechnet werden soll, soll durch eine
+Benutzereingabe gesteuert werden. Das Ergebnis soll möglichst verständlich ausgegeben werden.
+
+Tipps:
+ - Die Anzahl solcher Freitage in einem Jahr ist abhängig vom Wochentag, mit dem das Jahr startet.
+ - Versuchen Sie doch mal die neue match-case Variante in Python 3.10.","Create a Python 3.x program that calculates the minimum and maximum number of ""Friday the 13th"" occurrences in a year, taking into account whether it is a leap year or not. The user can input whether they want to calculate for a leap year or a non-leap year. The program should provide clear and understandable output.
+
+Tips:
+ - The number of ""Friday the 13th"" occurrences in a year depends on the weekday on which the year starts.
+ - You can try using the new match-case feature in Python 3.10.","input/output handling,variables,string manipulation,conditionals,loops"
+3,"Erstellen Sie für jede Teilaufgabe a) und b) lauffähigen Python 3.X Code (in einer .py-Datei). 
+Bei einem klassischen 8 × 8 Schachbrett werden die Reihen mit den Zahlen von 1 bis 8 und die Spalten mit den
+Buchstaben von A bis H beschriftet. Somit kann jedes der 64 Felder durch eine
+Kombination aus Zahl und Buchstabe eindeutig bezeichnet werden.
+
+a) Erstellen Sie eine Funktion namens “schachbrett”, welche, durch Ausgabe in der
+Konsole, ein Schachfeld erzeugt, indem Sie jedes Feld durch die jeweilige
+Bezeichnung (wie in der Abbildung rechts) darstellen.
+Fügen Sie unter die Funktion den Aufruf dieser ein.
+
+b) Erstellen sie eine Funktion namens “schachbrett_koenigin” , sodass die Funktion
+die Position einer Königin entgegennimmt und die Königin (mit bspw. diesem
+Symbol: ♛oder QQ) an der entsprechenden Stelle des Schachbretts darstellt. In
+der Abbildung rechts sehen Sie ein Beispiel mit der Königin auf Feld B4. Wird der
+Funktion kein Parameter übergeben, soll die Funktion das gleiche Verhalten wie
+die Funktion aus Teilaufgabe a) aufweisen.","Create executable Python 3.X code (in a .py file) for each subtask a) and b).
+In a classic 8x8 chessboard, the rows are labeled with numbers from 1 to 8, and the columns are labeled with letters from A to H. Therefore, each of the 64 squares can be uniquely identified by a combination of a number and a letter.
+
+a) Create a function named ""chessboard"" that generates a chessboard by displaying each square with its corresponding label (as shown in the illustration on the right) in the console. Include the function call below the function definition.
+
+b) Create a function named ""queen_on_chessboard"" that takes the position of a queen as input and displays the queen (using a symbol such as ♛ or QQ) at the corresponding square on the chessboard. In the illustration on the right, you can see an example with the queen placed on square B4. If no parameter is passed to the function, it should exhibit the same behavior as the function in subtask a).","input/output handling,string manipulation,conditionals,functions,loops"
+4,"Beim Streichholzspiel liegen zu Beginn 13 Streichhölzer auf dem Tisch. Zwei Spieler nehmen abwechselnd ein,
+zwei oder drei Streichhölzer weg. Die Person, die das letzte Streichholz nimmt, gewinnt. Implementieren Sie
+dieses Spiel in Python 3.X. Dabei sollen die verbleibenden Streichhölzer durch eine geeignete Ausgabe in der
+Konsole ansprechend visualisiert werden. Die beiden Spieler werden abwechselnd aufgefordert, ein bis drei
+Streichhölzer zu nehmen, bis einer der Spieler das letzte Streichholz gezogen hat. Das Programm soll
+anschließend ausgeben, welcher Spieler gewonnen hat.
+
+Lagern Sie die Visualisierung der Streichhölzer in eine eigene Funktion aus, welche die Anzahl der
+verbleibenden Streichhölzer als Parameter entgegennimmt. Seien Sie kreativ bei der Gestaltung der Ausgabe.","In the matchstick game, there are initially 13 matchsticks on the table. Two players take turns removing one, two, or three matchsticks. The person who takes the last matchstick wins. Implement this game in Python 3.X. The remaining matchsticks should be visually represented with suitable output in the console. The two players will be prompted alternately to take one to three matchsticks until one of the players takes the last matchstick. The program should then display which player has won.
+
+Create a separate function for visualizing the matchsticks, which takes the number of remaining matchsticks as a parameter. Be creative in designing the output.","input/output handling,string manipulation,conditionals,functions,loops"
+5,"Aufgabe 1:
+
+Die Standardinstallation von Python 3.X enthält eine große Auswahl von Modulen, welche hilfreiche Funktionen
+zur Verfügung stellen. Diese sogenannten built-in Module können ohne weitere Installationen importiert und
+verwendet werden. In dieser Aufgabe sollen Sie ein paar dieser Module kennenlernen, aber auch Ihr eigenes
+Modul schreiben, um es später importieren zu können.
+Erstellen Sie ein Python-Modul mit dem Namen ""eprtools.py"" und implementieren Sie die folgenden Funktionen
+innerhalb dieses Moduls. Achten Sie auch auf den Unterschied zwischen „zurückgeben“ und „ausgeben“.
+
+a) Binär-Rechner
+Implementieren Sie eine Funktion ""decimal_to_binary"", welche als Argument eine positive Ganzzahl
+entgegennimmt und einen String der entsprechenden Binärdarstellung zurückgibt. Geben Sie außerdem in der Konsole Schritt für Schritt die Umwandlung aus, z.B. nach dem in GPR erlernten Schema.
+
+b) Klausur-Countdown
+In einer Funktion ""exam_countdown"" soll die Zeit, zwischen einem übergebenen Zeitstempel und der
+EPI-Erstklausur am 16.02.2023 um 10:00 Uhr, berechnet werden. Anschließend soll die Differenz in der
+Konsole, in dem Format „_ Tage, _ Stunden, _ Minuten“, ausgegeben werden (Einheiten kleiner als
+Minuten können Sie unberücksichtigt lassen, es muss also nicht gerundet werden).
+Wird kein Zeitstempel übergeben, soll der aktuelle Systemzeitstempel genutzt werden.
+Für das einfache Rechnen mit Zeit und Kalenderdaten, informieren Sie sich auf https://unixtime.org/
+über die Unix Zeit und den Unix Timestamp. Mit dem Python-Modul time können sie den aktuellen Unix
+Timestamp ermitteln.
+Nutzen Sie das Modul time und den Unix Timestamp, um die verbleibende Zeit zu berechnen. Zeitzonen
+brauchen dabei nicht berücksichtigt werden.
+Dokumentation time: https://docs.python.org/3/library/time.html#module-time
+
+c) Kursseiten öffnen
+Für den schnellen Zugriff auf die verschiedenen Kurs-Webseiten Ihrer besuchten Vorlesungen,
+implementieren Sie eine Funktion ""open_course_page"", welche ein Modulkürzel (bspw. „EPR“, „MOD“,
+„LinADI“, …) als Parameter entgegennimmt und den entsprechenden Moodle-Kurs bzw. die
+entsprechende Kurs-Webseite in einem Webbrowser öffnet. Setzen Sie dies für mindestens drei Kurse
+um. Wird ein gültiges Kürzel übergeben, soll die Funktion True zurückgeben, ansonsten False. Benutzen
+Sie hierfür das Python-Modul webbrowser.
+Dokumentation webbrowser: https://docs.python.org/3/library/webbrowser.html#modulewebbrowser
+
+d) Passwortgenerator
+Erstellen Sie eine Funktion ""password_gen"", welche den Parameter length entgegennimmt, und ein
+zufälliges Passwort entsprechender Länge generiert und zurückgibt. Die Passwörter sollen aus den
+Ziffern 1 bis 9 sowie Groß- und Kleinbuchstaben von A bis z erstellt werden. Benutzen Sie das Python
+Modul random, um (Pseudo-) Zufallszahlen zu generieren. Diese Zufallszahlen können Sie beispielsweise
+mit der Funktion chr(i) entsprechend einer ASCII-Tabelle in Buchstaben umwandeln.
+Dokumentation random: https://docs.python.org/3/library/random.html#module-random
+
+
+Aufgabe 2:
+Schreiben Sie ein Python 3.X Programm (in einer separaten Python-Datei), welches das in Aufgabe 1 erstelle
+Modul ""eprtools.py"" importiert. Über eine Eingabe in der Konsole soll der/die Nutzer/-in entscheiden können,
+welches der vier implementierten Tools ausgeführt werden soll. Gegebenenfalls müssen noch benötigte
+Parameter über die Konsole abgefragt werden.","Task 1:
+
+The standard installation of Python 3.X includes a wide range of modules that provide helpful functions. These so-called built-in modules can be imported and used without further installations. In this task, you will get to know some of these modules and also write your own module to be imported later.
+Create a Python module named ""eprtools.py"" and implement the following functions within this module. Pay attention to the difference between ""return"" and ""display"".
+
+a) Binary Calculator
+Implement a function called ""decimal_to_binary"" that takes a positive integer as an argument and returns a string representing its binary representation. Additionally, step-by-step conversion should be displayed in the console, following the schema learned in GPR.
+
+b) Exam Countdown
+In a function named ""exam_countdown"", calculate the time between a given timestamp and the first EPI exam on February 16, 2023, at 10:00 AM. Then, display the difference in the console in the format ""_ days, _ hours, _ minutes"" (you can disregard units smaller than minutes, so rounding is not necessary).
+If no timestamp is provided, use the current system timestamp.
+To easily work with time and calendar data, refer to https://unixtime.org/ to learn about Unix time and Unix timestamp. You can use the ""time"" module in Python to obtain the current Unix timestamp.
+Utilize the ""time"" module and Unix timestamp to calculate the remaining time. Time zones do not need to be taken into account.
+Documentation for the ""time"" module: https://docs.python.org/3/library/time.html#module-time
+
+c) Open Course Pages
+For quick access to the various course websites of your attended lectures, implement a function called ""open_course_page"" that takes a module abbreviation (e.g., ""EPR"", ""MOD"", ""LinADI"", etc.) as a parameter and opens the corresponding Moodle course or course webpage in a web browser. Implement this for at least three courses. If a valid abbreviation is provided, the function should return True; otherwise, it should return False. Use the ""webbrowser"" module in Python for this task.
+Documentation for the ""webbrowser"" module: https://docs.python.org/3/library/webbrowser.html#modulewebbrowser
+
+d) Password Generator
+Create a function called ""password_gen"" that takes the parameter ""length"" and generates and returns a random password of the specified length, consisting of digits 1 to 9 and uppercase and lowercase letters from A to z. Use the ""random"" module in Python to generate (pseudo-)random numbers. You can convert these random numbers into letters using the ""chr(i)"" function based on an ASCII table, for example.
+Documentation for the ""random"" module: https://docs.python.org/3/library/random.html#module-random
+
+Task 2:
+Write a Python 3.X program (in a separate Python file) that imports the module ""eprtools.py"" created in Task 1. Through console input, the user should be able to choose which of the four implemented tools should be executed. If necessary, any required parameters should be queried through the console.","input/output handling,string manipulation,conditionals,functions,loops,randomness,modules"
+6,"Aufgabe 1 – Vorbereitungen
+Erstellen Sie zunächst ein Python-Modul memory.py. Hier werden Sie Funktionen definieren, die Ihnen die weitere Umsetzung des Spiels in Aufgabe 2
+erleichtern werden.
+
+Die Karten:
+Gespielt wird mit 20 Karten, jeweils zwei davon mit dem gleichen Motiv. Dabei wird jede Karte durch einen String mit einem entsprechenden Zeichen dargestellt. Die 20 Karten sind in einer Liste zusammengefasst. Die 20 Karten sind in folgender Variable dargestellt:
+CARDS = [""✿"", ""❄"", ""★"", ""♥"", ""✉"", ""✂"", ""✖"", ""✈"", ""♫"", ""☀"",
+         ""✿"", ""❄"", ""★"", ""♥"", ""✉"", ""✂"", ""✖"", ""✈"", ""♫"", ""☀""]
+
+a) Erstellen des Spielfelds:
+Um mit dem Spielen beginnen zu können, müssen zuvor die 20 Karten ausgebreitet werden. Implementieren Sie
+dafür die Funktion create_grid(cards). Diese nimmt eine Liste mit Karten entgegen und ordnet für das
+Spielfeld die 20 Karten in einem 5x4 Raster an. Benutzen Sie hierfür verschachtelte Listen. Anschließend soll die
+Funktion das erstellte Spielfeld, also das Raster der ausgebreiteten Karten, zurückgeben.
+
+b) „Umdrehen“ einer Karte: 
+Möchte der*die Spieler*in zwei Karten umdrehen, müssen die entsprechenden Motive der Karten aufgedeckt
+werden. Hierbei soll die Funktion get_symbols(grid, pos1, pos2) helfen. Diese nimmt als
+Übergabeparameter das aktuelle Spielfeld, sowie die zwei Kartenpositionen entgegen. Die Funktion prüft welche
+Motive die beiden Karten haben und gibt beide anschließend in einem Tupel zurück.
+
+c) „Wegnehmen“ einer Karte:
+Wurde ein Paar aufgedeckt wird es vom Spielfeld genommen. Implementieren sie dafür die Funktion
+take_cards(grid, pos1, pos2), welche das aktuelle Spielfeld und die Position von zwei Karten
+entgegennimmt. Die Funktion soll das aktuelle Spielfeld so anpassen, dass die entsprechende Position auf dem
+Spielfeld anschließend „leer“ ist. Überlegen Sie sich eine geeignete Methode, die Stelle entsprechend zu
+markieren.
+
+d) Zeichnen des Spielfelds:
+Um dem*der Spieler*in einen Überblick über das Spielfeld und die verbleibenden Karten zu ermöglichen, müssen
+die (verdeckten und aufgedeckten) Spielkarten in der Konsole dargestellt werden. Die einzelnen Karten sollen über eine Kombination aus Buchstabe und Ziffer, entsprechend ihrer Position,
+dargestellt werden.
+Implementieren Sie dafür die Funktion draw_grid(grid, pos1=None, pos2=None). Diese nimmt das
+aktuelle Spielfeld und optional zwei Positionen von aufgedeckten Karten entgegen. Wird nur das Spielfeld
+übergeben, sollen alle verbleibenden Karten durch die Buchstaben-Ziffer-Kombination dargestellt werden.
+Paare, die schon gefunden wurden, sollen nicht mehr abgebildet werden. Werden zusätzlich die Positionen
+übergeben, soll an den entsprechenden Stellen des Spielfelds das Motiv der Karte erscheinen.
+Denken Sie daran, vor dem Ausgeben das Felds, die Konsole zu „leeren“, damit vorherige Spielzüge nicht mehr
+sichtbar sind. Es genügt dafür leere Zeilen auszugeben.
+
+
+Aufgabe 2 – Spiellogik
+Implementieren Sie in einer separaten Python-Datei den Ablauf des Spiels für eine*n Spieler*in. Importieren und
+nutzen sie dazu die Funktionen aus Aufgabe 1.
+Ablauf:
+	1. Mischen der Karten
+	2. Erstellen des Spielfelds (Aufteilen der Karten in das Raster)
+	3. Bis alle Paare gefunden:
+		a. Zeichnen des aktuellen Spielfelds
+		b. Der*die Spieler*in wählt zwei Karten
+		c. Karten werden für 3 Sekunden aufgedeckt und anschließend wieder verdeckt
+		d. Wurde ein Paar gefunden, werden die Karten vom Spielfeld entfernt
+	4. Sobald alle Paare gefunden wurden, wird die Anzahl der benötigten Runden ausgegeben
+	5. Der* die Spieler*in hat die Möglichkeit ein neues Spiel zu starten
+
+Gestalten Sie Ihr Programm robust, also so, dass falsche Nutzereingaben abgefangen werden und nicht zum Absturz des Programms führen.","Task 1 - Preparations:
+First, create a Python module named ""memory.py"". In this module, you will define functions that will make it easier to implement the game in Task 2.
+
+The Cards:
+The game is played with 20 cards, with two cards having the same motif. Each card is represented by a string with a corresponding symbol. The 20 cards are grouped together in a list. The variable representing the 20 cards is as follows:
+CARDS = [""✿"", ""❄"", ""★"", ""♥"", ""✉"", ""✂"", ""✖"", ""✈"", ""♫"", ""☀"",
+""✿"", ""❄"", ""★"", ""♥"", ""✉"", ""✂"", ""✖"", ""✈"", ""♫"", ""☀""]
+
+a) Creating the Game Grid:
+To start playing, the 20 cards need to be spread out. Implement the function create_grid(cards) to arrange the 20 cards in a 5x4 grid for the game board using nested lists. The function should return the created game grid, which represents the layout of the spread-out cards.
+
+b) Flipping a Card:
+When a player wants to flip two cards, the corresponding motifs of the cards need to be revealed. The function get_symbols(grid, pos1, pos2) should help with this. It takes the current game grid and the two card positions as input parameters. The function checks which motifs the two cards have and returns both as a tuple.
+
+c) Removing a Card:
+Once a pair is revealed, it needs to be removed from the game grid. Implement the function take_cards(grid, pos1, pos2), which takes the current game grid and the positions of two cards as input. The function should adjust the current game grid so that the corresponding positions on the grid are ""empty"". Think of a suitable method to mark the spot accordingly.
+
+d) Drawing the Game Grid:
+To provide an overview of the game grid and the remaining cards to the player, the (covered and uncovered) game cards need to be displayed in the console. Each card should be represented by a combination of a letter and a digit, corresponding to its position.
+Implement the function draw_grid(grid, pos1=None, pos2=None) for this purpose. It takes the current game grid and optionally the positions of two uncovered cards as input. If only the game grid is provided, all remaining cards should be represented by their letter-digit combination. Pairs that have already been found should not be displayed anymore. If the positions are additionally provided, the motifs of the cards should appear at the corresponding positions on the game grid.
+Remember to ""clear"" the console before outputting the grid so that previous moves are no longer visible. Outputting empty lines is sufficient for this purpose.
+
+
+Task 2 - Game Logic:
+In a separate Python file, implement the gameplay for a player. Import and use the functions from Task 1 for this purpose.
+Gameplay:
+	1. Shuffle the cards.
+	2. Create the game grid (arrange the cards on the grid).
+	3. Until all pairs are found:
+		a. Draw the current game grid.
+		b. The player chooses two cards.
+		c. The cards are revealed for 3 seconds and then covered again.
+		d. If a pair is found, the cards are removed from the game grid.
+	4. Once all pairs are found, output the number of rounds required.
+	5. The player has the option to start a new game.
+
+Make your program robust, so that incorrect user inputs are handled and do not cause the program to crash.","input/output handling,string manipulation,conditionals,functions,loops,randomness,modules,lists,exception handling,time"
+7,"Für ein Kontakt- oder Telefonbuch stellen wir Kontakte jeweils durch ein Dictionary dar und fassen diese in einer
+Liste zu einem Kontaktbuch zusammen. Ein Kontakt besteht dabei mindestens aus einem Namen, kann aber auch
+beliebige weitere Felder enthalten (z.B. E-Mail, Adresse, Geburtsdatum, …).
+
+Erstellen Sie hierfür ein neues Python-Modul und implementieren Sie folgende Funktionen:
+
+a) add_contact(…)
+Diese Funktion nimmt das Kontaktbuch entgegen und fügt einen neuen Kontakt hinzu. Übergeben wird zwingend
+ein Name, sowie weitere beliebige Parameter, die dem Kontakt hinzugefügt werden sollen.
+
+b) del_contact(…)
+Diese Funktion nimmt das Kontaktbuch und einen Namen entgegen. Die Person mit dem entsprechenden Namen
+wird aus dem Kontaktbuch entfernt.
+
+c) edit_contact(…)
+Diese Funktion nimmt das Kontaktbuch, einen Namen und die zu ändernden Felder entgegen. Dabei können
+bestehende Felder aktualisiert werden aber auch neue Informationen zu dem Kontakt hinzugefügt werden.
+
+d) list_contacts(…)
+Diese Funktion nimmt das Kontaktbuch entgegen und listet in der Konsole die Namen aller Kontakte auf.
+
+e) show_contact(…)
+Diese Funktion nimmt das Kontaktbuch und einen Namen entgegen. Anschließend werden untereinander alle zu
+dieser Person gespeicherten Daten ausgegeben.
+
+
+Die oben genannten Funktionen nehmen jeweils die Kontaktliste (und je nach Funktion auch weitere Parameter)
+entgegen, um das Kontaktbuch entsprechend anzupassen bzw. Informationen auszugeben.","For a contact or phone book, we represent contacts using dictionaries and combine them in a list to create a contact book. A contact consists of at least a name but can also include additional fields (such as email, address, date of birth, etc.).
+
+Create a new Python module for this and implement the following functions:
+
+a) add_contact(…)
+This function takes the contact book as input and adds a new contact. The function must be passed a name and can also accept additional parameters to be added to the contact.
+
+b) del_contact(…)
+This function takes the contact book and a name as input. The person with the corresponding name is removed from the contact book.
+
+c) edit_contact(…)
+This function takes the contact book, a name, and the fields to be changed as input. Existing fields can be updated, and new information can be added to the contact.
+
+d) list_contacts(…)
+This function takes the contact book as input and lists the names of all contacts in the console.
+
+e) show_contact(…)
+This function takes the contact book and a name as input. It then displays all the stored data for that person in a formatted manner.
+
+The above functions each take the contact list (and potentially additional parameters depending on the function) as input to modify the contact book accordingly or provide information.","input/output handling,conditionals,functions,loops,lists,dictionaries,(args/kwargs) arguments"
+8,"Analysieren Sie die beiden untenstehenden Funktionen und überlegen Sie sich, was diese berechnen. Falls es
+sich um eine rekursive Funktion handelt, schreiben Sie diese in eine iterative Funktion um. Handelt es sich nicht
+um eine rekursive Funktion, so wandeln Sie diese in eine rekursive Funktion um.
+
+Die von Ihnen umgeschriebenen Funktionen sollen dasselbe Verhalten aufweisen, wie die ursprüngliche
+Funktion.
+
+a) Die Funktion differences(values) nimmt als Parameter eine beliebig lange Liste mit Zahlen
+entgegen.
+
+	def differences(values):
+		result = []
+		for i in range(len(values) - 1):
+			result.append(values [i+1] - values[i])
+		return result
+
+b) Die Funktion palindrome(word) nimmt als Parameter einen String beliebiger Länge entgegen.
+
+	def palindrome(word):
+		if len(word) <=1:
+			return True
+		if word[0] != word[-1]:
+			return False
+		return palindrome(word[1:-1])","Analyze the two functions below and consider what they calculate. If it is a recursive function, convert it into an iterative function. If it is not a recursive function, convert it into a recursive function.
+
+The rewritten functions should exhibit the same behavior as the original function.
+
+a) The function differences(values) takes a list of numbers as a parameter.
+
+	def differences(values):
+		result = []
+		for i in range(len(values) - 1):
+			result.append(values[i+1] - values[i])
+		return result
+
+b) The function palindrome(word) takes a string of any length as a parameter.
+
+	def palindrome(word):
+		if len(word) <= 1:
+			return True
+		if word[0] != word[-1]:
+			return False
+		return palindrome(word[1:-1])","string manipulation,conditionals,functions,loops,lists,iteration/recursion"
+9,"Für eine quadratische Matrix (n x n) wollen wir den günstigsten Weg von der Ecke oben links, nach unten rechts
+berechnen. Die Elemente der Matrix (ganze Zahlen von 0 bis 9) stellen dabei die jeweiligen Kosten eines Feldes
+dar. Die Kosten eines Weges entsprechen den summierten Kosten aller besuchten Felder.
+
+Randbedingungen:
+	- Auf einem Weg darf ein Feld nur einmal besucht werden.
+	- Von einem Feld aus dürfen nur die direkt benachbarten Felder besucht werden (nur horizontal und vertikal).
+	- Die Matrix wird durch eine zweidimensionale verschachtelte Liste dargestellt.
+	- Die Matrix enthält nur ganze Zahlen im Bereich von 0 bis 9
+
+
+Hier ein kleines Beispiel:
+
+[[4, 0, 8],
+ [3, 4, 7],
+ [8, 0, 7]]
+
+Wir starten oben links bei Position (0, 0). Die ersten Kosten betragen also 4. Gehen wir
+rechts, kommt die 0 dazu, zweimal nach unten (+4 und +0) und schließlich rechts zum Ziel
+(+7). Die Gesamtkosten dieses Weges betragen also: 4 +0 + 4+ 0 + 7 = 15.
+Der Weg selbst wird durch die Folge der besuchten Felder beschrieben:
+[(0,0), (0,1), (1,1), (2,1), (2,2)]
+
+
+a) Erstellen der Matrix:
+Implementieren Sie eine Funktion, welche als Parameter eine natürliche Zahl n, also die Dimension der Matrix,
+entgegennimmt. Die Funktion soll eine Matrix (verschachtelte Liste) mit zufälligen Werten aus dem genannten
+Wertebereich zurückgeben.
+
+b) Finden des optimalen Weges:
+Implementieren Sie eine rekursive Funktion, die eine Matrix übergeben bekommt und den (global) optimalen
+Weg, d.h. der Weg mit den geringsten Kosten, berechnet, um von oben links (0, 0) nach unten rechts (n, n) zu
+laufen. Die Funktion soll sowohl die minimalen Kosten als auch den entsprechenden günstigsten Weg
+zurückgeben.
+Hinweise:
+	- Um vom aktuellen Feld aus den günstigsten Weg zu finden, vergleichen Sie jeweils die günstigsten Kosten von den benachbarten Feldern aus.
+	- Damit bereits besuchte Felder nicht erneut besucht werden, können Sie diese innerhalb der Matrix markieren. Beispielsweise mit math.inf oder -1.
+	- Falls Sie dafür innerhalb der Funktion die übergebene Matrix verändern, bedenken Sie, dass Listen mutable sind und zu welchen „Problemen“ dies führen kann. Das Modul copy kann hier hilfreich sein. Dokumentation: https://docs.python.org/3/library/copy.html
+	- Es kann hilfreich sein, als zusätzlichen optionalen Parameter, eine Startposition zu übergeben.
+	- Testen Sie die Funktion zunächst mit kleinen Matrizen, da die Berechnungen sonst sehr lange dauern können.","For a square matrix (n x n), we want to calculate the most cost-effective path from the top-left corner to the bottom-right corner. The elements of the matrix (integers from 0 to 9) represent the respective costs of each field. The cost of a path corresponds to the sum of the costs of all visited fields.
+
+Constraints:
+	- Each field can only be visited once on a path.
+	- From a field, only the directly neighboring fields can be visited (only horizontally and vertically).
+	- The matrix is represented by a two-dimensional nested list.
+	- The matrix contains only integers in the range of 0 to 9.
+
+Here's a small example:
+
+[[4, 0, 8],
+[3, 4, 7],
+[8, 0, 7]]
+
+We start at the top-left position (0, 0). The initial cost is 4. If we go right, we add 0 to the cost. Then we go down twice (+4 and +0) and finally to the right (+7) to reach the destination. The total cost of this path is: 4 + 0 + 4 + 0 + 7 = 15.
+The path itself is described by the sequence of visited fields:
+[(0, 0), (0, 1), (1, 1), (2, 1), (2, 2)]
+
+a) Creating the Matrix:
+Implement a function that takes a natural number n as a parameter, which represents the dimension of the matrix. The function should return a matrix (nested list) with random values from the mentioned value range.
+
+b) Finding the Optimal Path:
+Implement a recursive function that receives a matrix as a parameter and calculates the (global) optimal path, i.e., the path with the lowest costs, to walk from the top-left (0, 0) to the bottom-right (n, n). The function should return both the minimum costs and the corresponding optimal path.
+Hints:
+	- To find the optimal path from the current field, compare the minimum costs from the neighboring fields.
+	- To avoid revisiting already visited fields, you can mark them within the matrix. For example, using math.inf or -1.
+	- If you modify the given matrix within the function, keep in mind that lists are mutable and consider the potential ""issues"" this can cause. The copy module can be helpful in this case. Documentation: https://docs.python.org/3/library/copy.html
+	- It might be useful to provide an additional optional parameter for the starting position.
+	- Test the function initially with small matrices, as the calculations can otherwise take a very long time.","conditionals,functions,loops,randomness,lists,iteration/recursion"
+10,"Erstellen Sie Python Code, welcher aus einer gegebenen Datei den Text einliest und mittels
+Regulärer Ausdrücke (re) die folgenden Elemente extrahiert und auf der Konsole ausgibt. 
+
+a) Alle Zeichenketten die sich zwischen < und dem nächsten > befinden. Dabei sollen auch die beiden < und > mit ausgegeben werden. Bsp: <a>, <span …>.
+
+b) Alle (Jahres-) Zahlen die zwischen 1900 und 2099 liegen.
+
+Dokumentation zum Modul re: https://docs.python.org/3/library/re.html","Create Python code that reads the text from a given file and uses regular expressions (re) to extract the following elements and outputs them on the console.
+
+a) All character strings that are located between < and the next >. The opening < and closing > should also be included in the output. Example: <a>, <span ...>.
+
+b) All (year) numbers between 1900 and 2099.
+
+Documentation for the re module: https://docs.python.org/3/library/re.html","regex, file i/o"
+11,"Implementieren Sie ein Spiel, das wie folgt beschreiben ist:
+
+- Es wird mit 52 Karten (13 * 4 Farben) gespielt (Kartendeck).
+- Das Spiel kann mit 2-5 Spieler*innen gespielt werden.
+- Es wird ein*e Startspieler*in und eine Reihenfolge festgelegt.
+- Es werden eine Anzahl an Runden gespielt (abhängig davon wie viele mitspielen). Die Anzahl der Runden ergibt sich aus der Formel:
+	Anzahl Runden = floor(Anzahl Karten Insgesamt / Anzahl Spielende)
+- Eine Runde verläuft folgendermaßen:
+	1. Jedem Spielenden werden Karten ausgeteilt (die Anzahl der Karten soll der Rundennummer entsprechen). In der ersten Runde erhält jede*r eine Karte, in der zweiten Runde erhält jede*r zwei Karten und so weiter.
+	2. Die Trumpffarbe für die Runde wird ermittelt: Hierzu wird eine zufällige Wahl der Farbe vorgenommen.
+	3. Es wird nun um Stiche gespielt. Die Anzahl der Stiche entspricht der Anzahl Karten auf der Hand. Um einen Stich wird folgendermaßen gespielt:
+		i. Jede*r legt nacheinander eine Karte (beginnend bei dem*der Startspieler*in). Der*Die Spieler*in mit der höchstwertigen Karte gewinnt den Stich.
+		ii. Nun ist der nächste Spieler an der Reihe, um die erste Karte zu legen.
+	4. Am Ende der Runde werden alle Karten zusammengetan und neu gemischt. In der nächsten Runde startet der*die nächste Spieler*in in der Reihenfolge als Startspieler.
+- Ermittlung des Gewinners:
+	Wählen Sie sich eine Variante für die Siegbedingung aus:
+		a) mit den meisten Stichen
+		b) mit den meisten gewonnenen Runden.
+- Erstellung Grundlegender Funktionen:
+	a) Erstellen Sie eine Funktion create_cards(), die eine Liste von Karten zurückgibt. Dabei soll die Karte mithilfe eines Dictionarys dargestellt werden. Überlegen Sie sich wie sie die Karten intern darstellen wollen. Die Karten sollen einem normalen Kartenset mit 2, …, 10, Bube, Dame, König, Ass und den 4 Farben (Kreuz, Pik, Herz, Karo) entsprechen.
+	b) Erstellen Sie eine Funktion deal_cards(), die das Austeilen an die Spieler simuliert. Dabei soll die Funktion die Karten als Liste, die Anzahl der Spieler und die Anzahl an Karten für jeden Spieler übergeben bekommen. Als Rückgabe soll die Funktion ein Tupel zurückgeben, das die Karten von jedem Spieler in einer Liste enthält.
+	c) Erstelle Sie eine Funktion compare_cards(), die das Vergleichen der Karten übernimmt. Dabei soll es möglich sein, beliebig viele Karten zum Vergleichen zu übergeben. Die Funktion soll den Index der größten Karte zurückgeben, und dabei die Wertigkeit der Farben mit berücksichtigen. Der Vergleich von Karten soll dabei folgenden Kriterien folgen:
+		i. Eine Karte mit der Trumpffarbe ist immer höherwertiger als alle anderen Farben. Bsp. Bei Trumpf Karo, ist die Karte Karo 2 höherwertiger als die Kreuz 3.
+		ii. Die Farben (Kreuz, Pik, Herz, Karo) sind in Absteigender Reihenfolge sortiert. D.h. Kreuz ist höherwertiger als Pik. Bei gleichem Kartenwert entscheidet die Farbe.
+	d) Nun soll der Spielablauf programmiert werden. Nutzen Sie hierfür die vorher definierten Funktionen.
+
+
+Zusatzanforderungen und Hinweise:
+- Erstellen Sie einen Computer-Gegner, welche die Aktionen von Spielern, die als Computer-Gegner definiert werden, durchführen können (z.B. einen sehr einfachen – Random oder einen „schlaueren“).
+- Entwickeln Sie eine einfache Benutzungsschnittstelle (User Interface) auf Konsolenebene, die sich durch Tastatureingaben bedienen lässt und den Benutzer sinnvoll durch das Programm leitet und mindestens folgende Möglichkeiten bietet: 
+	1. Dem Benutzer zu Beginn mitteilen, was gültige Eingaben sind und was diese bewirken.
+	2. Kennzeichnung, welcher Spieler gerade am Zug ist.
+	3. Der Benutzer soll die Möglichkeit habe das Spiel zu beenden oder eine neue Runde zu starten.
+	4. Ihr User Interface soll robust angelegt sein, sodass falsche Eingaben des Benutzers nicht zu einem Absturz führen.
+- Strukturieren Sie ihre Implementierung durch die Erstellung weiterer Funktionen.","Implement a game as described below:
+
+- The game is played with a deck of 52 cards (13 * 4 suits).
+- The game can be played with 2-5 players.
+- A starting player and an order of play are determined.
+- A certain number of rounds are played (depending on the number of players). The number of rounds is calculated using the formula:
+	Number of rounds = floor(Total number of cards / Number of players)
+- Each round proceeds as follows:
+	1. Each player is dealt cards (the number of cards corresponds to the round number). In the first round, each player receives one card, in the second round each player receives two cards, and so on.
+	2. The trump suit for the round is determined by making a random selection.
+	3. The game is played for tricks. The number of tricks is equal to the number of cards in hand. The following rules apply for playing a trick:
+		i. Each player plays a card in turn (starting with the starting player). The player with the highest-ranking card wins the trick.
+		ii. The next player in order takes the lead for the next trick.
+	4. At the end of the round, all cards are collected, shuffled, and a new round begins with the next player in the order as the starting player.
+- Determining the winner:
+	Choose one variant for the winning condition:
+		a) Most tricks won.
+		b) Most rounds won.
+- Implement basic functions:
+	a) Create a function create_cards() that returns a list of cards. The cards should be represented using a dictionary. Consider how you want to represent the cards internally. The cards should correspond to a standard deck with 2, ..., 10, Jack, Queen, King, Ace, and the 4 suits (Clubs, Spades, Hearts, Diamonds).
+	b) Create a function deal_cards() that simulates dealing the cards to the players. The function should receive the cards as a list, the number of players, and the number of cards for each player as input. The function should return a tuple containing the cards for each player in a list.
+	c) Create a function compare_cards() that handles card comparisons. It should be possible to pass any number of cards for comparison. The function should return the index of the highest-ranking card, taking the value of the suits into account. The comparison of cards should follow the following criteria:
+		i. A card of the trump suit is always higher-ranking than cards of other suits. For example, if the trump suit is Diamonds, the Diamond 2 is higher-ranking than the Club 3.
+		ii. The suits (Clubs, Spades, Hearts, Diamonds) are sorted in descending order. That means Clubs are higher-ranking than Spades. In case of equal card values, the suit decides.
+	d) Now, program the game flow using the previously defined functions.
+
+
+Additional requirements and hints:
+- Create a computer opponent that can perform actions for players defined as computer opponents (e.g., a very simple one - random or a ""smarter"" one).
+- Develop a simple console-based user interface that can be controlled by keyboard input and guides the user through the program, offering at least the following possibilities:
+	1. Inform the user at the beginning about valid inputs and their effects.
+	2. Indicate which player's turn it is.
+	3. Allow the user to end the game or start a new round.
+	4. Design your user interface to be robust, so that incorrect user inputs do not lead to a crash.
+- Structure your implementation by creating additional functions.","input/output handling,lists,dictionaries,loops,conditionals,exception handling"
+12,"Hier soll eine Ökosystem mithilfe von Objektorientierung implementiert werden. Das Ökosystem ist in einem
+Habitat. In diesem Habitat sollen verschiedene Lebewesen wie Pflanzenfresser, Allesfresser und Fleischfresser
+und Pflanzen leben.
+
+	- Eine Pflanze braucht Platz in dem Habitat. Bei der Erstellung eines Habitats soll direkt die Größe und weitere Eigenschaften initialisiert werden.
+	- Auch die Anzahl der Lebewesen, die in dem Habitat leben können, hängt von der Nahrung ab, die im Habitat zu finden ist. Dabei können Lebewesen andere Lebewesen oder Pflanzen fressen oder auch sterben.
+
+Hier ein paar Grundregeln:
+	- Das Ökosystem soll in Runden simuliert werden. In jeder Runde sollen Lebewesen wachsen, sich vermehren und sich fortpflanzen. Tiere müssen weiterhin fressen, um nicht zu verhungern. Lebewesen können sterben, z.B. durch Krankheiten, Verletzungen, weil Sie gefressen werden, Nahrungsmangel oder einfach durch hohes Alter.
+	- In einem Habitat sollen Lebewesen und Pflanzen leben. Dabei benötigen Pflanzen einen gewissen Platz, um sich zu vergrößern, um ihr volles Potenzial zu erreichen.
+	- In einem Habitat soll es mindestens drei (3) verschieden Arten von Pflanzen geben. Jede Pflanzenart hat seine Vorteile und Einschränkungen. Eine Pflanze hat eine minimale und eine maximale Größe. Sollte das Habitat nicht mehr genug Platz haben, kann eine Pflanze nicht einfach weiterwachsen. Wird von einer Pflanze mehr gefressen als ihre minimale Größe definiert, geht sie ein (stirbt).
+	- Es leben mindestens drei (3) verschieden Lebewesen Klassen (Pflanzenfresser, Allesfresser und Fleischfresser) in dem Habitat. Jedes Lebewesen sucht sich Futter, dass mal mehr oder weniger erfolgreich ist. Wenn das Lebewesen zu wenig Nahrung findet, stirbt es. Fleischfresser oder auch Allesfresser können auch jagen. Je nach Situation ist eine Jagt erfolgreich oder nicht, manchmal auch gefährlich.
+
+Weitere Eigenschaften:
+	- Jede Runde entspricht eine gewissen Zeiteinheit, die Ihr festlegt (abhängig von der Zeiteinheit und dem Lebewesen müssen also nicht immer alle Aktivitäten wie z.B. Vermehren ausgeführt werden).
+	- In jeder Runde regenerieren sich die Pflanzen zu einem gewissen Teil. Das hängt von Pflanze zu Pflanze ab.
+	- Jedes Lebewesen soll über einen gewissen Zeitraum/Runden genug zu Essen finden, das kann von Lebewesen zu Lebewesen variieren. Ist das nicht der Fall wird es schwächer und stirbt am Ende.
+
+Aufgaben:
+	- Erstellen Sie mindestens 5 weitere Regeln, die die oberen Regeln erweitern oder teilweise aufheben. Zum Beispiel: Der Eukalyptus kann nur von Koalabären gegessen werden oder was passieren, wenn der Patz im Habitat voll ist und keine weiteren Pflanzen wachsen können? Es kann auch Pflanzen geben, die auf Bäumen wachsen und so keinen zusätzlichen Platz des Habitats benötigen. Anstatt zu sterben, können Tiere auch in einen Ruhezustand (Winterschlaf, Winterruhe) übergehen, anstatt direkt zu sterben. Hinweis: Wenn möglich sollten die Regeln durch Überschreiben der entsprechenden Methoden der Oberklasse umgesetzt werden.
+	- Verschiedene Aspekte (mindestens 2) sollen vom Zufall abhängen (random). Hiervon kann z.B. der Jagderfolg oder auch die Stärke des Wachstums der Pflanzen (quasi als Wettereinfluss) abhängen.
+
+User Interface:
+	- Erstellen Sie ein UI auf Konsolenebene, das den Nutzer nach seiner Startbelegung erfragt. Danach soll nach Aktivierung des Ökosystems kein weiterer Eingriff in das Ökosystem mehr notwendig sein (zum Debuggen oder Testen darf dies aber natürlich vorhanden sein).
+	- Nach der Aktivierung soll es die Möglichkeit geben das Ökosystem zu pausieren bzw. Runden zu simulieren.
+	- Überlegene Sie sich, wie dem Nutzer eine übersichtliche Darstellung darüber geben werden kann, in welchem Zustand sich das Ökosystem nach einer Runde befindet. Implementieren Sie verschiedene Modi, die die Geschwindigkeit anpasst, so dass mehrere Runden laufen, ohne das eine Ausgabe oder anderweitige Interaktion erfolgt.
+	- Beachten Sie dabei, dass Sie aussagekräftige Eingabeaufforderungen verwenden und das die Eingabe robust ist, also das das Programm bei einer Falscheingabe nicht abstürzt.
+
+
+Bemerkung: Es gibt viele Optionen und auch Freiheiten bei der Umsetzung. Starten Sie erst einmal einfach. …
+schwieriger geht immer!","
+Implement an ecosystem using object-oriented programming. The ecosystem exists within a habitat, where various organisms such as herbivores, omnivores, carnivores, and plants live.
+
+	- A plant requires space in the habitat. When creating a habitat, the size and other properties should be initialized.
+	- The number of organisms that can live in the habitat depends on the available food. Organisms can eat other organisms or plants, and they can also die.
+
+Here are some basic rules:
+	- The ecosystem should be simulated in rounds. In each round, organisms should grow, reproduce, and propagate. Animals need to continue feeding to avoid starvation. Organisms can die due to diseases, injuries, being eaten, lack of food, or old age.
+	- In a habitat, organisms and plants coexist. Plants need a certain amount of space to grow and reach their full potential.
+	- There should be at least three (3) different types of plants in a habitat. Each plant has its advantages and limitations. A plant has a minimum and maximum size. If a plant is eaten more than its minimum size allows, it dies.
+	- There should be at least three (3) different classes of organisms (herbivores, omnivores, and carnivores) in the habitat. Each organism searches for food, which can be more or less successful. If an organism finds too little food, it dies. Carnivores and omnivores can also hunt. The success of a hunt depends on the situation and can sometimes be dangerous.
+
+Additional properties:
+	- Each round corresponds to a certain unit of time, which you can define (depending on the unit of time and the organism, not all activities such as reproduction need to occur every round).
+	- Each round, the plants regenerate to a certain extent. The regeneration rate depends on the plant species.
+	- Each organism should have enough food for a certain period of rounds. The required amount of food can vary between organisms. If an organism doesn't find enough food, it becomes weaker and eventually dies.
+
+Tasks:
+	- Define at least 5 additional rules that expand or modify the above rules. For example, eucalyptus can only be eaten by koalas, or what happens when the habitat is full and no more plants can grow? There can also be plants that grow on trees and do not require additional habitat space. Instead of dying, animals can enter a state of rest (hibernation) instead of dying immediately. Note: If possible, the rules should be implemented by overriding the corresponding methods in the superclass.
+	- Different aspects (at least 2) should depend on randomness. This can include the success of a hunt or the strength of plant growth (as a weather influence), for example.
+
+User Interface:
+	- Create a console-based user interface that prompts the user for initial settings. After the ecosystem is activated, no further user intervention should be necessary (although it can be available for debugging or testing purposes).
+	- Provide the option to pause the ecosystem or simulate multiple rounds after activation.
+	- Consider how to provide the user with a clear representation of the state of the ecosystem after each round. Implement different modes that adjust the simulation speed, allowing multiple rounds to run without requiring user input or interaction.
+	- Ensure that user inputs are clear and robust, meaning the program should not crash in case of incorrect input.
+
+
+Note: There are many options and freedoms in implementing this project. Start with a simple approach first and remember that it can always be made more challenging!","OOP,class inheritance,method overriding,randomness,user interface design,exception handling,input/output handling"
